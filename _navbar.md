@@ -2,7 +2,7 @@
 
 - JavaScript
   - [JavaScript 基础](/js/base/docs)
-  - [JavaScript 进阶](/js/advanced/types)
+  - [JavaScript 进阶](/js/advanced/object-class)
   - [JavaScript 插件](/js/plugins/README)
 
 - Vue.js
