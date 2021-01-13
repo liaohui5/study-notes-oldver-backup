@@ -1,0 +1,49 @@
+### 为什么是用环境变量
+
+为了让开发者头疼的开发环境, 测试环境, 线上环境切换问题...
+
+### 必要文件
+
+> 在项目根目录新建以下文件
+
+- `.env` 无论开发环境还是生成环境都会加载
+- `.env.development` 开发环境加载这个文件
+- `.env.production` 生成环境加载这个文件
+
+### 注意
+
+> env 文件需要声明运行的环境
+
+- `.env.development`
+
+```
+NODE_ENV = development
+```
+
+- `.env.production`
+
+```
+NODE_ENV = production
+```
+
+> 定义变量需要以 `VUE_APP_` 作为前缀
+
+- `.env.development`
+
+```
+NODE_ENV = development
+VUE_APP_BASE_URL = http://dev.myhost.com
+```
+
+- `.env.production`
+
+```
+NODE_ENV = production
+VUE_APP_BASE_URL = http://www.myhost.com
+```
+
+> 测试变量是否生效, 可直接在 `main.js` 中打印测试
+
+```js
+console.log(process.env.VUE_APP_BASE_URL);
+```
