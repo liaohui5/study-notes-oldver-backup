@@ -1,4 +1,4 @@
-## ts 介绍
+## 介绍
 
 - [中文文档](https://www.tslang.cn/docs/handbook/interfaces.html)
 

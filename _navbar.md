@@ -7,9 +7,7 @@
   - [JavaScript 进阶](/js/advanced/object-class)
   - [JavaScript 插件](/js/plugins/README)
 
-- typescript
-
-  - [基础入门](/ts/README)
+- [typescript](/ts/README)
 
 - Vue.js
 
@@ -26,8 +24,15 @@
 
 - React.js
 
-  - [基础概念](/react/base/README)
-  - [插件库](/react/plugins/README)
+  - [React.js](https://reactjs.bootcss.com/docs/getting-started.html)
+  - [React-Router](https://reactrouter.com/web/guides/quick-start)
+  - [React-Redux](http://cn.redux.js.org/docs/react-redux/)
+  - [Redux-thunk](https://github.com/reduxjs/redux-thunk)
+  - [dva.js](https://dvajs.com/guide/)
+  - [umi.js](https://umijs.org/zh-CN/docs)
+  - [Ant Design](https://ant.design/components/overview-cn/)
+  - [Ant Design Mobile](https://mobile.ant.design/docs/react/introduce-cn)
+  - [React 基础](/react/base/README)
 
 - Webpack
 
