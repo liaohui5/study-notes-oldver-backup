@@ -1,12 +1,18 @@
 - [CSS](/css/README)
 
 - JavaScript
+
   - [JavaScript ES6](https://es6.ruanyifeng.com/)
   - [JavaScript 基础](/js/base/docs)
   - [JavaScript 进阶](/js/advanced/object-class)
   - [JavaScript 插件](/js/plugins/README)
 
+- typescript
+
+  - [基础入门](/ts/README)
+
 - Vue.js
+
   - [Vue.js](https://cn.vuejs.org/v2/guide/index.html)
   - [Vue.js 3.x](https://v3.cn.vuejs.org/guide/introduction.html)
   - [Vue-Router](https://router.vuejs.org/zh/installation.html)
