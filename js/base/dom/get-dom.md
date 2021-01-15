@@ -214,14 +214,10 @@ nodeType == 3; // 文本节点
     </ul>
     <script>
       window.onload = function () {
-        // 获取 "当前节点"
         var current = document.getElementById("current");
-        // console.log(current); // ul
 
         // 获取所有子节点,包括 html标签节点(元素节点), 属性节点 和 text节点
         var allChildNodes = current.childNodes;
-        // console.log(allChildNodes); // 所有节点
-
         // 获取所有的 元素节点
         var htmlNodes = [];
         for (var i = 0; i < allChildNodes.length; i++) {
@@ -231,15 +227,16 @@ nodeType == 3; // 文本节点
             continue;
           }
         }
-        /*  或者 for...in   两种方式遍历都可以
-	for (var key in allChildNodes) {
-		if ( allChildNodes[key].nodeType === 1 ){
-			htmlNodes[] = allChildNodes[key];
-		}else {
-			continue;
-		}
-	}
-	*/
+        
+        /* 或者 for...in   两种方式遍历都可以
+        for (var key in allChildNodes) {
+          if ( allChildNodes[key].nodeType === 1 ){
+            htmlNodes[] = allChildNodes[key];
+          }else {
+            continue;
+          }
+        }
+        */
         console.log(htmlNodes);
       };
     </script>

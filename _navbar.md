@@ -2,10 +2,10 @@
 
 - JavaScript
 
-  - [JavaScript ES6](https://es6.ruanyifeng.com/)
   - [JavaScript 基础](/js/base/docs)
   - [JavaScript 进阶](/js/advanced/object-class)
   - [JavaScript 插件](/js/plugins/README)
+  - [JavaScript ES6](https://es6.ruanyifeng.com/)
 
 - [typescript](/ts/README)
 
@@ -24,6 +24,7 @@
 
 - React.js
 
+  - [React 基础](/react/base/README)
   - [React.js](https://reactjs.bootcss.com/docs/getting-started.html)
   - [React-Router](https://reactrouter.com/web/guides/quick-start)
   - [React-Redux](http://cn.redux.js.org/docs/react-redux/)
@@ -32,7 +33,12 @@
   - [umi.js](https://umijs.org/zh-CN/docs)
   - [Ant Design](https://ant.design/components/overview-cn/)
   - [Ant Design Mobile](https://mobile.ant.design/docs/react/introduce-cn)
-  - [React 基础](/react/base/README)
+
+- databases
+
+  - [MySQL](/db/mysql/README.md)
+  - [MongoDB](/db/mongo/README.md)
+  - [Redis]()
 
 - Webpack
 
@@ -42,6 +48,4 @@
 
 - [Jest](/jest/README)
 - [Node.js](/node/README)
-- [MySQL](/mysql/README)
-- [Redis](/redis/README)
 - [VSCode](/vscode/install)
