@@ -1,4 +1,0 @@
-- vue
-  - [vue.js](https://vuejs.org)
-- react
-  - [react.js](https://reactjs.org)

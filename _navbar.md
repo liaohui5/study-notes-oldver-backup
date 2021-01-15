@@ -44,5 +44,4 @@
 - [Node.js](/node/README)
 - [MySQL](/mysql/README)
 - [Redis](/redis/README)
-- [VSCode](/vscode/README)
-- [docs](/docs/README)
+- [VSCode](/vscode/install)
