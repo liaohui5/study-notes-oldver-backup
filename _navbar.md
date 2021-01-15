@@ -1,13 +1,14 @@
 - [CSS](/css/README)
 
 - JavaScript
-
+  - [JavaScript ES6](https://es6.ruanyifeng.com/)
   - [JavaScript 基础](/js/base/docs)
   - [JavaScript 进阶](/js/advanced/object-class)
   - [JavaScript 插件](/js/plugins/README)
 
 - Vue.js
   - [Vue.js](https://cn.vuejs.org/v2/guide/index.html)
+  - [Vue.js 3.x](https://v3.cn.vuejs.org/guide/introduction.html)
   - [Vue-Router](https://router.vuejs.org/zh/installation.html)
   - [Vuex](https://vuex.vuejs.org/zh/installation.html)
   - [vue-cli](https://cli.vuejs.org/zh/guide/installation.html)
@@ -16,7 +17,6 @@
   - [ElementUI](https://element.eleme.cn/#/zh-CN/component/installation)
   - [vant](https://youzan.github.io/vant/#/zh-CN/quickstart)
   - [问题解决](/vue/README)
-  - [源码研究(2.x)](/vue/source/README)
 
 - React.js
 
