@@ -20,7 +20,7 @@
 
 - React.js
 
-  - [问题解决](/react/problem/README)
+  - [基础概念](/react/base/README)
   - [插件库](/react/plugins/README)
 
 - Webpack

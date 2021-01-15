@@ -10,10 +10,12 @@
 
 脾气较好有耐心, 目前居于北京
 
-喜欢音乐, 阅读博客, 写文档总结错误和学习过的知识
+爱音乐, 爱动漫, 爱阅读, 愿意写文档总结错误和学习过的知识
 
 > 联系方式:
 
 邮箱: 1182468610@qq.com
 
 github: https://github.com/liaohui5
+
+![logo.jpg](./vue/img/sysndfy.jpg)
