@@ -309,33 +309,113 @@ select * from user inner join info on user.id=info.id;
 select * from users left join score on  user.id=score.id;
 ```
 
+## 字符集
+
+_因为一些一键安装包的环境, `my.ini` 默认配置的字符集是 `latin1` 或者其他, 如果此时一旦不注意, 使用 sql 语句去创建数据库, 表 默认都是 `latin1`, 因为有些字符集是不能存储中文的,如果需要存储中文, 需要使用 GBK,utf8...等字符集...如果一个个去修改就太难..._
+
+### 查看字符集
+
+> 数据库
+
+```sql
+SHOW CREATE DATABASE `database_name`
+```
+
+database_name: 数据库名
+
+> 数据表
+
+```sql
+SHOW CREATE TABLE `table_name`;
+```
+
+table_name: 数据表名
+
+> 字段
+
+```sql
+SHOW FULL COLUMNS FROM `table_name`;
+```
+
+table_name: 数据表名
+
+### 修改字符集
+
+> 数据库
+
+```sql
+ALTER DATABASE `test_db` CHARACTER SET 'utf8' COLLATE 'utf8_general_ci';
+```
+
+- `test` 是数据库名
+- `utf8_general_ci` 是排序规则, 可选项
+
+> 数据表
+
+```sql
+ALTER TABLE `test_db`.`user` CHARACTER SET = utf8mb4, COLLATE = utf8mb4_bin;
+```
+
+> 字段
+
+```sql
+ALTER TABLE `test_db`.`username`  MODIFY COLUMN `password` varchar(30)  CHARACTER SET utf8mb4 COLLATE utf8mb4_bin;
+```
+
+### 查看一个数据库中所有的表格
+
+```sql
+select table_name from information_schema.`TABLES` where TABLE_SCHEMA = 'database_name';
+```
+
+- database_name: 是要查询的数据库名称
+- 这条 sql 语句中的 table_name 是关键字, 不是表名
+
+### 将一个表所有字段修改为指定字符集
+
+```sql
+alter table `table_name` convert to character set utf8 COLLATE utf8_bin;
+```
+
+_将`table_name` 这个表的所有字段字符集修改为 `utf8` 排序规则为`utf8_bin`_
+
 ## 其他笔记
 
 ### 修改 **Mysql** 默认字符集 ( wampserver )
 
-> mysql 服务器和客户端都使用 utf8 的编码: 1)找到 mysql 的配置文件【 my.ini 】 2)找到[client]后面加【 default-character-set = utf8 】 3)找到[wampmysqld64]后面加【 character-set-server = utf8 】 4)找到[wampmysqld64]后面加【 collation-server = utf8_general_ci 】 5) 使用【\s】命令查看字符集编码(如果结果如下说明修改成功)
-> Server characterset: utf8
-> Db characterset: utf8
-> Client characterset: utf8
-> Conn. characterset: utf8
->
-> 如果以上不管用就请使用以下方法:-------------------
->
-> 1)打开 mysql 中的配置文件: `my.ini` 2)找到[client] 在其下面添加: `default-character-set=utf8` 3)找到[mysql]在其下面添加 : `default-character-set=utf8` 4)找到\[mysqld\](一般是在最后面那行)下面添加 : `character-set_server=utf8` 5)加完之后保存,重启 mysql 服务,再执行 `show variables like '%char%';` 查看是否修改成功
->
+> mysql 服务器和客户端都使用 utf8 的编码:
+
+1. 找到 mysql 的配置文件【 my.ini 】
+2. 找到[client]后面加【 default-character-set = utf8 】
+3. 找到[wampmysqld64]后面加【 character-set-server = utf8 】
+4. 找到[wampmysqld64]后面加【 collation-server = utf8_general_ci 】
+5. 使用【\s】命令查看字符集编码(如果结果如下说明修改成功)
+
+```
+Server characterset: utf8
+Db characterset: utf8
+Client characterset: utf8
+Conn. characterset: utf8
+```
+
+> 如果以上不管用就请使用以下方法:
+
+1. 打开 mysql 中的配置文件: `my.ini`
+2. 找到[client] 在其下面添加: `default-character-set=utf8`
+3. 找到[mysql]在其下面添加 : `default-character-set=utf8`
+4. 找到\[mysqld\](一般是在最后面那行)下面添加 : `character-set_server=utf8`
+5. 加完之后保存,重启 mysql 服务,再执行 `show variables like '%char%';` 查看是否修改成功
+
 > 查看 MySQL 默认字符集编码
->
-> 查看服 MySQL 支持的编码: `show character set`
->
-> 查看 MySQL 服务器和客户端的字符集: `show variable like %char%`
+
+- 查看服 MySQL 支持的编码: `show character set`
+- 查看 MySQL 服务器和客户端的字符集: `show variable like %char%`
 
 ### 修改 Mysql 密码( 默认没密码 )
 
 1. mysql -uroot -p
 2. update mysql.user set authentication_string=password('`密码`') where user='root'
-3. flush privileges; (或者重启 MySQL 服务)
-
-> 此时 `密码` 就是需要修改的密码
+3. flush privileges; (强制刷新或者重启 MySQL 服务)
 
 ### 数据创建
 
@@ -369,11 +449,11 @@ default-storage-engine=InnoDB
 
 > 两个表引擎之间的区别:
 >
-> 1. `innoDB` 支持外键,支持事务 `MYISAM` 不支持外键,不支持事务
+> 1. `InnoDB` 支持外键,支持事务 `MYISAM` 不支持外键,不支持事务
 
 ## 连表查询
 
-## 数据
+### 数据
 
 > students
 
