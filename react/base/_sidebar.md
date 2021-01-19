@@ -3,7 +3,7 @@
 - [组件通信](/react/base/props)
 - [获取DOM](/react/base/react-get-dom)
 - [组件优化](/react/base/component-optimize)
-- [高阶组件](/react/base/advanced-components)
+- [高阶组件](/react/base/react-hoc)
 - [其他组件](/react/base/other-components)
 - [样式](/react/base/styles)
 - [动画](/react/base/animate)
