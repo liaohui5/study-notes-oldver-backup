@@ -364,6 +364,14 @@ render(
 
 ## redux-thunk 中间件
 
+> 什么是中间件, 为什么要使用中间件?
+
+可以在 action 被派发到 reducer 之前做一些额外的操作, 这个操作的函数就叫中间件
+
+使用中间件, 可以降低代码耦合性, 提高代码的可维护性
+
+![redux-middleware](./images/redux-middleware.png)
+
 [redux-thunk github](https://github.com/reduxjs/redux-thunk/)
 
 默认情况下, dispatch 方法只能接收一个对象, 如果想让 dispatch 除了可以接收对象以外还可以接收方法,
