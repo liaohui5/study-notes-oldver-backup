@@ -513,18 +513,25 @@ const reducer = (state = initState, action) => {
 export default reducer;
 ```
 
+## redux-saga 中间件
+
+[官方文档](https://redux-saga-in-chinese.js.org/)
+[github](https://github.com/redux-saga/redux-saga)
+
+- redux-saga 和 redux-thunk 功能类似, 只是使用方法上有些不同
+
 ## 自定义 redux 中间件
 
-- 定义中间件
+- 定义中间件, [中间件的原理图](/react/base/react-redux?id=redux-thunk-中间件)
 
 ```js
 /**
- * 中间件的本质就是一个函数, 如果在 store 中应用,
- * 所有 action 在被 dispatch之前, 会先执行所有中间件,
- * 所有中间件执行完后再 dispatch 给 reducer 去处理
+ * 中间件的本质就是一个函数, 如果在 store 中应用这个中间件,
+ * 那么在所有的 action 派发后, 不会直接执行 reducer 而是会
+ * 先依次执行完所有的中间件, 然后再执行 reducer
  *
  * @param {Object} store 包含两个方法, dispatch 和 getState
- * @param store.dispatch: 派发 action, 在本次 action 执行过程中派发其他的 action
+ * @param store.dispatch: 派发 action
  * @param store.getState: 获取当前 store 的所有状态
  */
 let reduxLogger = (store) => {
@@ -562,6 +569,28 @@ import ReduxLogger from "./reduxLogger";
 const store = createStore(reducer, applyMiddleware(ReduxThunk, ReduxLogger));
 
 export default store;
+```
+
+## 优化 reducer
+
+- 目录结构: 拆分 reducers 和 actions
+
+![combin-reducers](./images/combin-reducers.png)
+
+- 合并 reducers
+
+```js
+import { combineReducers } from "redux";
+import homeReducer from "./home/reducer";
+import aboutReducer from "./home/reducer";
+
+// 将拆分开的 reducer 合并
+const reducer = combineReducers({
+  homeReducer,
+  aboutReducer,
+});
+
+export default reducer;
 ```
 
 ## redux 浏览器调试工具
