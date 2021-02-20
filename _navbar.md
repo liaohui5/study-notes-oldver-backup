@@ -25,6 +25,7 @@
 - React.js
 
   - [React 基础](/react/base/README)
+  - [React hooks](/react/hooks/README)
   - [React.js](https://reactjs.bootcss.com/docs/getting-started.html)
   - [React-Router](https://reactrouter.com/web/guides/quick-start)
   - [React-Redux](http://cn.redux.js.org/docs/react-redux/)
