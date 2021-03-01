@@ -78,3 +78,32 @@ class App extends React.Component {
 
 export default App;
 ```
+
+### React.forwardRef
+```jsx
+import React from "react";
+
+const Home = React.forwardRef((props, inputRef) => {
+  return (
+    <div>
+      <input type="text" ref={inputRef} />
+    </div>
+  );
+});
+
+const App = () => {
+  const inputRef = React.useRef();
+  const logRef = () => {
+    console.info(inputRef.current);
+  };
+
+  return (
+    <div>
+      <Home ref={inputRef} />
+      <button onClick={() => logRef()}>获取ref</button>
+    </div>
+  );
+};
+
+export default App;
+```
