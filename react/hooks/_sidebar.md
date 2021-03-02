@@ -4,7 +4,6 @@
 - [useContext](/react/hooks/use-context)
 - [useReducer](/react/hooks/use-reducer)
 - [useCallback & useMemo](/react/hooks/use-callback)
-- [useRef](/react/hooks/use-ref)
-- [useImperativeHandle](/react/hooks/use-imperative-handle)
+- [useRef & useImperativeHandle](/react/hooks/use-ref)
 - [useLayoutEffect](/react/hooks/use-layout-effect)
 - [自定义 React-Hooks](/react/hooks/custom-hooks)
