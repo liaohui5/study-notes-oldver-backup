@@ -35,7 +35,7 @@
   - [Ant Design](https://ant.design/components/overview-cn/)
   - [Ant Design Mobile](https://mobile.ant.design/docs/react/introduce-cn)
 
-- [Jest](/jest/README)
+- [Jest](/jest/1.install)
 
 - Webpack
 
