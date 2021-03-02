@@ -1,9 +1,3 @@
-# TODOs
-
-> project
-
-压缩源代码, keyword 设置, description 设置
-
 > css
 
 - [过渡动画](/css/animate/transform)
@@ -17,5 +11,5 @@
 
 - [调试](/vscode/debug)
 
-> react
-> 正在写...
+> jest 
+- [模拟和测试 es6 的 class](/jest/8.classes)
