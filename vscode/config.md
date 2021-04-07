@@ -70,7 +70,6 @@
   "terminal.integrated.shell.windows": "D:\\Git\\bin\\bash.exe",
 
   // vsicons 插件隐藏左边箭头
-  "vsicons.presets.hideExplorerArrows": true,
   "javascript.updateImportsOnFileMove.enabled": "always",
 
   // 匹配括号
@@ -86,6 +85,12 @@
   // 同步 Git 存储库前请先进行确认
   "git.confirmSync": false,
 
+  // 允许直接提交 git -am
+  "git.enableSmartCommit": true,
+
+  // git: 自动拉取代码
+  "git.autofetch": true,
+
   // 启用后，将不会显示扩展建议的通知
   "extensions.ignoreRecommendations": true,
 
@@ -95,14 +100,26 @@
   // 从文件路径打开文件
   "open-file-from-path.matchFileName": true,
 
-  // 不显示新版本信息
-  "vsicons.dontShowNewVersionMessage": true,
-
   // 资源管理器内拖放移动文件时是否进行确认
   "explorer.confirmDragAndDrop": false,
 
   // 匹配当前光标所在位置单词高亮
   "editor.occurrencesHighlight": false,
+
+  // 编辑器查找
+  "editor.find.autoFindInSelection": "multiline",
+  "editor.formatOnSave": false,
+  "editor.formatOnType": true,
+
+  // 更新模式: 启动的时候检查
+  "update.mode": "start",
+
+  // 主题配色
+  "workbench.colorTheme": "rimless-monokai",
+
+  // gitLens 插件配置
+  "gitlens.currentLine.enabled": false,
+  "gitlens.codeLens.enabled": false,
 
   // eslint 格式化
   "eslint.format.enable": true,
@@ -110,18 +127,22 @@
   "eslint.lintTask.enable": true,
   "eslint.quiet": true,
   "eslint.probe": ["javascript", "javascriptreact", "typescript", "typescriptreact", "html", "vue", "jsx"],
-  "editor.find.autoFindInSelection": "multiline",
-  "editor.formatOnSave": false,
-  "editor.formatOnType": true,
   "eslint.alwaysShowStatus": true,
   "eslint.debug": true,
-
-  // 允许直接提交 git -am
-  "git.enableSmartCommit": true,
 
   // todo-tree 插件
   "todo-tree.highlights.enabled": true,
   "todo-tree.tree.showScanModeButton": false,
+  "todo-tree.general.tags": [
+    "BUG",
+    "HACK",
+    "FIXME",
+    "TODO",
+    "XXX",
+    "[ ]",
+    "[x]"
+  ],
+  "todo-tree.regex.regex": "(//|#|<!--|;|/\\*|^|^\\s*(-|\\d+.))\\s*($TAGS)",
   "todo-tree.highlights.defaultHighlight": {
     "icon": "alert",
     "type": "text",
@@ -142,16 +163,13 @@
   "leetcode.endpoint": "leetcode-cn",
   "leetcode.workspaceFolder": "C:\\Users\\liaohui5\\.leetcode",
   "leetcode.hint.configWebviewMarkdown": false,
-  "workbench.colorTheme": "rimless-monokai",
-  "extensions.showRecommendationsOnlyOnDemand": true,
-  "update.mode": "start",
-  "[yaml]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
 
   // prettier 格式化默认设置
   "prettier.printWidth": 120,
   "prettier.vueIndentScriptAndStyle": true,
+  "[yaml]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
   "[javascript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
@@ -167,27 +185,81 @@
   "[jsonc]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
+  "[javascriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
 
-  // vim配置
+
+  // 图标插件: 隐藏左边的箭头
+  "material-icon-theme.hidesExplorerArrows": true,
+  "explorer.compactFolders": false,
+
+  // 缩进插件
+  "bracket-pair-colorizer-2.colorMode": "Independent",
+
+  // ---- VIM 插件配置 ----
   "vim.easymotion": true,
   "vim.easymotionDimBackground": true,
   "vim.autoindent": false,
   "vim.statusBarColorControl": false,
   "vim.hlsearch": true,
+  "vim.foldfix": true,
   "vim.changeWordIncludesWhitespace": true,
   "vim.camelCaseMotion.enable": true,
   "vim.useSystemClipboard": true,
-  "git.autofetch": true,
-  "material-icon-theme.hidesExplorerArrows": true,
-  "[javascriptreact]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "bracket-pair-colorizer-2.colorMode": "Independent",
-  "[typescript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "liveServer.settings.donotShowInfoMsg": true,
-  "explorer.compactFolders": false
+  "vim.leader": "<space>",
+  "vim.normalModeKeyBindingsNonRecursive": [
+    // - 取消高亮
+    {
+      "before": ["-"],
+      "commands": [":nohl"]
+    },
+    // <space>+s => :w
+    {
+      "before": ["<leader>", "s"],
+      "commands": [":w"]
+    },
+    // <space>+x => :x
+    {
+      "before": ["<leader>", "x"],
+      "commands": [":x"]
+    },
+    // s 删除而不是剪切
+    {
+      "before": ["s"],
+      "after": ["\"", "_", "s"]
+    },
+    // x 删除而不是剪切
+    {
+      "before": ["x"],
+      "after": ["\"", "_", "x"]
+    },
+  ],
+  "vim.visualModeKeyBindingsNonRecursive": [
+    // $ 移动到本行结尾(不包括换行符)
+    {
+      "before": ["$"],
+      "after": ["$", "h"]
+    },
+    // s 删除而不是剪切
+    {
+      "before": ["s"],
+      "after": ["\"", "_", "s"]
+    },
+    // x 删除而不是剪切
+    {
+      "before": ["x"],
+      "after": ["\"", "_", "x"]
+    },
+    {
+      // 仅粘贴操作(不会影响剪切板)
+      "before": ["p"],
+      "commands": ["editor.action.clipboardPasteAction", "extension.vim_escape"]
+    },
+  ],
 }
 ```
 
