@@ -24,11 +24,11 @@
 
 ### vim-surround 快速修改环绕字符
 
-| 命令        | 说明               |
-| :---------- | :----------------- |
-| ds \<char\> | 删除指定环绕字符   |
-| cs \<char\> | 修改指定环绕字符   |
-| S \<chars\>  | 添加指定的环绕字符(visual模式下) |
+| 命令        | 说明                              |
+| :---------- | :-------------------------------- |
+| ds \<char\> | 删除指定环绕字符                  |
+| cs \<char\> | 修改指定环绕字符                  |
+| S \<chars\> | 添加指定的环绕字符(visual 模式下) |
 
 所谓 `环绕字符` 就是 `""` `()` `[]` `{}` 这样的成对出现包裹中间内容的字符
 
@@ -36,14 +36,75 @@
 
 - `ds "`: 删除两边的 "
 - `cs " '`: 将俩边的 " 修改为 '
-- visual模式下选中 `hello` 这个字符再执行: `S <h2>` 就可以添加 \<h2\>hello\<\/h2\>
+- visual 模式下选中 `hello` 这个字符再执行: `S <h2>` 就可以添加 \<h2\>hello\<\/h2\>
 
 ### 设置
 
 ```json
-// vim配置
-"vim.easymotion": true, // 快速移动插件
-"vim.hlsearch": true, // 高亮搜索
-"vim.camelCaseMotion.enable": true,
-"vim.useSystemClipboard": true, // 使用系统剪切板(可配合ditto使用)
+{
+  // VIM 插件配置
+  "vim.easymotion": true,
+  "vim.easymotionDimBackground": true,
+  "vim.autoindent": false,
+  "vim.statusBarColorControl": false,
+  "vim.hlsearch": true,
+  "vim.changeWordIncludesWhitespace": true,
+  "vim.camelCaseMotion.enable": true,
+  "vim.foldfix": true,
+  "vim.useSystemClipboard": true,
+  "vim.leader": "<space>",
+  "vim.normalModeKeyBindingsNonRecursive": [
+    // - 取消高亮
+    {
+      "before": ["-"],
+      "commands": [":nohl"]
+    },
+    // <space>+s or <space>+w => :w
+    {
+      "before": ["<leader>", "s"],
+      "commands": [":w"]
+    },
+    {
+      "before": ["<leader>", "w"],
+      "commands": [":w"]
+    },
+    // <space>+x => :x
+    {
+      "before": ["<leader>", "x"],
+      "commands": [":x"]
+    },
+    // s 删除而不是剪切
+    {
+      "before": ["s"],
+      "after": ["\"", "_", "s"]
+    },
+    // x 删除而不是剪切
+    {
+      "before": ["x"],
+      "after": ["\"", "_", "x"]
+    }
+  ],
+  "vim.visualModeKeyBindingsNonRecursive": [
+    // $ 移动到本行结尾(不包括换行符)
+    {
+      "before": ["$"],
+      "after": ["$", "h"]
+    },
+    // s 删除而不是剪切
+    {
+      "before": ["s"],
+      "after": ["\"", "_", "s"]
+    },
+    // x 删除而不是剪切
+    {
+      "before": ["x"],
+      "after": ["\"", "_", "x"]
+    },
+    {
+      // 仅粘贴操作(不会影响剪切板)
+      "before": ["p"],
+      "commands": ["editor.action.clipboardPasteAction", "extension.vim_escape"]
+    }
+  ]
+}
 ```

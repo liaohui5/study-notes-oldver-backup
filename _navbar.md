@@ -12,6 +12,7 @@
 - Vue.js
 
   - [问题解决](/vue/README)
+  - [源码解读](/vue/source/prepare)
   - [Vue.js](https://cn.vuejs.org/v2/guide/index.html)
   - [Vue.js 3.x](https://v3.cn.vuejs.org/guide/introduction.html)
   - [Vue-Router](https://router.vuejs.org/zh/installation.html)

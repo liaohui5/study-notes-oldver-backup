@@ -5,3 +5,5 @@
 - [面向对象和面向过程对比](/js/advanced/oop-diff)
 
 - [面向对象-继承](/js/advanced/extends)
+
+- [模块化](/js/advanced/modules)
