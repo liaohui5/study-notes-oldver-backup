@@ -83,15 +83,15 @@
       "before": ["x"],
       "after": ["\"", "_", "x"]
     },
-    // <leader> + o: 根据字符串打开文件(需要插件 Open file from path)
-    {
-      "before": ["<leader>", "o"],
-      "commands": ["extension.openFileFromPath"]
-    },
     // <leader> + n:新建文件(需要插件advanced-new-file)
     {
       "before": ["<leader>", "n"],
       "commands": ["extension.advancedNewFile"]
+    },
+    // <space> + d 快速跳到定义, 也可以用于文件跳转(ctrl+MouseClick)
+    {
+      "before": ["<space>", "d"],
+      "commands": ["editor.action.revealDefinition"]
     },
     // <leader> + f:格式化整个文件并且保存
     {
