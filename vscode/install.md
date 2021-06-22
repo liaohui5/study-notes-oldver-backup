@@ -3,6 +3,13 @@
 - [Visual Studio Code](https://code.visualstudio.com/)
 - [Visual Studio Code Insider](https://code.visualstudio.com/insiders/)
 
+## 编程字体推荐
+
+- [Hack](https://github.com/source-foundry/Hack)
+- [Monaco](https://github.com/todylu/monaco.ttf)
+- [Menlo](https://github.com/ueaner/fonts)
+- [JetBrainsMono](https://github.com/JetBrains/JetBrainsMono)
+
 ## 插件
 
 - advanced-new-file
