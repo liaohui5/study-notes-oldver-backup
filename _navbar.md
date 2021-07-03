@@ -55,6 +55,8 @@
 
 - [docker](/docker/1_install_env)
 
+- [softwares](/softwares/README.md)
+
 - Sites
   - [印记中文](https://docschina.org/)
   - [前端工坊](https://www.javascript.fun/)
