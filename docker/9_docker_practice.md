@@ -1,14 +1,3 @@
-## 让虚拟机可以联网(桥接)
-
-- 使用桥接模式
-- systemctl restart network
-
-## 如何让实体机访问虚拟机(centos)
-
-- 关闭虚拟机防火墙: systemctl stop firewalld.service
-- 查看虚拟机 ip 地址: ip addr
-- 浏览器访问: 虚拟机 ip(192.168.199.220)
-
 ## 打包部署 Node.js 项目
 
 - Dockerfile
