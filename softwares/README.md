@@ -42,6 +42,8 @@
 
 - [文件加密](https://cryptomator.org/downloads/)
 
+- [命令行工具](https://github.com/vercel/hyper)
+
 ## Windows
 
 - [火柴](http://www.huochaipro.com/)
