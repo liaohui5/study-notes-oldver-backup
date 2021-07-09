@@ -47,6 +47,10 @@ docker constainer rm  myweb
 docker ps
 ```
 
+- 如何访问测试?
+
+> 查看虚拟机 ip(如: `192.168.199.191` ), 宿主机直接在浏览器中访问ip即可
+
 ## 安装 redis-server
 
 - [默认配置文件下载](https://download.redis.io/redis-stable/redis.conf)
@@ -56,8 +60,6 @@ docker ps
 ```bash
 docker run --name rds -v $PWD/redis.conf:/etc/redis/redis.conf -p 6379:6379 -d --restart=always redis
 ```
-
-
 
 ## 安装 mysql-server(5.7)
 
