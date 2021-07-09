@@ -6,3 +6,4 @@
 - [6.docker 数据容器卷](/docker/6_docker_volumn)
 - [7.dockerfile](/docker/7_dockerfile)
 - [8.docker 网络](/docker/8_docker_network)
+- [9.docker 练习](/docker/9_docker_practice)

@@ -36,71 +36,103 @@
 
 ![image-20200709031443229](images/image-20200709031443229.png)
 
-## 初始化 centos 并使用 xshell 连接
+## 配置网络
 
-#### 网络
+### 宿主机设置
 
-- 修改网卡配置
+1. 配置 virtualbox 虚拟网卡
 
-```shell
-# 1. 外网连接: 修改 ifcfg-enp0s3
-sudo vi /etc/sysconfig/network-scripts/ifcfg-enp0s3
+![配置虚拟网卡1](https://raw.githubusercontent.com/liaohui5/images/main/images/20210709191200.png)
+![配置虚拟网卡1](https://raw.githubusercontent.com/liaohui5/images/main/images/20210709191543.png)
 
-# 将内容修改如下
-TYPE=Ethernet
-PROXY_METHOD=none
-BROWSER_ONLY=no
-BOOTPROTO=dhcp    # 自动分配ip地址
-DEFROUTE=yes
-IPV4_FAILURE_FATAL=no
-IPV6INIT=yes
-IPV6_AUTOCONF=yes
-IPV6_DEFROUTE=yes
-IPV6_FAILURE_FATAL=no
-IPV6_ADDR_GEN_MODE=stable-privacy
-NAME=enp0s3
-UUID=806ef1bb-fe4d-4c58-bedf-46268fafca25
-DEVICE=enp0s3
-ONBOOT=yes        # 开机启动
+2. 设置虚拟机网络(桥接网络连接外网, host-only 让宿主机可以连接虚拟机)
 
-# 2. 主机连接虚拟机: 修改 ifcfg-enp0s8
-sudo vi /etc/sysconfig/network-scripts/ifcfg-enp0s3
+![设置虚拟机网络](https://raw.githubusercontent.com/liaohui5/images/main/images/20210709191710.png)
 
-# 将内容修改如下
-TYPE=Ethernet
-PROXY_METHOD=none
-BROWSER_ONLY=no
-BOOTPROTO=static        # 使用静态的地址
-DEFROUTE=yes
-IPV4_FAILURE_FATAL=no
-IPV6INIT=yes
-IPV6_AUTOCONF=yes
-IPV6_DEFROUTE=yes
-IPV6_FAILURE_FATAL=no
-IPV6_ADDR_GEN_MODE=stable-privacy
-NAME=enp0s8
-UUID=6322b516-7384-4736-a816-3a235b98ddde
-DEVICE=enp0s8
-ONBOOT=yes               # 开机启动
-IPADDR=192.168.10.111    # ip 虚拟机ip地址(这个需要和你的选择的网卡的 ip 是同一网段)
-NETMASK=255.255.255.0    # 子网掩码
-GATEWAY=192.168.10.1     # 网关
+### 虚拟机设置
 
-# 2. 重新启动网络服务
-sudo service network restart
+> 登录虚拟机, 然后修改网卡(ifcfg-enp0s3(桥接网络), ifcfg-enp0s3(host-only))
 
-# 4. 测试网络是否连通
+> centos7 网卡的位置在: `/etc/sysconfig/network-scripts/` 目录下:
 
-# 外网连接是否正常
-ping qq.com -c4
+1. 配置内网, 让宿主机可以连接虚拟机
 
-# 主机和虚拟机是否能够通信(主机ip: 192.168.10.1 虚拟机ip: 192.18.10.111)
-ping 192.168.10.111 -c4
+```sh
+# 1.修改 /etc/sysconfig/network-scripts/ifcfg-enp0s8
+sudo vi /etc/sysconfig/network-scripts/ifcfg-enp0s8
+
+# 修改3个位置
+# BOOTPROTO="static" # 使用静态的地址
+# ONBOOT="yes" # 开机启动
+# 手动指定ip,掩码和网关, 没有需要自己手动加到最后就可以
+# IPADDR="192.168.10.111" # ip 虚拟机ip地址(这个需要和你的选择的网卡的 ip 是同一网段)
+# NETMASK="255.255.255.0" # 子网掩码
+# GATEWAY="192.168.10.1"  # 网关
+
+# 2. 重启网络服务
+systemctl restart network
+
+# 3. 查看ip地址, 看是否设置成功
+ip addr
+
+# 4. ping 测试
+ping 192.68.10.1
 ```
 
-![image-20200709032558695](images/image-20200709032558695.png)
+![ifcfg-enp0s8](https://raw.githubusercontent.com/liaohui5/images/main/images/20210709193000.png)
+![设置成功](https://raw.githubusercontent.com/liaohui5/images/main/images/20210709193451.png)
 
-## 使用 阿里云 的镜像
+2. 配置桥接网络, 让虚拟机可以连接外网
+
+> 如果没有特殊的情况, 一般不用配置, `重启网络服务` 后直接可以 ping 通外网的
+> 在修改之前先看一下是否能够 ping 通百度, 如果可以就不用修改了, 能 ping 通就证明可以连接外网了
+
+```sh
+# 测试连接
+ping baidu.com
+
+# 修改网卡设置
+sudo vi /etc/sysconfig/network-scripts/ifcfg-enp0s3
+```
+
+![default-net-conf](https://raw.githubusercontent.com/liaohui5/images/main/images/20210709194106.png)
+
+## 关闭虚拟机防火墙和 selinux
+
+1. 关闭防火墙
+
+```sh
+# 关闭防火墙
+systemctl stop firewalld service
+
+# 查看防火墙状态
+systemctl status  firewalld.service
+
+# 最好是在宿主机上测试一下
+ping 192.168.10.33
+```
+
+![diabled-firewalld](https://raw.githubusercontent.com/liaohui5/images/main/images/20210709194953.png)
+
+2. 关闭 selinux, 会影响 docker
+
+```sh
+vim /etc/selinux/config
+```
+
+![disable-selinux](https://raw.githubusercontent.com/liaohui5/images/main/images/20210709195254.png)
+
+## 使用宿主机上的软件去连接虚拟机
+
+> 为了方便, 我直接使用 git-bash 去连接测试
+
+```shell
+ssh root@192.168.10.33
+```
+
+![connect-virtual](https://raw.githubusercontent.com/liaohui5/images/main/images/20210709195605.png)
+
+## 使用 阿里云 的镜像源
 
 https://developer.aliyun.com/mirror/centos
 
@@ -112,7 +144,6 @@ sudo mv /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.back
 sudo wget -O /etc/yum.repos.d/CentOS-Base.repo https://mirrors.aliyun.com/repo/Centos-7.repo
 
 sudo curl -o /etc/yum.repos.d/CentOS-Base.repo https://mirrors.aliyun.com/repo/Centos-7.repo
-
 
 # 3. 生成缓存
 sudo yum makecache

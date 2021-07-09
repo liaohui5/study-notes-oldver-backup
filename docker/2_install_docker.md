@@ -61,7 +61,7 @@ sudo rm -rf /var/lib/docker
 # 1. 新建目录
 sudo mkdir -p /etc/docker
 
-# 2. 配置加速地址(这个地址登录: https://www.aliyun.com/ 去获取)
+# 2. 配置加速地址(这个地址登录: https://cr.console.aliyun.com/cn-zhangjiakou/instances/mirrors 去获取)
 sudo tee /etc/docker/daemon.json <<-'EOF'
 {
   "registry-mirrors": ["https://xxxx.mirror.aliyuncs.com"]
