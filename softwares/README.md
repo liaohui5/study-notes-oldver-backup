@@ -66,7 +66,7 @@
 
 - [抓包 proxyman](https://github.com/ProxymanApp/Proxyman)
 
-## 开源项目
+## 其他开源项目
 
 - [windows](https://github.com/Awesome-Windows/Awesome/blob/master/README-cn.md)
 - [macOS](https://github.com/iCHAIT/awesome-macOS)
