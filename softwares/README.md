@@ -1,22 +1,26 @@
 ## 跨平台
 
-- [vscode](https://code.visualstudio.com/)
+- [代码编辑器 vscode](https://code.visualstudio.com/)
 
-- [vscode-insiders](https://code.visualstudio.com/insiders/)
+- [代码编辑器 vscode-insiders](https://code.visualstudio.com/insiders/)
 
-- [命令行 terminus](https://github.com/Eugeny/tabby)
+- [命令行 tabby](https://github.com/Eugeny/tabby)
 
 - [图床上传 PicGO](https://github.com/Molunerfinn/PicGo)
 
 - [node.js 版本管理工具 nvm](https://github.com/nvm-sh/nvm)
 
-- [快速编辑 hosts](https://github.com/oldj/SwitchHosts)
+- [host 文件管理 SwitchHosts](https://github.com/oldj/SwitchHosts)
+
+- [API 测试工具 postman](https://www.postman.com/downloads/)
+
+- [API 响应模拟工具 mockoon](https://github.com/mockoon/mockoon)
 
 - [letsVPN](https://github.com/LetsGo666/LetsGo)
 
 - [迅捷流程图](https://www.liuchengtu.com/)
 
-- [向日葵控评软件](https://sunlogin.oray.com/download/)
+- [控屏软件 向日葵](https://sunlogin.oray.com/download/)
 
 - [截图工具 snipaste](https://www.snipaste.com/)
 
@@ -28,21 +32,17 @@
 
 - [录屏软件 EV 录屏](https://www.ieway.cn/evcapture.html)
 
-- [录屏软件 ApowerREC](https://www.apowersoft.cn/record-all-screen)
-
-- [API 测试工具 postman](https://www.postman.com/downloads/)
-
 - [邮件管理 FoxMail](https://www.foxmail.com/)
 
 - [阿里云盘](https://www.aliyundrive.com/)
 
-- [下载工具](https://motrix.app/)
+- [下载工具 motrix](https://motrix.app/)
 
-- [思维导图](https://github.com/NaoTu/DesktopNaotu)
+- [思维导图 NaoTu](https://github.com/NaoTu/DesktopNaotu)
 
-- [文件加密](https://cryptomator.org/downloads/)
+- [文件加密 cryptomator](https://cryptomator.org/downloads/)
 
-- [命令行工具](https://github.com/vercel/hyper)
+- [压缩软件 PeaZip](https://github.com/peazip/PeaZip)
 
 ## Windows
 
@@ -52,23 +52,15 @@
 
 - [QQ 播放器](https://player.qq.com/)
 
-- [7-zip](https://sparanoid.com/lab/7z/)
-
 - [Ditto](https://ditto-cp.sourceforge.io/)
 
-- [环境变量管理](https://www.rapidee.com/en/download)
+- [环境变量管理 Rapid Environment Editor](https://www.rapidee.com/en/download)
 
 - [node.js 版本管理工具 nvm](https://github.com/coreybutler/nvm-windows)
 
-- [压缩软件](https://github.com/peazip/PeaZip)
+- [抓包工具 fiddler](https://www.telerik.com/download/fiddler)
 
-- [抓包 fiddler](https://www.telerik.com/download/fiddler)
-
-- [RedisClient](https://github.com/caoxinyu/RedisClient)
-
-- [AnotherRedisDesktopManager](https://github.com/qishibo/AnotherRedisDesktopManager)
-
-- [mangodb 可视化管理](https://studio3t.com/download/?source=robomongo&medium=download)
+- [redis 图形化管理客户端 AnotherRedisDesktopManager](https://github.com/qishibo/AnotherRedisDesktopManager)
 
 ## MacOS
 
