@@ -44,6 +44,18 @@
 
 - [压缩软件 PeaZip](https://github.com/peazip/PeaZip)
 
+- [笔记软件 wolai](https://www.wolai.com/downloads)
+
+- [笔记软件 wolai](https://www.wolai.com/downloads)
+
+- [笔记软件 notion](https://www.notion.so/desktop)
+
+- [流氓软件卸载 geekuninstaller](https://geekuninstaller.com/download)
+
+- [多线程下载工具 free download manager](https://www.freedownloadmanager.org/zh/download.htm) [chrome 插件](https://chrome.google.com/webstore/detail/free-download-manager/ahmpjcflkgiildlgicmcieglgoilbfdp?utm_source=chrome-ntp-icon)
+
+- [开源免费无广告的看图软件 ImageGlass](https://github.com/d2phap/ImageGlass)
+
 ## Windows
 
 - [火柴](http://www.huochaipro.com/)
@@ -52,7 +64,7 @@
 
 - [QQ 播放器](https://player.qq.com/)
 
-- [Ditto](https://ditto-cp.sourceforge.io/)
+- [粘贴板管理工具 Ditto](https://ditto-cp.sourceforge.io/)
 
 - [环境变量管理 Rapid Environment Editor](https://www.rapidee.com/en/download)
 
