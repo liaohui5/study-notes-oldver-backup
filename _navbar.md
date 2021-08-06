@@ -1,9 +1,8 @@
 - [CSS](/css/README)
 
 - JavaScript
-
-  - [JavaScript 基础](/js/base/docs)
-  - [JavaScript 进阶](/js/advanced/object-class)
+  - [JavaScript 内置对象](/js/objects/README.md)
+  - [JavaScript 基础](https://www.yuque.com/liaohui5/js-base)
   - [JavaScript 插件](/js/plugins/README)
   - [JavaScript ES6](https://es6.ruanyifeng.com/)
 
@@ -16,7 +15,7 @@
   - [Vue.js](https://cn.vuejs.org/v2/guide/index.html)
   - [Vue.js 3.x](https://v3.cn.vuejs.org/guide/introduction.html)
   - [Vue-Router](https://router.vuejs.org/zh/installation.html)
-  - [Vuex](https://vuex.vuejs.org/zh/installation.html)
+  - [Vuex](https://vut1ex.vuejs.org/zh/installation.html)
   - [vue-cli](https://cli.vuejs.org/zh/guide/installation.html)
   - [vue-dev-tools](https://github.com/vuejs/vue-devtools)
   - [nuxt.js](https://www.nuxtjs.cn/guide/installation)
