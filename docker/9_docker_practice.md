@@ -49,7 +49,7 @@ docker ps
 
 - 如何访问测试?
 
-> 查看虚拟机 ip(如: `192.168.199.191` ), 宿主机直接在浏览器中访问ip即可
+> 查看虚拟机 ip(如: `192.168.199.191` ), 宿主机直接在浏览器中访问 ip 即可
 
 ## 安装 redis-server
 
@@ -58,13 +58,29 @@ docker ps
 - 注意需要默认的配置文件 $PWD/redis.conf
 
 ```bash
-docker run --name rds -v $PWD/redis.conf:/etc/redis/redis.conf -p 6379:6379 -d --restart=always redis
+docker run -d \
+-p 6379:6379 \
+--privileged=true \
+--restart=always \
+-v $PWD/redis.conf:/etc/redis/redis.conf \
+-v $PWD/redis.conf/redis_data:/data \
+--name rds redis redis-server /etc/redis/redis.conf \
+--appendonly yes
 ```
 
 ## 安装 mysql-server(5.7)
 
 - -e 指定环境变量, MYSQL_ROOT_PASSWORD, root 账号密码
+- --character-set-server=utf8mb4 设置默认字符集
 
 ```bash
-docker run --name mysql -e MYSQL_ROOT_PASSWORD=root -p 3306:3306 -d --restart=always mysql:5.7.34
+docker run -d \
+-p 3306:3306 \
+--privileged=true \
+--restart=always \
+-v $PWD/mysql_data:/var/lib/mysql \
+-e MYSQL_ROOT_PASSWORD=root \
+--name mysql mysql/mysql-server \
+--character-set-server=utf8mb4 \
+--collation-server=utf8mb4_general_ci
 ```
