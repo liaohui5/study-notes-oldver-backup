@@ -4,6 +4,8 @@
 
 - [代码编辑器 vscode-insiders](https://code.visualstudio.com/insiders/)
 
+- [命令行编辑器 neovim](https://github.com/neovim/neovim)
+
 - [命令行工具 tabby](https://github.com/Eugeny/tabby)
 
 - [图床上传 PicGO](https://github.com/Molunerfinn/PicGo)
@@ -61,6 +63,8 @@
 - [navicat 强大的数据库管理套餐(收费)](https://www.navicat.com/en/)
 
 ## Windows
+
+- [轻量级编辑器 notepad3](https://www.rizonesoft.com/downloads/notepad3/) | [为什么不使用 notepad++? 因为这个杂种作者辱华,我认为一个不能专注写代码,而是天天想着搞政治的程序员,写出来的软件也就那样了,不用也罢](https://insults.cn/posts/65025/)
 
 - [阿里云盘](https://www.aliyundrive.com/)
 
