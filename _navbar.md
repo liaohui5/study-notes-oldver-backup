@@ -3,6 +3,7 @@
 - JavaScript
   - [JavaScript 内置对象](/js/objects/README.md)
   - [JavaScript 基础](https://www.yuque.com/liaohui5/js-base)
+  - [JavaScript DOM](https://www.yuque.com/liaohui5/js-dom)
   - [JavaScript 插件](/js/plugins/README)
   - [JavaScript ES6](https://es6.ruanyifeng.com/)
 
