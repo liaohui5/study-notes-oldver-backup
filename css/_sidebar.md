@@ -1,4 +1,0 @@
-- [移动端开发尺寸适配方案](/css/mobile-rem)
-- CSS3动画
-    - [过渡动画](/css/animate/transform)
-    - [自定义动画](/css/animate/transition)

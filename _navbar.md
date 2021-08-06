@@ -1,7 +1,12 @@
-- [CSS](/css/README)
+- CSS
+  - [移动端设计方案](/css/README)
+  - [W3C CSS 属性](https://www.w3school.com.cn/css/index.asp)
+  - [devDocs CSS](https://devdocs.io/css/)
+  - [菜鸟教程 CSS3](https://www.runoob.com/css/css-intro.html)
+  - [中文文档 CSS3](http://caibaojian.com/css3/)
 
 - JavaScript
-  - [JavaScript 内置对象](/js/objects/README.md)
+  - [JavaScript 内置对象](/js/objects/README)
   - [JavaScript 基础](https://www.yuque.com/liaohui5/js-base)
   - [JavaScript DOM](https://www.yuque.com/liaohui5/js-dom)
   - [JavaScript 插件](/js/plugins/README)
@@ -60,3 +65,6 @@
 - Sites
   - [印记中文](https://docschina.org/)
   - [前端工坊](https://www.javascript.fun/)
+  - [w3c](https://www.w3school.com.cn/index.html)
+  - [MDN](https://developer.mozilla.org/zh-CN/)
+  - [devDocs](https://devdocs.io/)
