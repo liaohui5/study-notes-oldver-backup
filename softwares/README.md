@@ -48,6 +48,8 @@
 
 - [类似xshell的远程连接工具 nxshell](https://github.com/nxshell/nxshell)
 
+- [类似Fiddler的抓包工具 inproxy](https://www.inproxy.io/download)
+
 - [开源强大的音乐客户端 listen1](https://github.com/listen1/listen1_desktop/tree/v2.21.6)
 
 - [开源免费无广告播放器 VLCPlayer](https://www.videolan.org/vlc/)
