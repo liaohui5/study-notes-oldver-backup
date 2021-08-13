@@ -46,6 +46,20 @@
 
 - [文件加密 cryptomator](https://cryptomator.org/downloads/)
 
+- [类似xshell的远程连接工具 nxshell](https://github.com/nxshell/nxshell)
+
+- [开源强大的音乐客户端 listen1](https://github.com/listen1/listen1_desktop/tree/v2.21.6)
+
+- [开源免费无广告播放器 VLCPlayer](https://www.videolan.org/vlc/)
+
+- [开源 MongoDB 图形化管理工具 mongotron](https://github.com/officert/mongotron)
+
+- [开源 MongoDB 图形化管理工具 nosqlclient](https://github.com/nosqlclient/nosqlclient)
+
+- [开源 MySQL 图形化管理工具 sqlectron](https://github.com/sqlectron/sqlectron-gui)
+
+- [开源 devDocs 桌面客户端 devdocs-desktop](https://github.com/egoist/devdocs-desktop)
+
 - [多线程下载工具 free download manager](https://www.freedownloadmanager.org/zh/download.htm) [chrome 插件](https://chrome.google.com/webstore/detail/free-download-manager/ahmpjcflkgiildlgicmcieglgoilbfdp?utm_source=chrome-ntp-icon)
 
 - [开源免费的看图软件(速度快,无广告,墙裂推荐) ImageGlass](https://github.com/d2phap/ImageGlass)
@@ -69,8 +83,6 @@
 - [阿里云盘](https://www.aliyundrive.com/)
 
 - [快速搜索 火柴](http://www.huochaipro.com/)
-
-- [无广告播放器 QQ 播放器](https://player.qq.com/)
 
 - [粘贴板管理工具 Ditto](https://ditto-cp.sourceforge.io/)
 
