@@ -63,7 +63,7 @@ docker run -d \
 --privileged=true \
 --restart=always \
 -v $PWD/redis.conf:/etc/redis/redis.conf \
--v $PWD/redis.conf/redis_data:/data \
+-v $PWD/redis_data:/data \
 --name rds redis redis-server /etc/redis/redis.conf \
 --appendonly yes
 ```
@@ -72,6 +72,7 @@ docker run -d \
 
 - -e 指定环境变量, MYSQL_ROOT_PASSWORD, root 账号密码
 - --character-set-server=utf8mb4 设置默认字符集
+- mysql:5.7 表示安装tag为5.7的版本
 
 ```bash
 docker run -d \
@@ -80,7 +81,19 @@ docker run -d \
 --restart=always \
 -v $PWD/mysql_data:/var/lib/mysql \
 -e MYSQL_ROOT_PASSWORD=root \
---name mysql mysql/mysql-server \
+--name mysql mysql:5.7 \
 --character-set-server=utf8mb4 \
 --collation-server=utf8mb4_general_ci
+```
+
+## 安装 MongoDB 
+
+```bash
+docker run -d \
+--privileged=true \
+--restart=always \
+-p 27017:27017 \
+-v $PWD/mongo_configdb:/data/configdb \
+-v $PWD/mongo_db:/data/db \
+--name mongo mongo
 ```
