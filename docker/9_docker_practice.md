@@ -62,10 +62,11 @@ docker run -d \
 -p 6379:6379 \
 --privileged=true \
 --restart=always \
--v $PWD/redis.conf:/etc/redis/redis.conf \
--v $PWD/redis_data:/data \
+-v $HOME/docker/redis.conf:/etc/redis/redis.conf \
+-v $HOME/docker/redis_data:/data \
 --name rds redis redis-server /etc/redis/redis.conf \
 --appendonly yes
+
 ```
 
 ## 安装 mysql-server(5.7)
@@ -79,11 +80,12 @@ docker run -d \
 -p 3306:3306 \
 --privileged=true \
 --restart=always \
--v $PWD/mysql_data:/var/lib/mysql \
+-v $HOME/docker/mysql_data:/var/lib/mysql \
 -e MYSQL_ROOT_PASSWORD=root \
 --name mysql mysql:5.7 \
 --character-set-server=utf8mb4 \
 --collation-server=utf8mb4_general_ci
+
 ```
 
 ## 安装 MongoDB 
@@ -93,7 +95,8 @@ docker run -d \
 --privileged=true \
 --restart=always \
 -p 27017:27017 \
--v $PWD/mongo_configdb:/data/configdb \
--v $PWD/mongo_db:/data/db \
+-v $HOME/docker/mongo_configdb:/data/configdb \
+-v $HOME/docker/mongo_db:/data/db \
 --name mongo mongo
+
 ```

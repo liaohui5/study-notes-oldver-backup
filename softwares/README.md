@@ -44,9 +44,11 @@
 
 - [压缩软件 PeaZip](https://github.com/peazip/PeaZip)
 
-- [文件加密 cryptomator](https://cryptomator.org/downloads/)
+- [开源密码管理器 keeweb](https://github.com/keeweb/keeweb)
 
 - [类似xshell的远程连接工具 nxshell](https://github.com/nxshell/nxshell)
+
+- [类似xshell的远程连接工具 electerm](https://electerm.github.io/electerm/)
 
 - [类似Fiddler的抓包工具 inproxy](https://www.inproxy.io/download)
 
@@ -78,6 +80,8 @@
 
 - [navicat 强大的数据库管理套餐(收费)](https://www.navicat.com/en/)
 
+- [电脑文件清理 ccleaner](https://www.ccleaner.com/)
+
 ## Windows
 
 - [轻量级编辑器 notepad3](https://www.rizonesoft.com/downloads/notepad3/) | [为什么不使用 notepad++? 因为这个杂种作者辱华,我认为一个不能专注写代码,而是天天想着搞政治的程序员,写出来的软件也就那样了,不用也罢](https://insults.cn/posts/65025/)
@@ -96,11 +100,17 @@
 
 - [流氓软件强力卸载 geekuninstaller](https://geekuninstaller.com/download)
 
-- [电脑文件清理 ccleaner](https://www.ccleaner.com/)
-
 ## MacOS
 
 - [开源免费抓包工具 proxyman](https://github.com/ProxymanApp/Proxyman)
+- [快速启动器 hapiGo](https://www.hapigo.com/)
+- [顶部标题栏管理 Hidden Bar](https://github.com/dwarvesf/hidden)
+- [快速启动器 Alfred](https://www.alfredapp.com/)
+- [开源MySQL图形化客户端 Sequel-Ace](https://github.com/Sequel-Ace/Sequel-Acehttps://github.com/Sequel-Ace/Sequel-Ace)
+- [开源压缩软件 keka](https://www.keka.io/en/)
+- [自动切换输入法 AutoSwitchInput](https://www.better365.cn/AutoSwitchInput.html)
+- [文档查询工具 Dash](https://kapeli.com/dash)
+
 
 ## 推荐好用软件的开源项目
 
@@ -109,8 +119,3 @@
 - [chrome](https://github.com/zhaoolee/ChromeAppHeroes)
 - [chinese-independent-developer](https://github.com/1c7/chinese-independent-developer)
 
-## 好用的 node.js 命令行工具
-
-- [npm 源管理切换工具 nrm](https://www.npmjs.com/package/nrm)
-
-- [命令行启动在当前目录下快速启动一个静态资源服务 anywhere](https://www.npmjs.com/package/anywhere)
