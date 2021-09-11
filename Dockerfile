@@ -1,6 +1,6 @@
 FROM node:lts-alpine
 
-RUN npm install docsify-cli
+RUN npm install -g docsify-cli
 
 WORKDIR /www/webapp
 
