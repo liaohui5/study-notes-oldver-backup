@@ -1,4 +1,5 @@
 ### 相关文档
+
 - [nuxt.js 中文文档](https://www.nuxtjs.cn/guide/installation)
 
 ### 下载安装
@@ -78,7 +79,7 @@ export default {
 - cookie
 - nuxtServerInit
 - vuex
-- [nuxt-auth-demo](https://gitee.com/liaohui5/nuxt-auth-demo) 这个是请求第三方服务器, 如果在客户端直接请求nuxt服务器, 不需要使用这个
+- [nuxt-auth-demo](https://gitee.com/liaohui5/nuxt-auth-demo) 这个是请求第三方服务器, 如果在客户端直接请求 nuxt 服务器, 不需要使用这个
 
 ### axios 模块和原生的 axios 的不同
 

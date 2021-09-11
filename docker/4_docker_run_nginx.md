@@ -1,16 +1,14 @@
-## docker 安装 docker
-
-1. 搜索需要的镜像
+###  搜索需要的镜像
 
 https://hub.docker.com/_/nginx
 
-2. 下载 `nginx`
+###  下载 `nginx`
 
 ```shell
 sudo docker pull nginx
 ```
 
-3. 运行 nginx 容器, 并且配置端口映射
+###  运行 nginx 容器, 并且配置端口映射
 
 ```shell
 sudo docker run -d --name ngx_1 -p 3333:80 nginx
@@ -20,7 +18,7 @@ sudo docker run -d --name ngx_1 -p 3333:80 nginx
 # -p 3333:80  表示将主机的 3333 端口映射到容器的 80 端口
 ```
 
-4. 查看容器运行信息
+###  查看容器运行信息
 
 ```shell
 sudo docker ps
@@ -32,7 +30,7 @@ STATUS              PORTS                  NAMES
 Up 10 minutes       0.0.0.0:3333->80/tcp   ngx_1
 ```
 
-4. 进入容器, 查看 nginx 的配置文件
+###  进入容器, 查看 nginx 的配置文件
 
 ```shell
 # 进入容器内部, 查看nginx的配置文案信息
@@ -84,7 +82,7 @@ http {
 }
 ```
 
-5. 访问测试, 如果能够成功说明没有问题
+### 访问测试, 如果能够成功说明没有问题
 
 ```shell
 # 本机

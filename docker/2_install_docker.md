@@ -12,6 +12,7 @@ Linux localhost 3.10.0-1127.el7.x86_64 #1 SMP Tue Mar 31 23:36:51 UTC 2020 x86_6
 ### 安装 Docker-ce
 
 - [官方文档](https://docs.docker.com/engine/install/centos/)
+- [中文文档](https://dockerdocs.cn/get-started/overview/index.html)
 
 ```shell
 # 1. 删除旧版本 docker

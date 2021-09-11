@@ -55,7 +55,7 @@ docker ps
 
 - [默认配置文件下载](https://download.redis.io/redis-stable/redis.conf)
 - [配置文件选项解释](https://www.cnblogs.com/DreamDrive/p/5587219.html)
-- 注意需要默认的配置文件 $PWD/redis.conf
+- 注意需要默认的配置文件 $HOME/docker/redis.conf
 
 ```bash
 docker run -d \
