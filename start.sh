@@ -9,8 +9,6 @@ docker rm -f studynotes
 docker rmi -f studynotes
 
 ## rebuild image && restart container
-docker build . -t studynotes
-docker run studynotes -dp 443:443 \
--v ./nginx/nginx.conf:/etc/nginx/nginx.conf \
--v ./nginx/cakeys:/etc/nginx/cakeys \
---name studynotes studynotes
+docker build . -t studynotes && \
+docker run -dp 443:443 --name studynotes studynotes
+
