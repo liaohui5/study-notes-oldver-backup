@@ -1,11 +1,13 @@
-FROM node:lts-alpine
+FROM nginx:stable
 
-RUN npm install -g docsify-cli
+WORKDIR /usr/share/nginx/html
+ADD . /usr/share/nginx/html
 
-WORKDIR /www/webapp
+# replace default nginx.conf
+RUN mv /usr/share/nginx/html/cakeys /etc/nginx/cakeys
+RUN rm -rf /etc/nginx/nginx.conf
+RUN mv /usr/share/nginx/html/nginx.conf /etc/nginx/nginx.conf
 
-ADD . /www/webapp
+EXPOSE 443
 
-EXPOSE 3000
-
-CMD ["docsify", "serve", "."]
+CMD ["service", "nginx", "restart"]
