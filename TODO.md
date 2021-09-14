@@ -1,48 +1,27 @@
-## 学习计划
+## 关于笔记需要改进的地方
 
-### ES6 基础内容(js++)
+### 增加调试代码的笔记
 
-- [x] ES6基础语法内容
-- [ ] DOM + BOM
-- [ ] 数据传输 JSON
-- [ ] js 查漏补缺
-- [ ] 函数式编程
-- [ ] 网络
-- [ ] 数学
-- [ ] ES6新语法
-- [ ] ES6集合
-- [ ] ES6异步
-- [ ] 模块化
-- [ ] ES6 实战小例子
-- [ ] jQuery
-- [ ] CSS3 动画
-- [ ] H5 新增 API + 周边技术了解(canvars + svg + 音频 + 视屏)
-- [x] Less/sass
-- [ ] webpack(基础: 完善笔记 + 优化)
-- [ ] JS 综合实战小案例
-- [ ] Vue 源码学习( Vue 本尊 )
-- [ ] Vue.js 3.x
+> 环境: vscode + chrome
 
-### webpack 基础配置及原理实现
+- [ ] 调试 vue.js 项目
+- [ ] 调试 react.js 项目
+- [ ] 调试 node 项目
+- [ ] 调试 egg.js 项目
 
-- [x] webpack 基础配置
-- [ ] webpack 优化项
-- [ ] webpack 实现原理 [笔记]
+### 增加 redis 相关笔记
 
-### 调试
+- [ ] redis 基础命令操作
+- [ ] node.js 客户端操作 redis
 
-- [ ] vscode + chrome 调试 vue.js/react.js 项目(笔记)
-- [ ] vscode + crhome 调试 node.js/egg.js 项目(笔记)
-- [ ] pm2 [笔记]
+### 增加首页 sidebar 的内容
 
-### 周边技术了解
+- [ ] 开源项目
+- [ ] github
+- [ ] 面试题整理
+- [ ] 前端常见案例 js 实现
+- [ ] 手写 js 系列
 
-- [ ] canvars + svg [笔记]
-- [ ] uniapp + nvue [项目]
-- [ ] react native [项目]
+### 增加一些关于算法的笔记
 
-### docker
-
-- [ ] docker\
-- [ ] docker-compose [笔记]
-- [ ] 项目: 使用 docker 部署 nodejs 项目 [笔记]
+- [ ] leetcode 上的题目/解法
