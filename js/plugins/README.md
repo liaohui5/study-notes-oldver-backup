@@ -1,9 +1,3 @@
-## 参考文档
-
-- [https://juejin.cn/post/6844903683411410951](https://juejin.cn/post/6844903683411410951)
-- [https://juejin.cn/post/6844903521360281613](https://juejin.cn/post/6844903521360281613)
-- [https://juejin.cn/post/6844904082096783374](https://juejin.cn/post/6844904082096783374)
-
 ## DOM 操作
 
 - [jQuery](https://jquery.cuishifeng.cn/)
