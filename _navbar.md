@@ -56,7 +56,6 @@
 
   - [MySQL](/db/mysql/README.md)
   - [MongoDB](/db/mongo/README.md)
-  - [Redis]()
 
 - [docker](/docker/1_install_env)
 
