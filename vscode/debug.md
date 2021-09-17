@@ -161,8 +161,33 @@ npm i nodemon -D
 
 ### 3.调试/查看效果
 
-1. `F5` 或者 开启 debug
+1. `F5` 或者手动开启 debug
 2. 加断点
-3. 浏览器请求你请求你加断点的位置, 让代码执行
+3. 发送请求, 让加断点位置的代码执行
 
-![preview](https://raw.githubusercontent.com/liaohui5/images/main/images/202109172336924.png)
+![debug-preview](https://raw.githubusercontent.com/liaohui5/images/main/images/202109180131602.png)
+
+
+### 4. 调试 egg.js 的调试配置
+
+```json
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "debug-egg-server",
+      "type": "node",
+      "request": "launch",
+      "cwd": "${workspaceRoot}",
+      "runtimeExecutable": "npm",
+      "windows": { "runtimeExecutable": "npm.cmd" },
+      "runtimeArgs": ["run", "debug"],
+      "console": "integratedTerminal",
+      "protocol": "auto",
+      "restart": true,
+      "port": 9229,
+      "autoAttachChildProcesses": true
+    }
+  ]
+}
+```
