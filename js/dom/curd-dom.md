@@ -78,8 +78,8 @@
 
 ### 删除节点
 
-> 1. remove 自杀
-> 2. removeChild 他杀
+> 1. remove 自己调用移除节点
+> 2. removeChild 别人调用移除节点
 
 ```html
 <!DOCTYPE html>
@@ -101,9 +101,9 @@
         var delNode = document.getElementById("box").children[1];
 
         // 2.获取 "需要删除的节点" 的 父节点并调用 removeChild 删除需要删除的节点
-        // delNode.parentNode.removeChild(delNode);   // 他杀
+        // delNode.parentNode.removeChild(delNode);
 
-        // 2.直接删除节点(自杀)    推荐使用
+        // 2.直接删除节点    推荐使用
         delNode.remove();
         // 可简写为 document.getElementById('box').children[1].remove();
       };
