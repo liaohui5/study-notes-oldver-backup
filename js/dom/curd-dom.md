@@ -21,8 +21,8 @@
         var aNode = document.createElement("a");
 
         // 2.为节点对象添加属性
-        aNode.href = "https://www.baidu.com";
-        aNode.text = "百度一下,你就知道";
+        aNode.href = "https://gitee.com";
+        aNode.text = "gitee";
         aNode.target = "_blank";
 
         // 3.获取 "当前节点"
