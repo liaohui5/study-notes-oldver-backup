@@ -48,4 +48,14 @@
 
 ## Node.js 常用模块
 
+- [os 操作系统](http://nodejs.cn/api/os.html)
+- [http 超文本传输协议](http://nodejs.cn/api/http.html)
+- [net 网络](http://nodejs.cn/api/net.html)
+- [querystring 查询字符串](http://nodejs.cn/api/querystring.html)
+- [url 网址](http://nodejs.cn/api/url.html)
+- [fs 文件系统](http://nodejs.cn/api/fs.html)
+- [path 路径](http://nodejs.cn/api/path.html)
+- [readline 逐行读取](http://nodejs.cn/api/readline.html)
+- [stream 流](http://nodejs.cn/api/stream.html)
+- [util 实用工具](http://nodejs.cn/api/util.html)
 
