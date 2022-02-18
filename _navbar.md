@@ -17,10 +17,9 @@
 - Vue.js
 
   - [问题解决](/vue/README)
-  - [源码解读](/vue/source/prepare)
   - [Vue.js](https://cn.vuejs.org/v2/guide/index.html)
   - [Vue.js 3.x](https://v3.cn.vuejs.org/guide/introduction.html)
-  - [Vue-Router](https://router.vuejs.org/zh/installation.html)
+  - [vue-router](https://router.vuejs.org/zh/installation.html)
   - [Vuex](https://vut1ex.vuejs.org/zh/installation.html)
   - [vue-cli](https://cli.vuejs.org/zh/guide/installation.html)
   - [vue-dev-tools](https://github.com/vuejs/vue-devtools)
