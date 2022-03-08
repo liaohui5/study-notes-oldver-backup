@@ -45,8 +45,8 @@
 - Webpack
 
   - [基础配置](/webpack/base/base-run)
-  - [性能优化](/webpack/optimize/README)
-  - [原理探究](/webpack/source/README)
+  <!-- - [性能优化](/webpack/optimize/README) -->
+  <!-- - [原理探究](/webpack/source/README) -->
   - [在线文档](https://webpack.docschina.org/concepts/)
 
 - [VSCode](/vscode/install)
