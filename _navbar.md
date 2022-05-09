@@ -7,16 +7,16 @@
 
 - JavaScript
   - [JavaScript 内置对象](/js/objects/README)
-  - [JavaScript 基础](https://www.yuque.com/liaohui5/js-base)
-  - [JavaScript DOM](https://www.yuque.com/liaohui5/js-dom)
   - [JavaScript 插件](/js/plugins/README)
-  - [JavaScript ES6](https://es6.ruanyifeng.com/)
+  - [JavaScript 基础笔记](https://www.yuque.com/liaohui5/js-base)
+  - [JavaScript DOM笔记](https://www.yuque.com/liaohui5/js-dom)
 
 - [TypeScript](/ts/README)
 
 - Vue.js
 
-  - [问题解决](/vue/README)
+  <!-- - [问题解决](/vue/README) -->
+  <!-- - [源码解读](/vue/source) -->
   - [Vue.js](https://cn.vuejs.org/v2/guide/index.html)
   - [Vue.js 3.x](https://v3.cn.vuejs.org/guide/introduction.html)
   - [vue-router](https://router.vuejs.org/zh/installation.html)
@@ -29,7 +29,7 @@
 
 - React.js
 
-  - [React 基础](/react/base/jsx)
+  - [React 基础笔记](/react/base/jsx)
   - [React hooks](/react/hooks/why-react-hooks)
   - [React.js](https://reactjs.bootcss.com/docs/getting-started.html)
   - [React-Router](https://reactrouter.com/web/guides/quick-start)

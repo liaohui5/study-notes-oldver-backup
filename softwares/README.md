@@ -1,8 +1,6 @@
 ## 跨平台
 
-- [代码编辑器 vscode](https://code.visualstudio.com/)
-
-- [代码编辑器 vscode-insiders](https://code.visualstudio.com/insiders/)
+- [代码编辑器 vscode](https://code.visualstudio.com/) [vscode-insiders](https://code.visualstudio.com/insiders/)
 
 - [命令行编辑器 neovim](https://github.com/neovim/neovim)
 
@@ -14,7 +12,7 @@
 
 - [host 文件管理 SwitchHosts](https://github.com/oldj/SwitchHosts)
 
-- [API 测试工具 postman](https://www.postman.com/downloads/)
+- [API 管理工具 postman](https://www.postman.com/downloads/)
 
 - [API 管理工具 Apifox](https://www.apifox.cn/)
 
@@ -24,69 +22,45 @@
 
 - [开源免费功能强大的画图软件 draw.io](https://github.com/jgraph/drawio)
 
-- [远程控屏软件 向日葵](https://sunlogin.oray.com/download/)
+- [远程控屏软件 parsec](https://parsec.app/)
 
 - [截图工具 snipaste](https://www.snipaste.com/)
 
-- [粘贴板管理工具 1Clipboard](https://github.com/wiziple/1Clipboard)
-
 - [开源抓包工具 wireshark](https://www.wireshark.org/download.html)
 
-- [跨平台好用抓包工具(收费) charles, 可以 github 找工具激活](https://www.charlesproxy.com/download/latest-release/)
+- [抓包工具(收费) charles](https://www.charlesproxy.com/download/latest-release/)
 
-- [redis 图形化管理客户端(免费) AnotherRedisDesktopManager](https://github.com/qishibo/AnotherRedisDesktopManager)
+- [类似 Fidder 的开源抓包软件 lightproxy](https://github.com/alibaba/lightproxy)
 
-- [录屏软件 EV 录屏](https://www.ieway.cn/evcapture.html)
-
-- [邮件管理 FoxMail](https://www.foxmail.com/)
+- [redis 开源图形化管理客户端 AnotherRedisDesktopManager](https://github.com/qishibo/AnotherRedisDesktopManager)
 
 - [下载工具 motrix](https://motrix.app/)
 
-- [压缩软件 PeaZip](https://github.com/peazip/PeaZip)
-
 - [开源密码管理器 keeweb](https://github.com/keeweb/keeweb)
 
-- [类似xshell的远程连接工具 nxshell](https://github.com/nxshell/nxshell)
+- [类似 xshell 的开源远程连接工具 electerm](https://electerm.github.io/electerm/)
 
-- [类似xshell的远程连接工具 electerm](https://electerm.github.io/electerm/)
-
-- [类似Fiddler的抓包工具 inproxy](https://www.inproxy.io/download)
+- [类似 xshell 的远程连接工具 FinalShell](https://www.hostbuf.com/)
 
 - [开源强大的音乐客户端 listen1](https://github.com/listen1/listen1_desktop/tree/v2.21.6)
 
-- [开源免费无广告播放器 VLCPlayer](https://www.videolan.org/vlc/)
+- [开源无广告视频播放器 VLCPlayer](https://www.videolan.org/vlc/)
 
 - [开源 MongoDB 图形化管理工具 mongotron](https://github.com/officert/mongotron)
 
-- [开源 MongoDB 图形化管理工具 nosqlclient](https://github.com/nosqlclient/nosqlclient)
+- [开源 MongoDB Web 图形化管理工具 nosqlclient](https://github.com/nosqlclient/nosqlclient)
 
 - [开源 MySQL 图形化管理工具 sqlectron](https://github.com/sqlectron/sqlectron-gui)
 
-- [开源 devDocs 桌面客户端 devdocs-desktop](https://github.com/egoist/devdocs-desktop)
-
-- [多线程下载工具 free download manager](https://www.freedownloadmanager.org/zh/download.htm) [chrome 插件](https://chrome.google.com/webstore/detail/free-download-manager/ahmpjcflkgiildlgicmcieglgoilbfdp?utm_source=chrome-ntp-icon)
-
-- [开源免费的看图软件(速度快,无广告,墙裂推荐) ImageGlass](https://github.com/d2phap/ImageGlass)
+- [电脑垃圾文件清理 ccleaner](https://www.ccleaner.com/)
 
 - [笔记管理软件 羽雀(推荐)](https://www.yuque.com/install/desktop)
 
-- [笔记软件 wolai](https://www.wolai.com/downloads)
+- [阿里云盘](https://www.aliyundrive.com/)
 
-- [笔记软件 wolai](https://www.wolai.com/downloads)
-
-- [笔记软件 notion](https://www.notion.so/desktop)
-
-- [jetbrains 强大的 IDE 套餐(收费)](https://www.jetbrains.com/)
-
-- [navicat 强大的数据库管理套餐(收费)](https://www.navicat.com/en/)
-
-- [电脑文件清理 ccleaner](https://www.ccleaner.com/)
+- [Git图形化管理工具 SourceTree](https://www.sourcetreeapp.com/)
 
 ## Windows
-
-- [轻量级编辑器 notepad3](https://www.rizonesoft.com/downloads/notepad3/) | [为什么不使用 notepad++? 因为这个杂种作者辱华,我认为一个不能专注写代码,而是天天想着搞政治的程序员,写出来的软件也就那样了,不用也罢](https://insults.cn/posts/65025/)
-
-- [阿里云盘](https://www.aliyundrive.com/)
 
 - [快速搜索 火柴](http://www.huochaipro.com/)
 
@@ -96,26 +70,51 @@
 
 - [node.js 版本管理工具 nvm](https://github.com/coreybutler/nvm-windows)
 
-- [抓包工具 fiddler](https://www.telerik.com/download/fiddler)
+- [抓包工具 fiddler: classic 版(免费,推荐), anywhere 版(收费)](https://www.telerik.com/download/fiddler)
 
 - [流氓软件强力卸载 geekuninstaller](https://geekuninstaller.com/download)
 
+- [粘贴板管理工具 1Clipboard](https://github.com/wiziple/1Clipboard)
+
+- [粘贴板管理工具 Ditto](https://ditto-cp.sourceforge.io/)
+
+- [压缩软件 PeaZip](https://github.com/peazip/PeaZip)
+
+- [开源免费的看图软件(速度快,无广告,墙裂推荐) ImageGlass](https://github.com/d2phap/ImageGlass)
+
 ## MacOS
 
-- [开源免费抓包工具 proxyman](https://github.com/ProxymanApp/Proxyman)
-- [快速启动器 hapiGo](https://www.hapigo.com/)
 - [顶部标题栏管理 Hidden Bar](https://github.com/dwarvesf/hidden)
+
 - [快速启动器 Alfred](https://www.alfredapp.com/)
-- [开源MySQL图形化客户端 Sequel-Ace](https://github.com/Sequel-Ace/Sequel-Acehttps://github.com/Sequel-Ace/Sequel-Ace)
+
+- [快速启动器 hapiGo](https://www.hapigo.com/)
+
+- [开源 MySQL 图形化客户端 Sequel(好像停止维护了)](https://sequelpro.com/)
+
+- [开源 MySQL 图形化客户端 Sequel-Ace](https://github.com/Sequel-Ace/Sequel-Acehttps://github.com/Sequel-Ace/Sequel-Ace)
+
 - [开源压缩软件 keka](https://www.keka.io/en/)
+
 - [自动切换输入法 AutoSwitchInput](https://www.better365.cn/AutoSwitchInput.html)
+
 - [文档查询工具 Dash](https://kapeli.com/dash)
 
+- [开源的翻译工具 Bob](https://github.com/ripperhe/Bob)
 
-## 推荐好用软件的开源项目
+- [快速切换任务 Manico](https://manico.im/)
+
+- [显示按键字符 keyCastr](https://github.com/keycastr/keycastr)
+
+- [壁纸软件 Pap.er](https://papero.meiyuan.in/)
+
+
+## 推荐找到好用软件的开源项目
 
 - [windows](https://github.com/Awesome-Windows/Awesome/blob/master/README-cn.md)
-- [macOS](https://github.com/iCHAIT/awesome-macOS)
-- [chrome](https://github.com/zhaoolee/ChromeAppHeroes)
-- [chinese-independent-developer](https://github.com/1c7/chinese-independent-developer)
 
+- [macOS](https://github.com/iCHAIT/awesome-macOS)
+
+- [chrome](https://github.com/zhaoolee/ChromeAppHeroes)
+
+- [chinese-independent-developer](https://github.com/1c7/chinese-independent-developer)
