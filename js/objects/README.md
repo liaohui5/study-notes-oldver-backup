@@ -1,4 +1,4 @@
-## 标准内置对象
+## ECMA 标准内置对象
 
 我并不会记录所有 js 的基础语法,内置对象等, 但是我会记录一些不太常用的内容(如 File, Blob 这些不太常用的 API)
 但是我会给出常用 API 的 MDN 文档地址
@@ -27,19 +27,22 @@
 - [常见 Errors](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Errors)
 
 ## Web API 接口参考
+
 - [Window](https://developer.mozilla.org/zh-CN/docs/Web/API/Window)
-- [Canvas](https://developer.mozilla.org/zh-CN/docs/Web/API/Canvas_API)
+  - [Document](https://developer.mozilla.org/zh-CN/docs/Web/API/Document)
+  - [Navigator](https://developer.mozilla.org/zh-CN/docs/Web/API/Navigator)
+  - [History](https://developer.mozilla.org/zh-CN/docs/Web/API/History)
 - [Console](https://developer.mozilla.org/zh-CN/docs/Web/API/Console)
 - [DOM](https://developer.mozilla.org/zh-CN/docs/Web/API/Document_Object_Model)
-- [Fetch 发起请求](https://developer.mozilla.org/zh-CN/docs/Web/API/Fetch_API)
+- [Canvas](https://developer.mozilla.org/zh-CN/docs/Web/API/Canvas_API)
+- [Fetch 请求](https://developer.mozilla.org/zh-CN/docs/Web/API/Fetch_API)
 - [Fullscreen 全屏](hhttps://developer.mozilla.org/zh-CN/docs/Web/API/Fullscreen_API)
 - [Drag 拖拽](https://developer.mozilla.org/zh-CN/docs/Web/API/HTML_Drag_and_Drop_API)
 - [Image Capture 摄像头](https://developer.mozilla.org/en-US/docs/Web/API/ImageCapture)
-- [Network 网络信息状况](https://developer.mozilla.org/zh-CN/docs/Web/API/Network_Information_API)
-- [页面可见性](https://developer.mozilla.org/zh-CN/docs/Web/API/Page_Visibility_API)
-- [剪贴板 Clipboard](https://developer.mozilla.org/zh-cn/docs/Web/API/Clipboard_API)
+- [Clipboard 剪贴板](https://developer.mozilla.org/zh-cn/docs/Web/API/Clipboard_API)
 - [Service Worker](https://developer.mozilla.org/zh-CN/docs/Web/API/Service_Worker_API)
-- [触摸事件](https://developer.mozilla.org/zh-CN/docs/Web/API/Touch_events)
+- [Network 网络信息状况](https://developer.mozilla.org/zh-CN/docs/Web/API/Network_Information_API)
+- [Touch Events 触摸事件](https://developer.mozilla.org/zh-CN/docs/Web/API/Touch_events)
 - [Animations 动画](https://developer.mozilla.org/zh-CN/docs/Web/API/Web_Animations_API)
 - [Audio 声音](https://developer.mozilla.org/zh-CN/docs/Web/API/Web_Audio_API)
 - [Storage 存储数据](https://developer.mozilla.org/zh-CN/docs/Web/API/Web_Storage_API)
@@ -58,4 +61,3 @@
 - [readline 逐行读取](http://nodejs.cn/api/readline.html)
 - [stream 流](http://nodejs.cn/api/stream.html)
 - [util 实用工具](http://nodejs.cn/api/util.html)
-
