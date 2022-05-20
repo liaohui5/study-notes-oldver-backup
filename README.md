@@ -14,10 +14,8 @@
 
 > 联系方式:
 
-邮箱: 1182468610@qq.com
+邮箱: liaohui5@foxmail.com
 
 github: [https://github.com/liaohui5](https://github.com/liaohui5)
-
-gitee: [https://gitee.com/liaohui5](https://gitee.com/liaohui5)
 
 ![logo.jpg](./vue/img/sysndfy.jpg)
