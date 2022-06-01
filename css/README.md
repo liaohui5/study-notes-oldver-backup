@@ -207,3 +207,30 @@ viewportMeta.name = "viewport";
 viewportMeta.content = `width=device-width, initial-scale=${dpr}, maximum-scale=${dpr}, minimum-scale=${dpr}, user-scalable=no`;
 document.head.appendChild(viewportMeta);
 ```
+
+### PC 端响应式设计方案
+
+```html
+<!DOCTYPE >
+<html>
+  <head>
+    <title>PC端REM设计</title>
+    <style>
+      html {
+        font-size: 62.5%;
+      }
+      .box {
+        /* rem -> px: rem * 10 -> px */
+        width: 20rem;
+        height: 10rem;
+        background: #000;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      <!-- width: 200px, height: 100px -->
+    </div>
+  </body>
+</html>
+```
