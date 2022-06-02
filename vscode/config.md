@@ -1,86 +1,53 @@
 ## 配置
 
+### 编辑器配置项
+
 ```json
 {
-  // 缩放比例
+  /////////////////////////////////////////
+  // editor
+  /////////////////////////////////////////
+  // 窗口缩放大小
   "window.zoomLevel": 1,
 
-  // 图标主题
-  "workbench.iconTheme": "material-icon-theme",
-
-  // 打开设置使用左右json
-  "workbench.settings.editor": "json",
-  "workbench.settings.useSplitJSON": true,
-
-  // 自然语言搜索
-  "workbench.settings.enableNaturalLanguageSearch": false,
-
-  // 自动保存
-  "files.autoSave": "onFocusChange",
-
-  // 排除的文件夹不在explorer中显示
-  "files.exclude": {
-    "**/.idea": true
-  },
-
-  // 忽略搜索的目录
-  "search.exclude": {
-    "**/vendor": true,
-    "**/node_modules": true
-  },
+  // 是否允许文件面包屑路径导航
+  "breadcrumbs.enabled": false,
 
   // 关闭代码小地图
   "editor.minimap.enabled": false,
-  "editor.minimap.showSlider": "always",
-  "editor.minimap.renderCharacters": false,
 
   // 编辑器字体
-  "editor.fontSize": 15,
+  "editor.fontSize": 14,
   "editor.fontLigatures": true,
-  "editor.fontFamily": "Hack, 'Cascadia Code Mono ExtraLight', 'Jetbrains Mono', 'Fira Code',  Hack",
+  "editor.fontFamily": "Hack, 'Operator Mono', Monaco, 'Victor Mono', Hack",
 
   // 光标宽度 && 行高
   "editor.cursorWidth": 1,
-  "editor.lineHeight": 30,
+  "editor.lineHeight": 1.6,
 
   // 是否允许 hover
   "editor.hover.enabled": true,
-  "editor.hover.sticky": false,
-  "editor.hover.delay": 1000,
+  "editor.hover.sticky": true,
+  "editor.hover.delay": 100,
 
-  // 控制光标是否应隐藏在概览标尺中
-  "editor.hideCursorInOverviewRuler": true,
+  // 100 毫秒后显示代码提示
+  "editor.quickSuggestionsDelay": 100,
 
-  // 粘贴时格式化
-  "editor.formatOnPaste": true,
-
-  // 忽略俩边的空格变化
-  "diffEditor.ignoreTrimWhitespace": false,
-
-  // 开启内联视图
-  "diffEditor.renderSideBySide": true,
-
-  // 编辑器代码提示
-  "editor.acceptSuggestionOnEnter": "smart",
-  "editor.quickSuggestionsDelay": 1,
-  "editor.snippetSuggestions": "inline",
+  // 多个窗口可以共享代码提示
   "editor.suggest.shareSuggestSelections": true,
 
-  // 命令行
-  "terminal.integrated.shell.windows": "D:\\Git\\bin\\bash.exe",
-
-  // vsicons 插件隐藏左边箭头
-  "javascript.updateImportsOnFileMove.enabled": "always",
+  // 代码提示的类型
+  "editor.quickSuggestions": {
+    "other": "on", // 其他
+    "comments": "off",
+    "strings": "on"
+  },
 
   // 匹配括号
   "editor.matchBrackets": "never",
 
-  // 文件删除之前确认
-  "explorer.confirmDelete": false,
-
-  // 是否允许文件变量路径导航
-  "breadcrumbs.enabled": false,
-  "breadcrumbs.filePath": "off",
+  // 匹配当前光标所在位置单词高亮
+  "editor.occurrencesHighlight": false,
 
   // 同步 Git 存储库前请先进行确认
   "git.confirmSync": false,
@@ -91,176 +58,113 @@
   // git: 自动拉取代码
   "git.autofetch": true,
 
-  // 启用后，将不会显示扩展建议的通知
-  "extensions.ignoreRecommendations": true,
+  // 自动保存文件
+  "files.autoSave": "onFocusChange",
 
-  // 在启动时不打开编辑器
-  "workbench.startupEditor": "none",
-
-  // 从文件路径打开文件
-  "open-file-from-path.matchFileName": true,
+  // 文件删除之前确认
+  "explorer.confirmDelete": false,
 
   // 资源管理器内拖放移动文件时是否进行确认
   "explorer.confirmDragAndDrop": false,
 
-  // 匹配当前光标所在位置单词高亮
-  "editor.occurrencesHighlight": false,
-
-  // 编辑器查找
-  "editor.find.autoFindInSelection": "multiline",
-  "editor.formatOnSave": false,
-  "editor.formatOnType": true,
+  // 如果 true 文件夹中只有一个文件时,显示 "dir/file"
+  "explorer.compactFolders": false,
 
   // 更新模式: 启动的时候检查
   "update.mode": "start",
 
-  // 主题配色
+  /////////////////////////////////////////
+  // workbench
+  /////////////////////////////////////////
+  // 颜色主题/图标主题
+  "workbench.iconTheme": "material-icon-theme",
   "workbench.colorTheme": "rimless-monokai",
 
-  // gitLens 插件配置
-  "gitlens.currentLine.enabled": false,
-  "gitlens.codeLens.enabled": false,
+  // 打开设置使用左右json
+  "workbench.settings.editor": "json",
+  "workbench.settings.useSplitJSON": true,
 
-  // eslint 格式化
-  "eslint.format.enable": true,
-  "eslint.nodePath": "C:\\Program Files\\nodejs",
-  "eslint.lintTask.enable": true,
-  "eslint.quiet": true,
-  "eslint.probe": ["javascript", "javascriptreact", "typescript", "typescriptreact", "html", "vue", "jsx"],
-  "eslint.alwaysShowStatus": true,
-  "eslint.debug": true,
-
-  // todo-tree 插件
-  "todo-tree.highlights.enabled": true,
-  "todo-tree.tree.showScanModeButton": false,
-  "todo-tree.general.tags": [
-    "BUG",
-    "HACK",
-    "FIXME",
-    "TODO",
-    "XXX",
-    "[ ]",
-    "[x]"
-  ],
-  "todo-tree.regex.regex": "(//|#|<!--|;|/\\*|^|^\\s*(-|\\d+.))\\s*($TAGS)",
-  "todo-tree.highlights.defaultHighlight": {
-    "icon": "alert",
-    "type": "text",
-    "foreground": "red",
-    "background": "black",
-    "opacity": 0,
-    "iconColour": "blue"
-  },
-
-  // 代码提示的类型
-  "editor.quickSuggestions": {
-    "other": true,
-    "comments": false,
-    "strings": false
-  },
-
-  // leetcode 插件配置
-  "leetcode.endpoint": "leetcode-cn",
-  "leetcode.workspaceFolder": "C:\\Users\\liaohui5\\.leetcode",
-  "leetcode.hint.configWebviewMarkdown": false,
-
-  // prettier 格式化默认设置
-  "prettier.printWidth": 120,
-  "prettier.vueIndentScriptAndStyle": true,
-  "[yaml]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[javascript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[vue]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[json]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[html]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[jsonc]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[javascriptreact]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[typescript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-
-
-  // 图标插件: 隐藏左边的箭头
-  "material-icon-theme.hidesExplorerArrows": true,
-  "explorer.compactFolders": false,
-
-  // 缩进插件
-  "bracket-pair-colorizer-2.colorMode": "Independent",
-
-  // ---- VIM 插件配置 ----
-  "vim.easymotion": true,
-  "vim.easymotionDimBackground": true,
-  "vim.autoindent": false,
-  "vim.statusBarColorControl": false,
-  "vim.hlsearch": true,
-  "vim.foldfix": true,
-  "vim.changeWordIncludesWhitespace": true,
-  "vim.camelCaseMotion.enable": true,
-  "vim.useSystemClipboard": true,
-  "vim.leader": "<space>",
-  "vim.normalModeKeyBindingsNonRecursive": [
-    // - 取消高亮
-    {
-      "before": ["-"],
-      "commands": [":nohl"]
-    },
-    // <space>+s => :w
-    {
-      "before": ["<leader>", "s"],
-      "commands": [":w"]
-    },
-    // <space>+x => :x
-    {
-      "before": ["<leader>", "x"],
-      "commands": [":x"]
-    },
-    // s 删除而不是剪切
-    {
-      "before": ["s"],
-      "after": ["\"", "_", "s"]
-    },
-    // x 删除而不是剪切
-    {
-      "before": ["x"],
-      "after": ["\"", "_", "x"]
-    },
-  ],
-  "vim.visualModeKeyBindingsNonRecursive": [
-    // $ 移动到本行结尾(不包括换行符)
-    {
-      "before": ["$"],
-      "after": ["$", "h"]
-    },
-    // s 删除而不是剪切
-    {
-      "before": ["s"],
-      "after": ["\"", "_", "s"]
-    },
-    // x 删除而不是剪切
-    {
-      "before": ["x"],
-      "after": ["\"", "_", "x"]
-    },
-    {
-      // 仅粘贴操作(不会影响剪切板)
-      "before": ["p"],
-      "commands": ["editor.action.clipboardPasteAction", "extension.vim_escape"]
-    },
-  ],
+  // 在启动时不打开编辑器标签页
+  "workbench.startupEditor": "none"
 }
+```
+
+### 插件配置项
+
+```json
+/////////////////////////////////////////
+// extensions
+/////////////////////////////////////////
+// 图标插件(vsicons/material-icon-theme): 隐藏左边的箭头
+"vsicons.presets.hideExplorerArrows": true,
+"material-icon-theme.hidesExplorerArrows": true,
+
+// todo-tree 插件
+"todo-tree.highlights.enabled": true,
+"todo-tree.general.tags": ["BUG", "HACK", "FIXME", "TODO", "XXX", "[ ]", "[x]"],
+"todo-tree.regex.regex": "(//|#|<!--|;|/\\*|^|^\\s*(-|\\d+.))\\s*($TAGS)",
+"todo-tree.highlights.defaultHighlight": {
+  "icon": "alert",
+  "type": "text",
+  "foreground": "#f00",
+  "background": "#000",
+  "opacity": 0,
+  "iconColour": "#00f"
+},
+
+// eslint 格式化
+"eslint.format.enable": true,
+"eslint.lintTask.enable": true,
+"eslint.quiet": true,
+"eslint.probe": ["javascript", "javascriptreact", "typescript", "typescriptreact", "html", "vue", "jsx"],
+"eslint.alwaysShowStatus": true,
+"eslint.debug": true,
+
+// prettier 格式化默认设置
+"prettier.printWidth": 120,
+"prettier.vueIndentScriptAndStyle": true,
+"[yaml]": {
+  "editor.defaultFormatter": "esbenp.prettier-vscode"
+},
+"[javascript]": {
+  "editor.defaultFormatter": "esbenp.prettier-vscode"
+},
+"[vue]": {
+  "breadcrumbs.showFunctions": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode"
+},
+"[json]": {
+  "editor.defaultFormatter": "esbenp.prettier-vscode"
+},
+"[html]": {
+  "editor.defaultFormatter": "esbenp.prettier-vscode"
+},
+"[jsonc]": {
+  "editor.defaultFormatter": "esbenp.prettier-vscode"
+},
+"[javascriptreact]": {
+  "editor.defaultFormatter": "esbenp.prettier-vscode"
+},
+"[typescript]": {
+  "editor.defaultFormatter": "esbenp.prettier-vscode"
+},
+"[typescriptreact]": {
+  "editor.defaultFormatter": "esbenp.prettier-vscode"
+},
+"[css]": {
+  "editor.defaultFormatter": "esbenp.prettier-vscode"
+},
+"[less]": {
+  "editor.defaultFormatter": "esbenp.prettier-vscode"
+},
+
+// leetcode 插件配置
+"leetcode.endpoint": "leetcode-cn",
+"leetcode.hint.configWebviewMarkdown": false,
+"leetcode.defaultLanguage": "javascript",
+"leetcode.workspaceFolder": "/Users/liaohui5/Desktop/leetcode",
+"leetcode.hint.commandShortcut": false,
+"leetcode.hint.commentDescription": false,
 ```
 
 ## 快捷键绑定
@@ -273,24 +177,9 @@
     "command": "toggleVim"
   },
   {
-    // 取消: 切换侧边栏显示
-    "key": "ctrl+alt+k",
-    "command": "-code-runner.runCustomCommand"
-  },
-  {
-    // 取消: 切换侧边栏显示
-    "key": "ctrl+b",
-    "command": "-workbench.action.toggleSidebarVisibility"
-  },
-  {
     // 切换侧边栏显示
-    "key": "ctrl+alt+k",
+    "key": "ctrl+t",
     "command": "workbench.action.toggleSidebarVisibility"
-  },
-  {
-    "key": "alt+p",
-    "command": "-keybindings.editor.toggleSortByPrecedence",
-    "when": "inKeybindings"
   },
   {
     // 预览本文件变量/方法等简要信息
@@ -298,39 +187,40 @@
     "command": "workbench.action.gotoSymbol"
   },
   {
+    // 强制切换显示/隐藏编辑器提示
+    "key": "alt+1",
+    "command": "editor.action.triggerSuggest"
+  },
+  {
+    // 搜索文件快速打开
+    "key": "ctrl+p",
+    "command": "workbench.action.quickOpen"
+  },
+  
+  ////////////////////////////////////////////////////////
+  // 取消默认
+  ////////////////////////////////////////////////////////
+  {
+    // 取消默认: ctrl+b
+    "key": "ctrl+b",
+    "command": "-workbench.action.toggleSidebarVisibility"
+  },
+  {
+    // 取消默认: alt+p
+    "key": "alt+p",
+    "command": "-keybindings.editor.toggleSortByPrecedence",
+    "when": "inKeybindings"
+  },
+  {
+    // 取消默认: ctrl+shift+o
     "key": "ctrl+shift+o",
     "command": "-workbench.action.gotoSymbol"
   },
   {
-    "key": "alt+f",
-    "command": "editor.action.fixAll"
-  },
-  {
-    // 七牛云文件上传插件
-    "key": "alt+f7",
-    "command": "extension.qiniu",
-    "when": "editorTextFocus"
-  },
-  {
-    // 七牛云文件上传插件
-    "key": "ctrl+alt+v",
-    "command": "-extension.qiniu",
-    "when": "editorTextFocus"
-  },
-  {
-    // eslint 自动清除警告
-    "key": "alt+f9",
-    "command": "eslint.executeAutofix"
-  },
-  {
-    // advancedNewFile新建文件
-    "key": "ctrl+alt+n",
-    "command": "extension.advancedNewFile"
-  },
-  {
-    // 强制切换显示/隐藏编辑器提示
-    "key": "ctrl+1",
-    "command": "editor.action.triggerSuggest"
+    // 取消默认: ctrl+p
+    "key": "ctrl+p",
+    "command": "-workbench.action.quickOpenSelectPrevious",
+    "when": "inQuickOpen"
   }
 ]
 ```
