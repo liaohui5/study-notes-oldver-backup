@@ -12,7 +12,6 @@
 
 ## 插件
 
-- thunder client
 - advanced-new-file
 - Auto Close Tag
 - Auto Rename Tag
@@ -33,7 +32,6 @@
 - vscode-icons
 - TypeScript Hero
 - TypeScript Importer
-- Vetur
 - Vue 3 Snippets
 - Vue VSCode Snippets
 - Auto Import
@@ -42,6 +40,14 @@
 - Markdown Preview Github Styling
 - Material Icon Theme
 - Path Intellisense
-- React snippets
-- Reactjs code snippets
-- Simple React Snippets
+- ES7+ React/Redux/React-Native snippets
+- gitmoji
+- HTML End Tag Labels
+- javascript console utils
+- JavaScript Snippets
+- JavaScript standardjs styled snippets
+- open in browser
+- REST Client
+- Volar
+- Babel JavaScript
+- 别名路径跳转
