@@ -4,26 +4,23 @@
 
 ```json
 {
-  /////////////////////////////////////////
-  // editor
-  /////////////////////////////////////////
-  // 窗口缩放大小
-  "window.zoomLevel": 1,
+  // 缩放比例
+  "window.zoomLevel": 0.5,
 
-  // 是否允许文件面包屑路径导航
+  // 面包屑导航
   "breadcrumbs.enabled": false,
 
   // 关闭代码小地图
   "editor.minimap.enabled": false,
 
   // 编辑器字体
-  "editor.fontSize": 14,
+  "editor.fontSize": 15,
   "editor.fontLigatures": true,
-  "editor.fontFamily": "Hack, 'Operator Mono', Monaco, 'Victor Mono', Hack",
+  "editor.fontFamily": "Hack,'Operator Mono', Hack, Monaco",
 
   // 光标宽度 && 行高
   "editor.cursorWidth": 1,
-  "editor.lineHeight": 1.6,
+  "editor.lineHeight": 1.8,
 
   // 是否允许 hover
   "editor.hover.enabled": true,
@@ -70,6 +67,9 @@
   // 如果 true 文件夹中只有一个文件时,显示 "dir/file"
   "explorer.compactFolders": false,
 
+  // 忽略插件提示
+  "extensions.ignoreRecommendations": true,
+
   // 更新模式: 启动的时候检查
   "update.mode": "start",
 
@@ -84,92 +84,113 @@
   "workbench.settings.editor": "json",
   "workbench.settings.useSplitJSON": true,
 
-  // 在启动时不打开编辑器标签页
-  "workbench.startupEditor": "none"
+  // 在启动时不打开编辑器
+  "workbench.startupEditor": "none",
+
+  /////////////////////////////////////////
+  // workbench
+  /////////////////////////////////////////
+  // 颜色主题/图标主题
+  "workbench.iconTheme": "material-icon-theme",
+  "workbench.colorTheme": "rimless-monokai",
+
+  // 打开设置使用左右json
+  "workbench.settings.editor": "json",
+  "workbench.settings.useSplitJSON": true,
+
+  // 在启动时不打开编辑器
+  "workbench.startupEditor": "none",
 }
 ```
 
 ### 插件配置项
 
 ```json
-/////////////////////////////////////////
-// extensions
-/////////////////////////////////////////
-// 图标插件(vsicons/material-icon-theme): 隐藏左边的箭头
-"vsicons.presets.hideExplorerArrows": true,
-"material-icon-theme.hidesExplorerArrows": true,
+  /////////////////////////////////////////
+  // extensions
+  /////////////////////////////////////////
+  // 图标插件(vsicons/material-icon-theme): 隐藏左边的箭头
+  "vsicons.presets.hideExplorerArrows": true,
+  "material-icon-theme.hidesExplorerArrows": true,
 
-// todo-tree 插件
-"todo-tree.highlights.enabled": true,
-"todo-tree.general.tags": ["BUG", "HACK", "FIXME", "TODO", "XXX", "[ ]", "[x]"],
-"todo-tree.regex.regex": "(//|#|<!--|;|/\\*|^|^\\s*(-|\\d+.))\\s*($TAGS)",
-"todo-tree.highlights.defaultHighlight": {
-  "icon": "alert",
-  "type": "text",
-  "foreground": "#f00",
-  "background": "#000",
-  "opacity": 0,
-  "iconColour": "#00f"
-},
+  // markdown github styling
+  "markdown-preview-github-styles.colorTheme": "light",
 
-// eslint 格式化
-"eslint.format.enable": true,
-"eslint.lintTask.enable": true,
-"eslint.quiet": true,
-"eslint.probe": ["javascript", "javascriptreact", "typescript", "typescriptreact", "html", "vue", "jsx"],
-"eslint.alwaysShowStatus": true,
-"eslint.debug": true,
+  // eslint 格式化
+  "eslint.format.enable": true,
+  "eslint.lintTask.enable": true,
+  "eslint.quiet": true,
+  "eslint.probe": ["javascript", "javascriptreact", "typescript", "typescriptreact", "html", "vue", "jsx"],
+  "eslint.alwaysShowStatus": true,
+  "eslint.debug": true,
 
-// prettier 格式化默认设置
-"prettier.printWidth": 120,
-"prettier.vueIndentScriptAndStyle": true,
-"[yaml]": {
-  "editor.defaultFormatter": "esbenp.prettier-vscode"
-},
-"[javascript]": {
-  "editor.defaultFormatter": "esbenp.prettier-vscode"
-},
-"[vue]": {
-  "breadcrumbs.showFunctions": true,
-  "editor.defaultFormatter": "esbenp.prettier-vscode"
-},
-"[json]": {
-  "editor.defaultFormatter": "esbenp.prettier-vscode"
-},
-"[html]": {
-  "editor.defaultFormatter": "esbenp.prettier-vscode"
-},
-"[jsonc]": {
-  "editor.defaultFormatter": "esbenp.prettier-vscode"
-},
-"[javascriptreact]": {
-  "editor.defaultFormatter": "esbenp.prettier-vscode"
-},
-"[typescript]": {
-  "editor.defaultFormatter": "esbenp.prettier-vscode"
-},
-"[typescriptreact]": {
-  "editor.defaultFormatter": "esbenp.prettier-vscode"
-},
-"[css]": {
-  "editor.defaultFormatter": "esbenp.prettier-vscode"
-},
-"[less]": {
-  "editor.defaultFormatter": "esbenp.prettier-vscode"
-},
+  // todo-tree 插件
+  "todo-tree.highlights.enabled": true,
+  "todo-tree.general.tags": ["BUG", "HACK", "FIXME", "TODO", "XXX", "[ ]", "[x]"],
+  "todo-tree.regex.regex": "(//|#|<!--|;|/\\*|^|^\\s*(-|\\d+.))\\s*($TAGS)",
+  "todo-tree.highlights.defaultHighlight": {
+    "icon": "alert",
+    "type": "text",
+    "foreground": "#f00",
+    "background": "#000",
+    "opacity": 0,
+    "iconColour": "#00f"
+  },
 
-// leetcode 插件配置
-"leetcode.endpoint": "leetcode-cn",
-"leetcode.hint.configWebviewMarkdown": false,
-"leetcode.defaultLanguage": "javascript",
-"leetcode.workspaceFolder": "/Users/liaohui5/Desktop/leetcode",
-"leetcode.hint.commandShortcut": false,
-"leetcode.hint.commentDescription": false,
+  // prettier 格式化默认设置
+  "prettier.printWidth": 120,
+  "prettier.vueIndentScriptAndStyle": true,
+  "[yaml]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[vue]": {
+    "breadcrumbs.showFunctions": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[css]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[less]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[markdown]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+
+  // leetcode 插件配置
+  "leetcode.endpoint": "leetcode-cn",
+  "leetcode.hint.configWebviewMarkdown": false,
+  "leetcode.defaultLanguage": "javascript",
+  "leetcode.workspaceFolder": "/Users/liaohui5/Desktop/leetcode",
+  "leetcode.hint.commandShortcut": false,
+  "leetcode.hint.commentDescription": false,
 ```
 
 ## 快捷键绑定
 
 ```json
+// Place your key bindings in this file to override the defaults
 [
   {
     // 切换 vim 插件禁用状态
@@ -188,15 +209,93 @@
   },
   {
     // 强制切换显示/隐藏编辑器提示
-    "key": "alt+1",
-    "command": "editor.action.triggerSuggest"
+    "key": "ctrl+/",
+    "command": "editor.action.triggerSuggest",
+    "when": "textInputFocus && !suggestWidgetVisible && !editorReadonly"
   },
   {
     // 搜索文件快速打开
     "key": "ctrl+p",
-    "command": "workbench.action.quickOpen"
+    "command": "workbench.action.quickOpen",
+    "when": "textInputFocus && !editorReadonly"
   },
-  
+  {
+    // 代码提示显示时: 选中上一个代码提示
+    "key": "ctrl+p",
+    "command": "selectPrevSuggestion",
+    "when": "suggestWidgetVisible && suggestWidgetMultipleSuggestions"
+  },
+  {
+    // 代码提示显示时: 选中下一个代码提示
+    "key": "ctrl+n",
+    "command": "selectNextSuggestion",
+    "when": "suggestWidgetVisible && suggestWidgetMultipleSuggestions"
+  },
+  {
+    // 在显示搜索文件输入框时: 选中上一个
+    "key": "ctrl+p",
+    "command": "workbench.action.quickOpenSelectPrevious",
+    "when": "inQuickOpen"
+  },
+  {
+    // 在显示搜索文件输入框时: 选中下一个
+    "key": "ctrl+n",
+    "command": "workbench.action.quickOpenSelectNext",
+    "when": "inQuickOpen"
+  },
+  {
+    // 在编辑器/任意输入框没有焦点的时: 获取焦点
+    "key": "[Space]",
+    "command": "workbench.action.focusFirstEditorGroup",
+    "when": "!editorTextFocus && !textInputFocus && !editorFocus && !inputFocus"
+  },
+  {
+    // 编辑器报错时: 快速修复
+    "key": "alt+.",
+    "command": "editor.action.quickFix",
+    "when": "editorHasCodeActionsProvider && editorTextFocus && !editorReadonly"
+  },
+
+  ////////////////////////////////////////////////////////
+  // 光标在侧边栏的时候: 配合 vim 使用
+  ////////////////////////////////////////////////////////
+  {
+    // a: 新建文件
+    "key": "a",
+    "command": "explorer.newFile",
+    "when": "explorerViewletFocus && !explorerResourceReadonly && !inputFocus"
+  },
+  {
+    // r: 修改文件名
+    "key": "r",
+    "command": "renameFile",
+    "when": "explorerViewletFocus && filesExplorerFocus && !explorerResourceReadonly && !inputFocus"
+  },
+  {
+    // d: 删除文件
+    "key": "d",
+    "command": "moveFileToTrash",
+    "when": "explorerViewletFocus && filesExplorerFocus && !explorerResourceReadonly && !inputFocus"
+  },
+  {
+    // enter: 打开文件
+    "key": "enter",
+    "command": "explorer.openAndPassFocus",
+    "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsFolder && !inputFocus"
+  },
+  {
+    // s: 在侧边打开文件, 会新开一个窗口
+    "key": "s",
+    "command": "explorer.openToSide",
+    "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsFolder && !inputFocus"
+  },
+  {
+    // p: 预览文件(不会直接获取光标)
+    "key": "p",
+    "command": "filesExplorer.openFilePreserveFocus",
+    "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsFolder && !inputFocus"
+  },
+
   ////////////////////////////////////////////////////////
   // 取消默认
   ////////////////////////////////////////////////////////
@@ -221,6 +320,18 @@
     "key": "ctrl+p",
     "command": "-workbench.action.quickOpenSelectPrevious",
     "when": "inQuickOpen"
+  },
+  {
+    // 取消 ctrl + 下方向键
+    "key": "cmd+down",
+    "command": "-explorer.openAndPassFocus",
+    "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsFolder && !inputFocus"
+  },
+  {
+    // 取消默认的 cmd + .
+    "key": "cmd+.",
+    "command": "-editor.action.quickFix",
+    "when": "editorHasCodeActionsProvider && editorTextFocus && !editorReadonly"
   }
 ]
 ```

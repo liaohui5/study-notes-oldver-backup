@@ -11,16 +11,21 @@
 
 ### vim 搜索替换
 
-可以使用 `vim` 插件自带的, 但是感觉 `vim` 美中不足的就是 `vscode` 的状态栏是在太小了, 可以使用 `Vim Search and Replace ` 这个插件来代替 `vim` vscode 的状态栏太小的问题
+可以使用 `vim` 插件自带的, 但是感觉 `vim` 美中不足的就是 `vscode` 的状态栏是在太小了,
+可以使用 `Vim Search and Replace ` 这个插件来代替 `vim` vscode 的状态栏太小的问题
 
 ### easymotion 快速移动
 
-- `<leader><leader>s+[搜索关键字]`: 搜索移动
-- `<leader><leader>j`: 向下移动行
-- `<leader><leader>k`: 向上移动行
-- `<leader><leader>w` 或 `<leader><leader>e`: 向下移动单词
-- `<leader><leader>b`: 向上移动单词
-- `leader键` 默认是 `\`, 也就是说如果想向上移动就 `\\k`
+- `s+[搜索关键字]`: 搜索移动
+- `<leader>j`: 向下移动行
+- `<leader>k`: 向上移动行
+- `leader键` 默认是 `\`, 也就是说如果想向上移动就 `\\k`, 但是我习惯修改为 `<Space>`
+
+### camelCaseMotion 大小写单词移动
+
+- `<leader>w`: 向后移动一个单词(下一个单词的第一个字符) `helloWorld` 在 `h` 处按下就移动到 `W` 位置
+- `<leader>e`: 向后移动一个单词(当前单词的最末尾字符) `helloWorld` 在 `h` 出按下就移动到 `o` 位置
+- `<leader>b`: 向前移动一个单词(移动到当前单词的第一个字符) `helloWorld` 在 `d` 处按下就移动到 `W` 位置
 
 ### vim-surround 快速修改环绕字符
 
@@ -50,22 +55,99 @@
   //    \_/ |_|_| |_| |_|  \___\___/|_| |_|_| |_|\__, |
   //                                              __/ |
   //                                             |___/
+  // 开启 easymotion 插件: https://github.com/easymotion/vim-easymotion
   "vim.easymotion": true,
+
+  // 开启 CamelCaseMotion 插件: https://github.com/bkad/CamelCaseMotion
+  "vim.camelCaseMotion.enable": true,
+
   "vim.sneak": true,
   "vim.easymotionDimBackground": true,
   "vim.autoindent": false,
+
+  // 高亮被复制的内容
+  "vim.highlightedyank.enable": true,
+
+  // 高亮被复制的内容(高亮时的背景颜色)
+  "vim.highlightedyank.color": "rgba(0, 0, 0, 0.5)",
+
+  // 在切换 VIM 模式时,不要设置状态栏的颜色
   "vim.statusBarColorControl": false,
+
+  // 高亮搜索内容
   "vim.hlsearch": true,
+
+  // 搜索的时候忽略大小写
+  "vim.ignorecase": false,
+
+  // 更改单词包括前后的空格
   "vim.changeWordIncludesWhitespace": true,
-  "vim.camelCaseMotion.enable": true,
+
   "vim.foldfix": true,
+
+  // 使用系统粘贴板
   "vim.useSystemClipboard": true,
+
+  // leader 键映射
   "vim.leader": "<space>",
+
+  // insert 模式光标样式
   "vim.cursorStylePerMode.insert": "line",
+
+  // noraml 模式光标样式
   "vim.cursorStylePerMode.normal": "block",
+
+  // visual 模式光标样式
   "vim.cursorStylePerMode.visual": "line",
   "vim.cursorStylePerMode.visualline": "line",
   "vim.cursorStylePerMode.visualblock": "line",
+  "vim.visualModeKeyBindingsNonRecursive": [
+    {
+      // $ 移动到本行结尾(不包括换行符)
+      "before": ["$"],
+      "after": ["$", "h"]
+    },
+    {
+      // s 删除而不是剪切
+      "before": ["s"],
+      "after": ["\"", "_", "s"]
+    },
+    {
+      // x 删除而不是剪切
+      "before": ["x"],
+      "after": ["\"", "_", "x"]
+    },
+    {
+      // Tab: 向后缩进
+      "before": ["tab"],
+      "commands": ["tab"]
+    },
+    {
+      // shift + Tab: 向前缩进
+      "before": ["<S-tab>"],
+      "commands": ["outdent"]
+    },
+    {
+      // <leader> \: 切换注释状态
+      "before": ["<leader>", "\\"],
+      "commands": ["editor.action.commentLine"]
+    },
+    {
+      // 选中下一个
+      "before": ["<leader>", "d"],
+      "commands": ["editor.action.addSelectionToNextFindMatch"]
+    },
+    {
+      // 仅粘贴操作(不会影响剪切板)
+      "before": ["p"],
+      "commands": ["editor.action.clipboardPasteAction", "extension.vim_escape"]
+    },
+    {
+      // 将选中的内容 console.log 输出(需要插件: javascript console utils)
+      "before": ["<leader>", "l"],
+      "commands": ["extension.insertLogStatement"]
+    }
+  ],
   "vim.normalModeKeyBindingsNonRecursive": [
     {
       // - :取消高亮
@@ -75,11 +157,6 @@
     {
       // <space>+s: save file
       "before": ["<leader>", "s"],
-      "commands": [":w"]
-    },
-    {
-      // <space>+w: save file
-      "before": ["<leader>", "w"],
       "commands": [":w"]
     },
     {
@@ -118,11 +195,6 @@
       "after": ["<leader>", "<leader>", "s"]
     },
     {
-      // f: 用 easymotion 向后搜索自定字符
-      "before": ["f"],
-      "after": ["<leader>", "<leader>", "f"]
-    },
-    {
       // <leader>h: 用 easymotion 向前指定单词位置
       "before": ["<leader>", "h"],
       "after": ["<leader>", "<leader>", "h"]
@@ -138,9 +210,29 @@
       "after": ["<leader>", "<leader>", "j"]
     },
     {
-      // <leader>j: 用 easymotion 向前指定行
+      // <leader>k: 用 easymotion 向前指定行
       "before": ["<leader>", "k"],
       "after": ["<leader>", "<leader>", "k"]
+    },
+    {
+      // 显示标签页选择面板
+      "before": ["<leader>", "l"],
+      "commands": ["workbench.action.quickOpenPreviousRecentlyUsedEditor"]
+    },
+    {
+      // 显示快速修复问题菜单(相当于点击小灯泡)
+      "before": ["<leader>", "m"],
+      "commands": ["editor.action.quickFix"]
+    },
+    {
+      // 快速定位到上一个报错位置(相当于点击小灯泡)
+      "before": ["["],
+      "commands": ["editor.action.marker.prev"]
+    },
+    {
+      // 快速定位到下一个报错位置(相当于点击小灯泡)
+      "before": ["]"],
+      "commands": ["editor.action.marker.next"]
     },
     {
       // <leader> + v + s: vue文件切分区域编辑(需要插件: volar)
@@ -148,9 +240,44 @@
       "commands": ["volar.action.splitEditors"]
     },
     {
-      // <leader> + n: 新建文件(需要插件: advanced-new-file)
+      // <leader> + n: 在当前目录新建文件(需要插件: fileutils)
       "before": ["<leader>", "n"],
-      "commands": ["extension.advancedNewFile"]
+      "commands": ["fileutils.newFile"]
+    },
+    {
+      // <leader> + N: 在根目录新建文件(需要插件: fileutils)
+      "before": ["<leader>", "N"],
+      "commands": ["fileutils.newFileAtRoot"]
+    },
+    {
+      // <leader> + f + r: 文件重命名(需要插件: fileutils)
+      "before": ["<leader>", "f", "r"],
+      "commands": ["fileutils.renameFile"]
+    },
+    {
+      // <leader> + f + d: 删除文件(需要插件: fileutils)
+      "before": ["<leader>", "f", "d"],
+      "commands": ["fileutils.removeFile"]
+    },
+    {
+      // <leader> + f + c: 复制文件(需要插件: fileutils)
+      "before": ["<leader>", "f", "c"],
+      "commands": ["fileutils.duplicateFile"]
+    },
+    {
+      // <leader> + f + n: 复制文件名(需要插件: fileutils)
+      "before": ["<leader>", "f", "n"],
+      "commands": ["fileutils.copyFileName"]
+    },
+    {
+      // <leader> + f + f: 创建文件夹(需要插件: fileutils)
+      "before": ["<leader>", "f", "f"],
+      "commands": ["fileutils.newFolder"]
+    },
+    {
+      // <leader> + f + F: 创建文件夹(需要插件: fileutils)
+      "before": ["<leader>", "f", "F"],
+      "commands": ["fileutils.newFolderAtRoot"]
     },
     {
       // ctrl + r/ <leader> + r: 替换(需要插件: Vim Search and Replace)
@@ -158,50 +285,9 @@
       "commands": ["vim-search-and-replace.start"]
     },
     {
+      // vim 搜索替换
       "before": ["<leader>", "r"],
       "commands": ["vim-search-and-replace.start"]
-    }
+    },
   ],
-  "vim.visualModeKeyBindingsNonRecursive": [
-    {
-      // $ 移动到本行结尾(不包括换行符)
-      "before": ["$"],
-      "after": ["$", "h"]
-    },
-    {
-      // s 删除而不是剪切
-      "before": ["s"],
-      "after": ["\"", "_", "s"]
-    },
-    {
-      // x 删除而不是剪切
-      "before": ["x"],
-      "after": ["\"", "_", "x"]
-    },
-    {
-      // Tab: 向后缩进
-      "before": ["tab"],
-      "commands": ["tab"]
-    },
-    {
-      // shift + Tab: 向前缩进
-      "before": ["<S-tab>"],
-      "commands": ["outdent"]
-    },
-    {
-      // 选中下一个
-      "before": ["<leader>", "d"],
-      "commands": ["editor.action.addSelectionToNextFindMatch"]
-    },
-    {
-      // 仅粘贴操作(不会影响剪切板)
-      "before": ["p"],
-      "commands": ["editor.action.clipboardPasteAction", "extension.vim_escape"]
-    },
-    {
-      // 将选中的内容 console.log 输出(需要插件: javascript console utils)
-      "before": ["<leader>", "l"],
-      "commands": ["extension.insertLogStatement"]
-    }
-  ]
 ```
