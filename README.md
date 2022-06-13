@@ -20,4 +20,4 @@
 
 github: [https://github.com/liaohui5](https://github.com/liaohui5)
 
-![logo.jpg](./vue/img/sysndfy.jpg)
+![logo.jpg](https://raw.githubusercontent.com/liaohui5/images/main/images/wallpaper.png)
