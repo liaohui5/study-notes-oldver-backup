@@ -18,7 +18,7 @@ Redux 是 JavaScript 状态容器，提供可预测化的状态管理。[中文�
 2. 所有状态不能直接修改, 只能通过 action 来修改
 3. 通过 reducer 将 store 和 action 串联起来
 
-![redux-flow](./images/redux-flow.jpg)
+![redux-flow](https://raw.githubusercontent.com/liaohui5/images/main/images/202206131702851.jpg)
 
 ### redux 基本使用
 
@@ -85,7 +85,7 @@ npm i redux react-redux
 
 #### 创建相关文件
 
-![react-store](./images/react-redux-files.png)
+![react-store](https://raw.githubusercontent.com/liaohui5/images/main/images/202206131702798.png)
 
 #### 代码实现
 
@@ -370,7 +370,7 @@ render(
 
 使用中间件, 可以降低代码耦合性, 提高代码的可维护性
 
-![redux-middleware](./images/redux-middleware.png)
+![redux-middleware](https://raw.githubusercontent.com/liaohui5/images/main/images/202206131702358.png)
 
 [redux-thunk github](https://github.com/reduxjs/redux-thunk/)
 
@@ -575,7 +575,7 @@ export default store;
 
 - 目录结构: 拆分 reducers 和 actions
 
-![combin-reducers](./images/combin-reducers.png)
+![combin-reducers](https://raw.githubusercontent.com/liaohui5/images/main/images/202206131703015.png)
 
 - 合并 reducers
 

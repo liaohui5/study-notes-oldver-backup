@@ -72,4 +72,4 @@ export default App;
 
 渲染结果如下:
 
-![react-fragment](./images/react-fragment.png)
+![react-fragment](https://raw.githubusercontent.com/liaohui5/images/main/images/202206131702681.png)

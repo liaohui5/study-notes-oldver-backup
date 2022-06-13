@@ -10,8 +10,9 @@
   - [JavaScript 基础](https://www.yuque.com/liaohui5/js-base)
   - [JavaScript DOM & BOM](https://www.yuque.com/liaohui5/js-dom)
   - [JavaScript ES6](https://www.yuque.com/liaohui5/es6)
-  - [JavaScript 内置 API](/js/objects/README)
-  - [JavaScript 插件](/js/plugins/README)
+  - [JavaScript 练习](/js/practice)
+  - [JavaScript 内置 API](/js/objects)
+  - [JavaScript 插件](/js/plugins)
   - [JavaScript 单元测试](/jest/1.install)
 
 - TypeScript
@@ -27,7 +28,7 @@
   <!-- - [源码解读](/vue/source) -->
 
   - [Vue.js](https://cn.vuejs.org/v2/guide/index.html)
-  - [Vue.js 3.x](https://v3.cn.vuejs.org/guide/introduction.html)
+  - [Vue.js 3.x](https://vuejs.org/)
   - [vue-cli](https://cli.vuejs.org/zh/guide/installation.html)
   - [vite](https://cn.vitejs.dev/guide/)
   - [vue-dev-tools](https://github.com/vuejs/vue-devtools)

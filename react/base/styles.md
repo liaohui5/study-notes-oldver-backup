@@ -96,7 +96,7 @@ export default App;
 
 实际渲染效果：`类名都是经过处理后的类名, 所以不会污染全局的类名`
 
-![./images/image-20210103204440494](./images/image-20210103204440494.png)
+![./images/image-20210103204440494](https://raw.githubusercontent.com/liaohui5/images/main/images/202206131703179.png)
 
 ### css-in-js
 
