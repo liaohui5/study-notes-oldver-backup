@@ -12,42 +12,44 @@
 
 ## 插件
 
-- advanced-new-file
+- 别名路径跳转
 - Auto Close Tag
+- Auto Import
 - Auto Rename Tag
+- Bebal JavaScript
 - Better Comments
-- Debugger for Chrome
-- Env
+- Chinese Lorem
 - DotEnv
 - EditorConfig for VS Code
 - EditorConfigGenerator
+- Env
 - ESLint
+- File Utils
+- Gitmoji
+- JavaScript (ES6) code snippets
+- javascript console utils
+- JavaScript Snippets
+- JavaScript standardjs styled snippets
+- Jest
+- Jest Runner
+- Jest Snippets
+- LeetCode
+- Lorem ipsum
+- Markdown Checkboxes
+- Markdown Preview Github Styling
+- Material Icon Themes
+- Material Theme
+- Material Theme Icons
+- Open in browser
+- Path Interllisense
 - Prettier - Code formatter
 - Project Manager
 - rimless-monokai
-- JavaScript (ES6) code snippets
 - Todo Tree
 - Vim
 - Vim Search and Replace
 - vscode-icons
-- TypeScript Hero
-- TypeScript Importer
 - Vue 3 Snippets
+- Vue Language Features(Volar)
 - Vue VSCode Snippets
-- Auto Import
-- LeetCode
-- Markdown Checkboxes
-- Markdown Preview Github Styling
-- Material Icon Theme
-- Path Intellisense
-- ES7+ React/Redux/React-Native snippets
-- gitmoji
-- HTML End Tag Labels
-- javascript console utils
-- JavaScript Snippets
-- JavaScript standardjs styled snippets
-- open in browser
-- REST Client
-- Volar
-- Babel JavaScript
-- 别名路径跳转
+- YAML
