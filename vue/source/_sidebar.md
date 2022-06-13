@@ -1,2 +1,0 @@
-- [解读源码之前的准备](/vue/source/prepare)
-- [new Vue 发生了什么?](/vue/source/new_vue)

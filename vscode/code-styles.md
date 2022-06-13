@@ -118,7 +118,7 @@ eslint --init
 - `检查语法找出问题` : To check syntax and find problems
 - `检查语法找出问题并强制约束代码风格` : To check syntax, find problems, and enforce code style
 
-![notes_imgs_20200326041747](./images/notes_imgs_20200326041747.png)
+![notes_imgs_20200326041747](https://raw.githubusercontent.com/liaohui5/images/main/images/202206131705745.png)
 
 > 使用什么规范模块化
 
@@ -126,7 +126,7 @@ eslint --init
 - `commonJS模块化` : CommonJS (require/exports)
 - `None of these` : 不使用模块化
 
-![notes_imgs_20200326043436](./images/notes_imgs_20200326043436.png)
+![notes_imgs_20200326043436](https://raw.githubusercontent.com/liaohui5/images/main/images/202206131705536.png)
 
 > 使用什么框架?
 
@@ -134,30 +134,30 @@ eslint --init
 - vue.js
 - 不使用框架
 
-![notes_imgs_20200326043652](./images/notes_imgs_20200326043652.png)
+![notes_imgs_20200326043652](https://raw.githubusercontent.com/liaohui5/images/main/images/202206131705868.png)
 
 > 项目是否使用 typescript
 
-![notes_imgs_20200326043753](./images/notes_imgs_20200326043753.png)
+![notes_imgs_20200326043753](https://raw.githubusercontent.com/liaohui5/images/main/images/202206131705966.png)
 
 > 选择代码运行的环境
 
 - browser: 浏览器环境
 - node: 服务端 nodejs 环境
 
-![notes_imgs_20200326043836](./images/notes_imgs_20200326043836.png)
+![notes_imgs_20200326043836](https://raw.githubusercontent.com/liaohui5/images/main/images/202206131705198.png)
 
 > 如何约束代码风格
 
 - `使用知名的代码规范(推荐)` Use a popular style guide
 
-![notes_imgs_20200326044015](./images/notes_imgs_20200326044015.png)
+![notes_imgs_20200326044015](https://raw.githubusercontent.com/liaohui5/images/main/images/202206131705197.png)
 
-![notes_imgs_20200326044810](./images/notes_imgs_20200326044810.png)
+![notes_imgs_20200326044810](https://raw.githubusercontent.com/liaohui5/images/main/images/202206131705627.png)
 
 > 使用什么格式的配置文件保存 eslint 的配置
 
-![notes_imgs_20200326044225](./images/notes_imgs_20200326044225.png)
+![notes_imgs_20200326044225](https://raw.githubusercontent.com/liaohui5/images/main/images/202206131705210.png)
 
 ### 如何在写代码的时候提示错误, 校验代码风格
 
@@ -165,8 +165,8 @@ eslint --init
 
 - 设置 webstorm
 
-![notes_imgs_20200326045245](./images/notes_imgs_20200326045245.png)
+![notes_imgs_20200326045245](https://raw.githubusercontent.com/liaohui5/images/main/images/202206131705895.png)
 
 - 设置 vscode
 
-![notes_imgs_20200326045620](./images/notes_imgs_20200326045620.png)
+![notes_imgs_20200326045620](https://raw.githubusercontent.com/liaohui5/images/main/images/202206131705954.png)

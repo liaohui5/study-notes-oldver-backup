@@ -41,7 +41,7 @@ module.exports = {
 
 - 目录结构
 
-![notes_imgs_20200304130915](./images/notes_imgs_20200304130915.png)
+![notes_imgs_20200304130915](https://raw.githubusercontent.com/liaohui5/images/main/images/202206131710559.png)
 
 - `/src/index.js`
 
@@ -75,7 +75,7 @@ body {
 
 - 结果
 
-![notes_imgs_20200304130824](./images/notes_imgs_20200304130824.png)
+![notes_imgs_20200304130824](https://raw.githubusercontent.com/liaohui5/images/main/images/202206131711855.png)
 
 ## 其他 css 预处理器的配置也是同样的步骤
 

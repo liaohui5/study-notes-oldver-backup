@@ -50,7 +50,7 @@ module.exports = {
 
 ### 创建对应的目录
 
-![notes_imgs_20200302024333](./images/notes_imgs_20200302024333.png)
+![notes_imgs_20200302024333](https://raw.githubusercontent.com/liaohui5/images/main/images/202206131710743.png)
 
 ### 执行打包命令
 
@@ -81,8 +81,8 @@ npx webpack --config=test.webpack.config.js
 
 ### 安装插件 codeRunner
 
-![20200302023414](./images/20200302023414.png)
+![20200302023414](https://raw.githubusercontent.com/liaohui5/images/main/images/202206131710841.png)
 
 ### 查看运行结果
 
-![notes_imgs_20200302184158](./images/notes_imgs_20200302184158.png)
+![notes_imgs_20200302184158](https://raw.githubusercontent.com/liaohui5/images/main/images/202206131710278.png)

@@ -51,19 +51,19 @@ npm i yo generator-code vsce
 
 1. 创建一个组织: new_organization, 我这里创建了一个 `rimless-monokai`
 
-![neworganization](./images/new_organization.png)
+![neworganization](https://raw.githubusercontent.com/liaohui5/images/main/images/202206131706591.png)
 
 2. 进入组织主页, 去创建一个 `token`
 
-![new_token](./images/create_token.png)
+![new_token](https://raw.githubusercontent.com/liaohui5/images/main/images/202206131706863.png)
 
 3. 创建 token, 勾选相关选项(注意访问权限选项)
 
-![create_token](./images/create_token_detail.png)
+![create_token](https://raw.githubusercontent.com/liaohui5/images/main/images/202206131706988.png)
 
 4. 保存 token
 
-![save_token](./images/save_token.png)
+![save_token](https://raw.githubusercontent.com/liaohui5/images/main/images/202206131706070.png)
 
 5. 使用 vsce 登录, 此时会让你输入 token, 就是之前在 azure 中创建的那个 token
 
@@ -72,7 +72,7 @@ npm i yo generator-code vsce
 vsce login rimless-monokai
 ```
 
-![vsce_login](./images/vsce_login.png)
+![vsce_login](https://raw.githubusercontent.com/liaohui5/images/main/images/202206131706999.png)
 
 6. 发布
 1. 注意 `packge.json` 版本号
@@ -82,5 +82,5 @@ vsce login rimless-monokai
 vsce publish
 ```
 
-![packagejson](./images/packagejson_overview.png)
-![pluginoverview](./images/plugin_overview.png)
+![packagejson](https://raw.githubusercontent.com/liaohui5/images/main/images/202206131706837.png)
+![pluginoverview](https://raw.githubusercontent.com/liaohui5/images/main/images/202206131706174.png)
