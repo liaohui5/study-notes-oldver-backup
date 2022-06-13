@@ -10,6 +10,6 @@ docker rmi -f studynotes
 
 ## rebuild image && restart container
 docker build . -t studynotes && \
-docker run -dp 443:443 -p 80:80 \
+docker run -dp 443:443 \
 --name studynotes studynotes
 
