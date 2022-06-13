@@ -92,7 +92,7 @@ Status: Downloaded newer image for mysql:5.5
 docker.io/library/mysql:5.5
 ```
 
-![image-20200711003246383](images/image-20200711003246383.png)
+![image-20200711003246383](https://raw.githubusercontent.com/liaohui5/images/main/images/202206131633635.png)
 
 > docker rmi 删除镜像
 
@@ -209,7 +209,7 @@ sudo docker inspect centos # 查看 centos 这个镜像的元信息
 
 ## 总结图示
 
-![image-20200711014627325](images/image-20200711014627325.png)
+![image-20200711014627325](https://raw.githubusercontent.com/liaohui5/images/main/images/202206131633670.png)
 
 ## 安装图形化管理工具
 

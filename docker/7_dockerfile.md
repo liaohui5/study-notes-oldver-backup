@@ -2,13 +2,13 @@
 
 Dockerfile 可以认为是**Docker 镜像的描述文件，是由一系列命令和参数构成的脚本**。主要作用是**用来构建 docker 镜像的构建文件**。
 
-![image-20200404111908085](Docker_1.assets/image-20200404111908085.png)
+![image-20200404111908085](https://raw.githubusercontent.com/liaohui5/images/main/images/202206131634719.png)
 
 - **通过架构图可以看出通过 DockerFile 可以直接构建镜像**
 
 ### Dockerfile 解析过程
 
-![image-20200603181253804](Docker_1.assets/image-20200603181253804.png)
+![image-20200603181253804](https://raw.githubusercontent.com/liaohui5/images/main/images/202206131634910.png)
 
 ### Dockerfile 的保留命令
 
@@ -59,7 +59,7 @@ Dockerfile 可以认为是**Docker 镜像的描述文件，是由一系列命令
   ```dockerfile
   RUN <command> (shell form, the command is run in a shell, which by default is /bin/sh -c on Linux or cmd /S /C on Windows)
   RUN echo hello
-
+  
   RUN ["executable", "param1", "param2"] (exec form)
   RUN ["/bin/bash", "-c", "echo hello"]
   ```
@@ -97,7 +97,7 @@ Dockerfile 可以认为是**Docker 镜像的描述文件，是由一系列命令
 
   ```dockerfile
   WORKDIR /path/to/workdir
-
+  
   WORKDIR /a
   WORKDIR b
   WORKDIR c

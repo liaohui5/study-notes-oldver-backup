@@ -10,31 +10,34 @@
 2. [virtualbox 6.1](https://download.virtualbox.org/virtualbox/6.1.10/VirtualBox-6.1.10-138449-Win.exe)
 3. 查看 CPU 虚拟化技术 是否开启
 
-![image-20200709033343762](images/image-20200709033343762.png)
+
+
+![image-20200709033343762](https://raw.githubusercontent.com/liaohui5/images/main/images/202206131630339.png)
+
 
 > 在 virtualbox 中安装 centos
 
-![image-20200709030141770](images/image-20200709030141770.png)
+![image-20200709030141770](https://raw.githubusercontent.com/liaohui5/images/main/images/202206131631903.png)
 
-![image-20200709030225650](images/image-20200709030225650.png)
+![image-20200709030225650](https://raw.githubusercontent.com/liaohui5/images/main/images/202206131631989.png)
 
-![image-20200709030349162](images/image-20200709030349162.png)
+![image-20200709030349162](https://raw.githubusercontent.com/liaohui5/images/main/images/202206131631185.png)
 
 网卡 1 不需要修改, `网卡2` 修改如下(`界面名称` 可能和我的不一样, 随便选择一个就可以):
 
-![image-20200709030425487](images/image-20200709030425487.png)
+![image-20200709030425487](https://raw.githubusercontent.com/liaohui5/images/main/images/202206131632542.png)
 
-![image-20200709030459237](images/image-20200709030459237.png)
+![image-20200709030459237](https://raw.githubusercontent.com/liaohui5/images/main/images/202206131632627.png)
 
-![image-20200709030653142](images/image-20200709030653142.png)
+![image-20200709030653142](https://raw.githubusercontent.com/liaohui5/images/main/images/202206131632226.png)
 
-![image-20200709030921419](images/image-20200709030921419.png)
+![image-20200709030921419](https://raw.githubusercontent.com/liaohui5/images/main/images/202206131632450.png)
 
-![image-20200709031027922](images/image-20200709031027922.png)
+![image-20200709031027922](https://raw.githubusercontent.com/liaohui5/images/main/images/202206131632885.png)
 
-![image-20200709031238282](images/image-20200709031238282.png)
+![image-20200709031238282](https://raw.githubusercontent.com/liaohui5/images/main/images/202206131632314.png)
 
-![image-20200709031443229](images/image-20200709031443229.png)
+![image-20200709031443229](https://raw.githubusercontent.com/liaohui5/images/main/images/202206131632155.png)
 
 ## 配置网络
 
@@ -42,7 +45,7 @@
 
 1. 配置 virtualbox 虚拟网卡
 
-![配置虚拟网卡1](https://raw.githubusercontent.com/liaohui5/images/main/images/20210709191200.png)
+![配置虚拟网卡1](https://raw.githubusercontent.com/liaohui5/images/main/images/202206131633598.png)
 ![配置虚拟网卡1](https://raw.githubusercontent.com/liaohui5/images/main/images/20210709191543.png)
 
 2. 设置虚拟机网络(桥接网络连接外网, host-only 让宿主机可以连接虚拟机)

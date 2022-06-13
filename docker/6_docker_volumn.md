@@ -4,11 +4,11 @@
 
 docker 是将整个应用和环境打包成一个个镜像, 但是数据不应该直接存储在 docker 容器中, 如果删除容器所有数据都会丢失, 这就不科学, 而且, 不可能每次修改个配置文件就进入 docker 去修改, 所有就有了容器的数据卷的概念, 将 `docker容器中目录`通过挂载的方式同步到 `linux 主机上`
 
-![image-20200711185834204](images/image-20200711185834204.png)
+![image-20200711185834204](https://raw.githubusercontent.com/liaohui5/images/main/images/202206131634247.png)
 
 **容器的数据持久化和同步操作, 容器与容器之间可以实现数据共享, 简单理解: 功能就类似于虚拟机的共享目录, 无论是在主机中修改文件还是在容器中修改文件, 另外一方都会自动同步, 功能效果就类似于 vue.js 的双向绑定**
 
-![image-20200711190703516](images/image-20200711190703516.png)
+![image-20200711190703516](https://raw.githubusercontent.com/liaohui5/images/main/images/202206131634909.png)
 
 #### 为啥要使用容器卷
 

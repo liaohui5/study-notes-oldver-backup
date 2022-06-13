@@ -92,4 +92,4 @@ curl http://localhost:3333
 http://192.168.xxx.xxx:3333
 ```
 
-![image-20200711063702699](images/image-20200711063702699.png)
+![image-20200711063702699](https://raw.githubusercontent.com/liaohui5/images/main/images/202206131634173.png)
