@@ -20,7 +20,7 @@
 
   // 光标宽度 && 行高
   "editor.cursorWidth": 1,
-  "editor.lineHeight": 1.8,
+  "editor.lineHeight": 1.6,
 
   // 是否允许 hover
   "editor.hover.enabled": true,
@@ -35,9 +35,9 @@
 
   // 代码提示的类型
   "editor.quickSuggestions": {
-    "other": "on", // 其他
-    "comments": "off",
-    "strings": "on"
+    "other": "on",      // 其他(snippets + suggest)
+    "comments": "off",  // 注释内容
+    "strings": "on"     // 代码中的字符串
   },
 
   // 匹配括号
@@ -73,19 +73,8 @@
   // 更新模式: 启动的时候检查
   "update.mode": "start",
 
-  /////////////////////////////////////////
-  // workbench
-  /////////////////////////////////////////
-  // 颜色主题/图标主题
-  "workbench.iconTheme": "material-icon-theme",
-  "workbench.colorTheme": "rimless-monokai",
-
-  // 打开设置使用左右json
-  "workbench.settings.editor": "json",
-  "workbench.settings.useSplitJSON": true,
-
-  // 在启动时不打开编辑器
-  "workbench.startupEditor": "none",
+  // 在侧边栏修改文件名时,代码自动跟新路径
+  "javascript.updateImportsOnFileMove.enabled": "always",
 
   /////////////////////////////////////////
   // workbench
@@ -113,8 +102,19 @@
   "vsicons.presets.hideExplorerArrows": true,
   "material-icon-theme.hidesExplorerArrows": true,
 
+  // volar插件不显示 references
+  "volar.codeLens.references": false,
+
   // markdown github styling
   "markdown-preview-github-styles.colorTheme": "light",
+
+  // 自定义宏(在快捷键中可以用: vscode快捷键 + vim快捷键)
+  "macros": {
+    "copyExplorerFileWithoutRename":[
+      "filesExplorer.copy",
+      "filesExplorer.paste",
+    ]
+  },
 
   // eslint 格式化
   "eslint.format.enable": true,
@@ -138,7 +138,7 @@
   },
 
   // prettier 格式化默认设置
-  "prettier.printWidth": 120,
+  "prettier.printWidth": 150,
   "prettier.vueIndentScriptAndStyle": true,
   "[yaml]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
@@ -208,16 +208,22 @@
     "command": "workbench.action.gotoSymbol"
   },
   {
-    // 强制切换显示/隐藏编辑器提示
-    "key": "ctrl+/",
+    // ctrl+\ 注释
+    "key": "ctrl+\\",
+    "command": "editor.action.commentLine",
+    "when": "editorTextFocus && vim.active && vim.mode !== 'Insert'"
+  },
+  {
+    // alt+\ 显示代码提示
+    "key": "alt+\\",
     "command": "editor.action.triggerSuggest",
-    "when": "textInputFocus && !suggestWidgetVisible && !editorReadonly"
+    "when": "editorTextFocus && vim.active && vim.mode !== 'Insert'"
   },
   {
     // 搜索文件快速打开
     "key": "ctrl+p",
     "command": "workbench.action.quickOpen",
-    "when": "textInputFocus && !editorReadonly"
+    "when": "textInputFocus || explorerViewletFocus"
   },
   {
     // 代码提示显示时: 选中上一个代码提示
@@ -245,13 +251,13 @@
   },
   {
     // 在编辑器/任意输入框没有焦点的时: 获取焦点
-    "key": "[Space]",
+    "key": "[space]",
     "command": "workbench.action.focusFirstEditorGroup",
     "when": "!editorTextFocus && !textInputFocus && !editorFocus && !inputFocus"
   },
   {
     // 编辑器报错时: 快速修复
-    "key": "alt+.",
+    "key": "alt+[Backspace]",
     "command": "editor.action.quickFix",
     "when": "editorHasCodeActionsProvider && editorTextFocus && !editorReadonly"
   },
@@ -295,6 +301,19 @@
     "command": "filesExplorer.openFilePreserveFocus",
     "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsFolder && !inputFocus"
   },
+  {
+    // c: 复制文件并且重命名(需要插件: File Utils)
+    "key": "c",
+    "command": "fileutils.duplicateFile",
+    "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsFolder && !inputFocus"
+  },
+  {
+    // y: 直接复制文件使用默认的复制文件名(需要插件: macro-commander)
+    "key": "y",
+    "command": "macros.copyExplorerFileWithoutRename",
+    "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsFolder && !inputFocus"
+  },
+
 
   ////////////////////////////////////////////////////////
   // 取消默认
@@ -322,16 +341,14 @@
     "when": "inQuickOpen"
   },
   {
-    // 取消 ctrl + 下方向键
     "key": "cmd+down",
     "command": "-explorer.openAndPassFocus",
     "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsFolder && !inputFocus"
   },
   {
-    // 取消默认的 cmd + .
     "key": "cmd+.",
     "command": "-editor.action.quickFix",
     "when": "editorHasCodeActionsProvider && editorTextFocus && !editorReadonly"
-  }
+  },
 ]
 ```

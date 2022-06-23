@@ -60,8 +60,6 @@
 
   // 开启 CamelCaseMotion 插件: https://github.com/bkad/CamelCaseMotion
   "vim.camelCaseMotion.enable": true,
-
-  "vim.sneak": true,
   "vim.easymotionDimBackground": true,
   "vim.autoindent": false,
 
@@ -128,8 +126,8 @@
       "commands": ["outdent"]
     },
     {
-      // <leader> \: 切换注释状态
-      "before": ["<leader>", "\\"],
+      // ctrl + \: 切换注释状态
+      "before": ["ctrl", "\\"],
       "commands": ["editor.action.commentLine"]
     },
     {
@@ -176,12 +174,12 @@
     },
     {
       // <leader> + d: 快速跳到定义, 也可以用于文件跳转(ctrl+MouseClick)
-      "before": ["<leader>", "d"],
+      "before": ["g", "d"],
       "commands": ["editor.action.revealDefinition"]
     },
     {
       // <leader> + f: 格式化整个文件并且保存
-      "before": ["<leader>", "f"],
+      "before": ["<leader>", "f", "f"],
       "commands": ["editor.action.formatDocument", ":w"]
     },
     {
@@ -193,16 +191,6 @@
       // s: 用 easymotion 全局搜索自定字符
       "before": ["s"],
       "after": ["<leader>", "<leader>", "s"]
-    },
-    {
-      // <leader>h: 用 easymotion 向前指定单词位置
-      "before": ["<leader>", "h"],
-      "after": ["<leader>", "<leader>", "h"]
-    },
-    {
-      // <leader>l: 用 easymotion 向后指定单词位置
-      "before": ["<leader>", "l"],
-      "after": ["<leader>", "<leader>", "l"]
     },
     {
       // <leader>j: 用 easymotion 向后指定行
@@ -225,28 +213,23 @@
       "commands": ["editor.action.quickFix"]
     },
     {
-      // 快速定位到上一个报错位置(相当于点击小灯泡)
+      // 快速定位到上一个报错位置
       "before": ["["],
       "commands": ["editor.action.marker.prev"]
     },
     {
-      // 快速定位到下一个报错位置(相当于点击小灯泡)
+      // 快速定位到下一个报错位置
       "before": ["]"],
       "commands": ["editor.action.marker.next"]
     },
     {
-      // <leader> + v + s: vue文件切分区域编辑(需要插件: volar)
-      "before": ["<leader>", "v", "s"],
-      "commands": ["volar.action.splitEditors"]
-    },
-    {
       // <leader> + n: 在当前目录新建文件(需要插件: fileutils)
-      "before": ["<leader>", "n"],
+      "before": ["<leader>", "f", "n"],
       "commands": ["fileutils.newFile"]
     },
     {
       // <leader> + N: 在根目录新建文件(需要插件: fileutils)
-      "before": ["<leader>", "N"],
+      "before": ["<leader>", "f", "N"],
       "commands": ["fileutils.newFileAtRoot"]
     },
     {
@@ -266,17 +249,17 @@
     },
     {
       // <leader> + f + n: 复制文件名(需要插件: fileutils)
-      "before": ["<leader>", "f", "n"],
+      "before": ["<leader>", "f", "e"],
       "commands": ["fileutils.copyFileName"]
     },
     {
       // <leader> + f + f: 创建文件夹(需要插件: fileutils)
-      "before": ["<leader>", "f", "f"],
+      "before": ["<leader>", "F", "f"],
       "commands": ["fileutils.newFolder"]
     },
     {
       // <leader> + f + F: 创建文件夹(需要插件: fileutils)
-      "before": ["<leader>", "f", "F"],
+      "before": ["<leader>", "F", "F"],
       "commands": ["fileutils.newFolderAtRoot"]
     },
     {

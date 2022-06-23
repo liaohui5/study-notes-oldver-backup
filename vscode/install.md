@@ -13,9 +13,7 @@
 ## 插件
 
 - 别名路径跳转
-- Auto Close Tag
 - Auto Import
-- Auto Rename Tag
 - Bebal JavaScript
 - Better Comments
 - Chinese Lorem
@@ -23,8 +21,10 @@
 - EditorConfig for VS Code
 - EditorConfigGenerator
 - Env
+- es6-string-html
 - ESLint
 - File Utils
+- gitignore
 - Gitmoji
 - JavaScript (ES6) code snippets
 - javascript console utils
@@ -35,6 +35,7 @@
 - Jest Snippets
 - LeetCode
 - Lorem ipsum
+- macro-commander
 - Markdown Checkboxes
 - Markdown Preview Github Styling
 - Material Icon Themes
@@ -45,6 +46,7 @@
 - Prettier - Code formatter
 - Project Manager
 - rimless-monokai
+- Template String Converter
 - Todo Tree
 - Vim
 - Vim Search and Replace
