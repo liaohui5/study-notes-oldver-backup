@@ -7,3 +7,6 @@
 
 - [1.邂逅 Vue.js](/vue/1.quick-start.md)
 - [2.Vue.js 基本使用](/vue/2.base-use.md)
+- [3.Vue.js 单元测试](/vue/3.unit-test.md)
+- [4.深入 Vue.js 响应式原理](/vue/4.deep-reactive.md)
+- [5.深入 Vue.js 模板处理](/vue/5.deep-template.md)
