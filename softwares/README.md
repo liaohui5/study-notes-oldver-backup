@@ -60,6 +60,8 @@
 
 - [Git图形化管理工具 SourceTree](https://www.sourcetreeapp.com/)
 
+- [快速启动器 cerebro](https://cerebroapp.com/)
+
 ## Windows
 
 - [快速搜索 火柴](http://www.huochaipro.com/)
@@ -89,6 +91,8 @@
 - [快速启动器 Alfred](https://www.alfredapp.com/)
 
 - [快速启动器 hapiGo](https://www.hapigo.com/)
+
+- [快速启动器 RayCast](https://www.raycast.com/)
 
 - [开源 MySQL 图形化客户端 Sequel(好像停止维护了)](https://sequelpro.com/)
 
