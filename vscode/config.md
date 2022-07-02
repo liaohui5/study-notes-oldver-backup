@@ -35,9 +35,9 @@
 
   // 代码提示的类型
   "editor.quickSuggestions": {
-    "other": "on",      // 其他(snippets + suggest)
-    "comments": "off",  // 注释内容
-    "strings": "on"     // 代码中的字符串
+    "other": "on", // 其他(snippets + suggest)
+    "comments": "off", // 注释内容
+    "strings": "on" // 代码中的字符串
   },
 
   // 匹配括号
@@ -88,7 +88,7 @@
   "workbench.settings.useSplitJSON": true,
 
   // 在启动时不打开编辑器
-  "workbench.startupEditor": "none",
+  "workbench.startupEditor": "none"
 }
 ```
 
@@ -214,7 +214,7 @@
     "when": "editorTextFocus && vim.active && vim.mode !== 'Insert'"
   },
   {
-    // alt+\ 显示代码提示
+    // alt+\ 注释
     "key": "alt+\\",
     "command": "editor.action.triggerSuggest",
     "when": "editorTextFocus && vim.active && vim.mode !== 'Insert'"
@@ -223,7 +223,7 @@
     // 搜索文件快速打开
     "key": "ctrl+p",
     "command": "workbench.action.quickOpen",
-    "when": "textInputFocus || explorerViewletFocus"
+    "when": "!suggestWidgetVisible"
   },
   {
     // 代码提示显示时: 选中上一个代码提示
@@ -257,7 +257,7 @@
   },
   {
     // 编辑器报错时: 快速修复
-    "key": "alt+[Backspace]",
+    "key": "alt+.",
     "command": "editor.action.quickFix",
     "when": "editorHasCodeActionsProvider && editorTextFocus && !editorReadonly"
   },
@@ -314,7 +314,6 @@
     "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsFolder && !inputFocus"
   },
 
-
   ////////////////////////////////////////////////////////
   // 取消默认
   ////////////////////////////////////////////////////////
@@ -349,6 +348,6 @@
     "key": "cmd+.",
     "command": "-editor.action.quickFix",
     "when": "editorHasCodeActionsProvider && editorTextFocus && !editorReadonly"
-  },
+  }
 ]
 ```
