@@ -275,222 +275,447 @@
   ],
 ```
 
-## 浏览器 Vimium C 插件配置
+## 浏览器 vimium C 插件配置(手动复制)
+
+```
+# 项目源码: https://github.com/gdh1995/vimium-c
+# 扩展商店: https://chrome.google.com/webstore/detail/vimium-c-all-by-keyboard/hfjbmagddngcpeloejdejnfgbamkjaeg
+# 所有命令: https://github.com/gdh1995/vimium-c/blob/master/i18n/zh/help_dialog.json
+
+# 移除所有的默认快捷键
+unmapAll
+
+# 显示所有快捷键信息
+map ? showHelp
+
+# 展示关闭快捷键
+map <c-/> enterInsertMode
+
+# 选择链接和按钮(可点击元素)
+run <v-lh> LinkHints.activate$s mask=
+map f LinkHints.activate
+
+# 选择链接和按钮并在新标签页中打开
+run Fo lh OpenInNewTab
+
+# 复制链接地址/文本
+run Fu lh CopyLinkUrl
+run Ft lh CopyLinkText
+
+# 下载可下载的链接地址 & 下载/打开图片
+run Di lh DownloadImage
+run Dl lh DownloadLink
+run Do lh OpenImage
+
+# 选择文本框 & 只选择文本框tab切换
+run Fi lh Edit
+map FI focusInput
+
+# 移动focus/hover到网页内容
+run Ff lh Focus
+run Fh lh Hover
+run Fl lh Leave
+
+# 在新标签页中打开链接（不转到）
+# run Ft lh OpenInNewTab
+# run Fo lh OpenVomnibar
+
+# 搜索链接的文字 & bing/google 搜索
+run Fs lh SearchLinkText
+
+# vim进入选中模式, 可以选择内容
+run Fv lh Select
+
+# M*: 创建标记(如: Ma)
+run m Marks.activate$s#swap mask=
+run M m Create
+
+# `* 跳到标记位置(如: `a)
+run ` m
+
+# 显示搜索框 & 并在新标签页中打开搜索结果
+map o Vomnibar.activateInNewTab
+
+# 显示搜索框(回车搜索关键字在当前页打开搜索结果)
+map Oo Vomnibar.activate
+
+# 显示搜索框编辑当前url
+run FE f action="edit-url"
+run Fe f action="edit-url-in-new-tab"
+
+# 显示搜索框搜索书签 & 并在新标签页中打开
+map OB Vomnibar.activateBookmarks
+map Ob Vomnibar.activateBookmarksInNewTab
+map b Vomnibar.activateBookmarksInNewTab
+
+# 在所有的标签页中搜索
+map t Vomnibar.activateTabs
+map Ot Vomnibar.activateTabs
+map Ol Vomnibar.activateTabs
+
+# 收藏当前标签页到书签
+map Lb addBookmark
+
+# 复制选中文字 & 复制当前标签页的网址
+map y autoCopy
+map Ly copyCurrentUrl type="frame"
+
+# 打开/搜索已经赋值的内容/url & 复制当前标签页
+map p autoOpen
+map Lp duplicateTab
+
+# 搜索文字
+map / enterFindMode postOnEsc
+
+# 下一个搜索到的内容
+map n performFind
+
+# 上一个搜索到的内容
+map N performBackwardsFind
+
+# 进入文字自由选择模式
+map v enterVisualMode
+
+# 进入文字选择模式（对齐到行）
+map V enterVisualLineMode
+
+# 第一个tab/最后一个tab
+map T[ firstTab
+map T] lastTab
+
+# 前进后退一步
+map Lh goBack
+map Gh goBack
+map Gl goForward
+map Ll goForward
+
+# 上一页/下一页
+map Ga goPrevious
+map Gd goNext
+
+# 回到网站首页
+map Lg goToRoot
+
+# 移动当前标签页
+map > moveTabRight
+map < moveTabLeft
+
+# 在当前标签页打开复制的网址
+# openCopiedUrlInCurrentTab|openCopiedUrlInNewTab
+map P openCopiedUrlInCurrentTab
+run <c-v> P keyword="v.math-copy"
+map <c-s-v> openCopiedUrlInNewTab copied="urls"
+
+# 上/下一个标签页
+map Tp previousTab
+map Tn nextTab
+map <c-p> previousTab
+map <c-n> nextTab
+
+# 刷新(重新加载)当前标签页
+map r reloadTab
+map Lr reloadTab
+map Tr reloadTab
+
+# 打开搜索框并且显示出所有的标签页
+map Tl Vomnibar.activateTabSelection preferTabs="new"
+
+# 关闭标签页
+map x removeTab goto="previous,near" highlighted
+#map Xl closeTabsOnLeft $count=-1
+#map Xr closeTabsOnRight $count=1
+
+# 关闭当前标签页的左边的所有标签页
+map Xl closeTabsOnLeft
+
+# 关闭当前标签页的右边的所有标签页
+map Xr closeTabsOnRight
+
+# 关闭除了当前标签页的其他所有标签页
+map Xo closeOtherTabs
+
+# 再次打开最近关闭的标签页
+map u restoreTab
+map Tu restoreTab
+
+# 向上/下滚动半页
+map <c-u> scrollPageUp
+map <c-d> scrollPageDown
+
+# 上下左右滚动(一行)
+map h scrollLeft
+map l scrollRight
+map k scrollUp
+map j scrollDown
+
+# 滚动到最顶部/最底部
+map <c-k> scrollToTop
+map <c-j> scrollToBottom
+map <c-h> scrollToLeft
+map <c-l> scrollToRight
+
+# 从当前文本框移走键盘焦点或恢复
+map <c-e> switchFocus
+
+# 固定/取消 & 静音/取消 & 源码/取消
+map Tf togglePinTab
+map Tm toggleMuteTab
+map Tc toggleViewSource
+
+# 返回上一个访问的标签页
+map <c-t> visitPreviousTab acrossWindows
+
+# shift+f12 打开配置
+map <s-f12> focusOrLaunch url="vimium://options"
+```
+
+## 浏览器 Vimium C 插件配置(文件导入)
 
 ```json
 {
-	"name": "Vimium C",
-	"@time": "2022/7/1 18:55:10",
-	"time": 1656672910069,
-	"environment": {
-		"extension": "1.98.3",
-		"platform": "mac",
-		"chromium": "103"
-	},
-	"clipSub": [
-		"p=^git@([^/:]+):=https://$1/=",
-		"s@^https://(?:www\\.)?google\\.com(?:\\.[^/]+)?/url\\?(?:[^&#]+&)*?url=([^&#]+)@$1@,matched,decodecomp",
-		"r@^https://github\\.com/[^\\s\\/?#]+/[^\\s\\/?#]+(?=/)@@,matched",
-		"si@^https?://link\\.zhihu\\.com/\\?target=@@,decodecomp",
-		"g@^https://www\\.zhihu\\.com/question/\\d+(?=/answer/?$)@@,matched",
-		"p@^https://item\\.m\\.jd\\.com/product/(\\d+)\\.html\\b@https://item.jd.com/$1.html@",
-		""
-	],
-	"exclusionListenHash": false,
-	"exclusionRules": [],
-	"grabBackFocus": true,
-	"hideHud": true,
-	"keyMappings": [
-		"#!no-check",
-		"unmapAll",
-		"",
-		"# 显示帮助",
-		"map ? showHelp",
-		"map <a-/> enterInsertMode",
-		"",
-		"# 重新加载当前页",
-		"map r reloadTab",
-		"",
-		"# 向上/下滚动(半页)",
-		"map <c-u> scrollPageUp",
-		"map <c-d> scrollPageDown",
-		"",
-		"# 上下左右滚动(一行)",
-		"map h scrollLeft",
-		"map l scrollRight",
-		"map k scrollUp",
-		"map j scrollDown",
-		"",
-		"# 滚动到最顶部/最底部",
-		"map <c-k> scrollToTop",
-		"map <c-j> scrollToBottom",
-		"",
-		"# 搜索历史",
-		"run <a-s-a> A reuse=\"newFg\"",
-		"",
-		"# 前进后退一步",
-		"map H goBack",
-		"map L goForward",
-		"",
-		"# 上一页/下一页",
-		"map A goPrevious",
-		"map D goNext",
-		"",
-		"# 高亮链接",
-		"map f LinkHints.activate",
-		"",
-		"# 搜索文本",
-		"run Fs lh SearchLinkText",
-		"",
-		"",
-		"# 赋值链接地址",
-		"run Fu lh CopyLinkUrl",
-		"",
-		"# 复制文本",
-		"run Ft lh CopyLinkText",
-		"run Fc Ft",
-		"",
-		"# bing 搜索",
-		"run Fb Fs keyword=\"bi\"",
-		"",
-		"# 下载可以下载的链接",
-		"run Fd lh DownloadLink",
-		"",
-		"# 下载可以下载的图片",
-		"run FD lh DownloadImage",
-		"",
-		"# 打开图片",
-		"run Fi lh OpenImage",
-		"",
-		"# 在新标签页打开链接",
-		"run Fg Gg newtab=\"force\"",
-		"run FG lh OpenInNewTab",
-		"",
-		"# 在搜索框中打开",
-		"run FT lh OpenVomnibar",
-		"",
-		"# 编辑当前的 url",
-		"run FE f action=\"edit-url\"",
-		"map Fe Vomnibar.activateUrl",
-		"",
-		"# 加入可视模式, 然后选中",
-		"# run V lh Select",
-		"",
-		"# 显示搜索框(回车搜索关键字在当前页)",
-		"map o Vomnibar.activate",
-		"map O Vomnibar.activateInNewTab",
-		"run g <a-g> preferTabs=\"new\"",
-		"map <c-o> createTab",
-		"",
-		"# 在标签页中切换",
-		"map t Vomnibar.activateTabSelection preferTabs=\"new\"",
-		"run T t tree=\"from-start\" currentWindow",
-		"",
-		"# 在搜索框中显示历史",
-		"map <c-h> Vomnibar.activateHistoryInNewTab",
-		"",
-		"# b: 显示搜索框, 并且用 bing 搜索引擎",
-		"run b <a-g> keyword=\"bi\"",
-		"",
-		"# 在新标签页打开书签",
-		"map B Vomnibar.activateBookmarksInNewTab",
-		"",
-		"# 上一个标签页",
-		"map <c-p> previousTab",
-		"map <c-n> nextTab",
-		"",
-		"# 再次打开最近关闭的标签页",
-		"map u restoreTab",
-		"",
-		"# 关闭标签页",
-		"map x removeTab goto=\"previous,near\" highlighted",
-		"map Xl closeTabsOnLeft $count=-1",
-		"map Xr closeTabsOnRight $count=1",
-		"map Xo closeOtherTabs",
-		"",
-		"# 复制地址栏 url",
-		"map Cc autoCopy url decode",
-		"map Co autoOpen",
-		"map <c-v> openCopiedUrlInCurrentTab",
-		"map <c-s-v> openCopiedUrlInNewTab copied=\"urls\"",
-		"",
-		"# 回到网站首页",
-		"map <s-f11> goToRoot",
-		"",
-		"# 上一个访问的标签页",
-		"map p visitPreviousTab acrossWindows",
-		"",
-		"# 固定当前 tab",
-		"map Pp togglePinTab",
-		"",
-		"# 搜索",
-		"map / enterFindMode postOnEsc",
-		"map n performFind",
-		"map N performBackwardsFind",
-		"map v enterVisualMode",
-		"map V enterVisualLineMode",
-		"",
-		"# 启动当前标签页",
-		"map > moveTabRight",
-		"map < moveTabLeft",
-		"",
-		"# Mm: 创建标记",
-		"run M m Create",
-		"run m Marks.activate$s#swap mask=",
-		"",
-		"# `~ 调到标记位置",
-		"run ` m",
-		"run ~ M",
-		"",
-		"map <c-up> scrollPxUp",
-		"map <c-down> scrollPxDown",
-		"map <c-left> scrollPxLeft",
-		"map <c-right> scrollPxRight",
-		"",
-		"# shift+f12 打开配置",
-		"map <s-f12> focusOrLaunch url=\"vimium://options\"",
-		"",
-		"run <v-sia> searchInAnother##keyword=$s mask",
-		"run GG sia g",
-		"run Gt sia t",
-		"run GT sia t.e",
-		"run Gd sia d",
-		"run Gb sia b",
-		"run Gs sia g.s",
-		"",
-		"# 切换搜索框主题",
-		"map Gn toggleVomnibarStyle",
-		""
-	],
-	"localeEncoding": "",
-	"nextPatterns":
-"下一封,下页,下一页,下一章,后一页,下一张,.btn-next,[data-slp-action=nextSlide]:not(div),next,more,newer,>,›,→,»,≫,>>",
-	"previousPatterns":
-"上一封,上页,上一页,上一章,前一页,上一张,.btn-prev,[data-slp-action=prevSlide]:not(div),prev,previous,back,older,<,‹,←,«,≪,<<",
-	"regexFindMode": true,
-	"searchEngines": [
-		"bd|baidu|百度: https://www.baidu.com/s?ie=utf-8&wd=$s 百度搜索",
-		"bing|必应: https://cn.bing.com/search?q=$s bing搜索",
-		"baidu.image|baidu.img|bd.image|bd.img: http://image.baidu.com/search/index?tn=baiduimage&ie=utf-8&word=$s  百度图片",
-		"gg|google: https://www.google.com/search?ie=utf-8&q=$s",
-		"gg.img|gg.image|google.img|google.image: https://www.google.com/search?newwindow=1&tbm=isch&q=$s  谷歌图片",
-		"bili|bilibili: http://www.bilibili.com/search?keyword=$s  bilibili 搜索",
-		"gg.fyc|谷歌翻译(->中文): https://translate.google.com/?ie=utf-8#auto/zh-CN/$s 谷歌翻译",
-		"gg.fye|谷歌翻译(->英语): https://translate.google.com/?ie=utf-8#auto/en/$s Google Translate",
-		"gh|github: https://github.com/search?q=$s GitHub",
-		"ge|gitee: https://search.gitee.com/?type=repository&q=$s blank=https://gitee.com/ Gitee",
-		"doc|docs: http://devdocs.io/#q=$s DevDocs",
-		"mdn|mdn-cn: https://developer.mozilla.org/zh-CN/search?q=$s MDN Docs",
-		"mdn-e|mdn-en: https://developer.mozilla.org/en-US/search?q=$s Mozilla DN",
-		"mdn.a: https://developer.mozilla.org/en-US/docs/Web/API/$S{$1/$2} MDN Web APIs",
-		"mdn.e: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/$S{$1} MDN Element",
-		"mdn.g: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/$S{$1/$2} MDN JavaScript",
-		"caniuse|CanIUse: http://caniuse.com/#search=$S Can I Use",
-		"jd|京东: https://search.jd.com/Search?enc=utf-8&keyword=%s 京东搜索",
-		""
-	],
-	"searchUrl": "https://cn.bing.com/search?q=$s 必应",
-	"showAdvancedOptions": false,
-	"vimSync": true
+  "name": "Vimium C",
+  "@time": "2022/7/2 23:36:47",
+  "time": 1656776207835,
+  "environment": {
+    "extension": "1.98.3",
+    "platform": "mac",
+    "chromium": "103"
+  },
+  "clipSub": [
+    "p=^git@([^/:]+):=https://$1/=",
+    "s@^https://(?:www\\.)?google\\.com(?:\\.[^/]+)?/url\\?(?:[^&#]+&)*?url=([^&#]+)@$1@,matched,decodecomp",
+    "r@^https://github\\.com/[^\\s\\/?#]+/[^\\s\\/?#]+(?=/)@@,matched",
+    "si@^https?://link\\.zhihu\\.com/\\?target=@@,decodecomp",
+    "g@^https://www\\.zhihu\\.com/question/\\d+(?=/answer/?$)@@,matched",
+    "p@^https://item\\.m\\.jd\\.com/product/(\\d+)\\.html\\b@https://item.jd.com/$1.html@",
+    ""
+  ],
+  "exclusionListenHash": false,
+  "exclusionRules": [],
+  "grabBackFocus": true,
+  "hideHud": true,
+  "keyMappings": [
+    "#!no-check",
+    "# 项目源码: https://github.com/gdh1995/vimium-c",
+    "# 扩展商店: https://chrome.google.com/webstore/detail/vimium-c-all-by-keyboard/hfjbmagddngcpeloejdejnfgbamkjaeg",
+    "# 所有命令: https://github.com/gdh1995/vimium-c/blob/master/i18n/zh/help_dialog.json",
+    "",
+    "# 移除所有的默认快捷键",
+    "unmapAll",
+    "",
+    "# 显示所有快捷键信息",
+    "map ? showHelp",
+    "",
+    "# 展示关闭快捷键",
+    "map <c-/> enterInsertMode",
+    "",
+    "# 选择链接和按钮(可点击元素)",
+    "run <v-lh> LinkHints.activate$s mask=",
+    "map f LinkHints.activate",
+    "",
+    "# 选择链接和按钮并在新标签页中打开",
+    "run Fo lh OpenInNewTab",
+    "",
+    "# 复制链接地址/文本",
+    "run Fu lh CopyLinkUrl",
+    "run Ft lh CopyLinkText",
+    "",
+    "# 下载可下载的链接地址 & 下载/打开图片",
+    "run Di lh DownloadImage",
+    "run Dl lh DownloadLink",
+    "run Do lh OpenImage",
+    "",
+    "# 选择文本框 & 只选择文本框tab切换",
+    "run Fi lh Edit",
+    "map FI focusInput",
+    "",
+    "# 移动focus/hover到网页内容",
+    "run Ff lh Focus",
+    "run Fh lh Hover",
+    "run Fl lh Leave",
+    "",
+    "# 在新标签页中打开链接（不转到）",
+    "# run Ft lh OpenInNewTab",
+    "# run Fo lh OpenVomnibar",
+    "",
+    "# 搜索链接的文字 & bing/google 搜索",
+    "run Fs lh SearchLinkText",
+    "",
+    "# vim进入选中模式, 可以选择内容",
+    "run Fv lh Select",
+    "",
+    "# M*: 创建标记(如: Ma)",
+    "run m Marks.activate$s#swap mask=",
+    "run M m Create",
+    "",
+    "# `* 跳到标记位置(如: `a)",
+    "run ` m",
+    "",
+    "# 显示搜索框 & 并在新标签页中打开搜索结果",
+    "map o Vomnibar.activateInNewTab",
+    "",
+    "# 显示搜索框(回车搜索关键字在当前页打开搜索结果)",
+    "map Oo Vomnibar.activate",
+    "",
+    "# 显示搜索框编辑当前url",
+    "run FE f action=\"edit-url\"",
+    "run Fe f action=\"edit-url-in-new-tab\"",
+    "",
+    "# 显示搜索框搜索书签 & 并在新标签页中打开",
+    "map OB Vomnibar.activateBookmarks",
+    "map Ob Vomnibar.activateBookmarksInNewTab",
+    "map b Vomnibar.activateBookmarksInNewTab",
+    "",
+    "# 在所有的标签页中搜索",
+    "map t Vomnibar.activateTabs",
+    "map Ot Vomnibar.activateTabs",
+    "map Ol Vomnibar.activateTabs",
+    "",
+    "# 收藏当前标签页到书签",
+    "map Lb addBookmark",
+    "",
+    "# 复制选中文字 & 复制当前标签页的网址",
+    "map y autoCopy",
+    "map Ly copyCurrentUrl type=\"frame\"",
+    "",
+    "# 打开/搜索已经赋值的内容/url & 复制当前标签页",
+    "map p autoOpen",
+    "map Lp duplicateTab",
+    "",
+    "# 搜索文字",
+    "map / enterFindMode postOnEsc",
+    "",
+    "# 下一个搜索到的内容",
+    "map n performFind",
+    "",
+    "# 上一个搜索到的内容",
+    "map N performBackwardsFind",
+    "",
+    "# 进入文字自由选择模式",
+    "map v enterVisualMode",
+    "",
+    "# 进入文字选择模式（对齐到行）",
+    "map V enterVisualLineMode",
+    "",
+    "# 第一个tab/最后一个tab",
+    "map T[ firstTab",
+    "map T] lastTab",
+    "",
+    "# 前进后退一步",
+    "map Lh goBack",
+    "map Gh goBack",
+    "map Gl goForward",
+    "map Ll goForward",
+    "",
+    "# 上一页/下一页",
+    "map Ga goPrevious",
+    "map Gd goNext",
+    "",
+    "# 回到网站首页",
+    "map Lg goToRoot",
+    "",
+    "# 移动当前标签页",
+    "map > moveTabRight",
+    "map < moveTabLeft",
+    "",
+    "# 在当前标签页打开复制的网址",
+    "# openCopiedUrlInCurrentTab|openCopiedUrlInNewTab",
+    "map P openCopiedUrlInCurrentTab",
+    "run <c-v> P keyword=\"v.math-copy\"",
+    "map <c-s-v> openCopiedUrlInNewTab copied=\"urls\"",
+    "",
+    "# 上/下一个标签页",
+    "map Tp previousTab",
+    "map Tn nextTab",
+    "map <c-p> previousTab",
+    "map <c-n> nextTab",
+    "",
+    "# 刷新(重新加载)当前标签页",
+    "map r reloadTab",
+    "map Lr reloadTab",
+    "map Tr reloadTab",
+    "",
+    "# 打开搜索框并且显示出所有的标签页",
+    "map Tl Vomnibar.activateTabSelection preferTabs=\"new\"",
+    "",
+    "# 关闭标签页",
+    "map x removeTab goto=\"previous,near\" highlighted",
+    "#map Xl closeTabsOnLeft $count=-1",
+    "#map Xr closeTabsOnRight $count=1",
+    "",
+    "# 关闭当前标签页的左边的所有标签页",
+    "map Xl closeTabsOnLeft",
+    "",
+    "# 关闭当前标签页的右边的所有标签页",
+    "map Xr closeTabsOnRight",
+    "",
+    "# 关闭除了当前标签页的其他所有标签页",
+    "map Xo closeOtherTabs",
+    "",
+    "# 再次打开最近关闭的标签页",
+    "map u restoreTab",
+    "map Tu restoreTab",
+    "",
+    "# 向上/下滚动半页",
+    "map <c-u> scrollPageUp",
+    "map <c-d> scrollPageDown",
+    "",
+    "# 上下左右滚动(一行)",
+    "map h scrollLeft",
+    "map l scrollRight",
+    "map k scrollUp",
+    "map j scrollDown",
+    "",
+    "# 滚动到最顶部/最底部",
+    "map <c-k> scrollToTop",
+    "map <c-j> scrollToBottom",
+    "map <c-h> scrollToLeft",
+    "map <c-l> scrollToRight",
+    "",
+    "# 从当前文本框移走键盘焦点或恢复",
+    "map <c-e> switchFocus",
+    "",
+    "# 固定/取消 & 静音/取消 & 源码/取消",
+    "map Tf togglePinTab",
+    "map Tm toggleMuteTab",
+    "map Tc toggleViewSource",
+    "",
+    "# 返回上一个访问的标签页",
+    "map <c-t> visitPreviousTab acrossWindows",
+    "",
+    "# shift+f12 打开配置",
+    "map <s-f12> focusOrLaunch url=\"vimium://options\"",
+    ""
+  ],
+  "keyupTime": 100,
+  "linkHintCharacters": "sadjklewcmpgh1234",
+  "localeEncoding": "",
+  "nextPatterns": "下一封,下页,下一页,下一章,后一页,下一张,.btn-next,[data-slp-action=nextSlide]:not(div),next,more,newer,>,›,→,»,≫,>>",
+  "previousPatterns": "上一封,上页,上一页,上一章,前一页,上一张,.btn-prev,[data-slp-action=prevSlide]:not(div),prev,previous,back,older,<,‹,←,«,≪,<<",
+  "regexFindMode": true,
+  "searchEngines": [
+    "bd|baidu|百度: https://www.baidu.com/s?ie=utf-8&wd=$s 百度搜索",
+    "bing|必应: https://cn.bing.com/search?q=$s bing搜索",
+    "baidu.image|baidu.img|bd.image|bd.img: http://image.baidu.com/search/index?tn=baiduimage&ie=utf-8&word=$s  百度图片",
+    "gg|google: https://www.google.com/search?ie=utf-8&q=$s",
+    "gg.img|gg.image|google.img|google.image: https://www.google.com/search?newwindow=1&tbm=isch&q=$s  谷歌图片",
+    "bili|bilibili: http://www.bilibili.com/search?keyword=$s  bilibili 搜索",
+    "gg.fyc|谷歌翻译(->中文): https://translate.google.com/?ie=utf-8#auto/zh-CN/$s 谷歌翻译",
+    "gg.fye|谷歌翻译(->英语): https://translate.google.com/?ie=utf-8#auto/en/$s Google Translate",
+    "gh|github: https://github.com/search?q=$s GitHub",
+    "ge|gitee: https://search.gitee.com/?type=repository&q=$s blank=https://gitee.com/ Gitee",
+    "doc|docs: http://devdocs.io/#q=$s DevDocs",
+    "mdn|mdn-cn: https://developer.mozilla.org/zh-CN/search?q=$s MDN Docs",
+    "mdn-e|mdn-en: https://developer.mozilla.org/en-US/search?q=$s Mozilla DN",
+    "mdn.a: https://developer.mozilla.org/en-US/docs/Web/API/$S{$1/$2} MDN Web APIs",
+    "mdn.e: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/$S{$1} MDN Element",
+    "mdn.g: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/$S{$1/$2} MDN JavaScript",
+    "caniuse|CanIUse: http://caniuse.com/#search=$S Can I Use",
+    "jd|京东: https://search.jd.com/Search?enc=utf-8&keyword=%s 京东搜索",
+    ""
+  ],
+  "searchUrl": "https://cn.bing.com/search?q=$s 必应",
+  "vimSync": true,
+  "waitForEnter": false
 }
 ```
