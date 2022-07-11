@@ -42,45 +42,8 @@ npm i yo generator-code vsce
 
 ## 发布
 
-### 准备工作
+- 注册一个[微软 azure 账号](https://dev.azure.com/), 然后登录
+- [按照文档的发布流程发布插件](https://code.visualstudio.com/api/working-with-extensions/publishing-extension) 墙裂推荐
+- 也可以直接登录 [https://marketplace.visualstudio.com/](https://marketplace.visualstudio.com/) 然后点击 Publish extensions 链接去发布
 
-- 注册一个微软账号, 这个没什么好说的
-- 登录 [azure](https://dev.azure.com/)
-
-### 发布步骤
-
-1. 创建一个组织: new_organization, 我这里创建了一个 `rimless-monokai`
-
-![neworganization](https://raw.githubusercontent.com/liaohui5/images/main/images/202206131706591.png)
-
-2. 进入组织主页, 去创建一个 `token`
-
-![new_token](https://raw.githubusercontent.com/liaohui5/images/main/images/202206131706863.png)
-
-3. 创建 token, 勾选相关选项(注意访问权限选项)
-
-![create_token](https://raw.githubusercontent.com/liaohui5/images/main/images/202206131706988.png)
-
-4. 保存 token
-
-![save_token](https://raw.githubusercontent.com/liaohui5/images/main/images/202206131706070.png)
-
-5. 使用 vsce 登录, 此时会让你输入 token, 就是之前在 azure 中创建的那个 token
-
-```bash
-# vsce login 组织名
-vsce login rimless-monokai
-```
-
-![vsce_login](https://raw.githubusercontent.com/liaohui5/images/main/images/202206131706999.png)
-
-6. 发布
-1. 注意 `packge.json` 版本号
-1. 发布成功后, 需要等个 3 分钟左右才能在插件商店中看到最新版本
-
-```bash
-vsce publish
-```
-
-![packagejson](https://raw.githubusercontent.com/liaohui5/images/main/images/202206131706837.png)
-![pluginoverview](https://raw.githubusercontent.com/liaohui5/images/main/images/202206131706174.png)
+![preview](https://raw.githubusercontent.com/liaohui5/images/main/images/202207120317873.png)
