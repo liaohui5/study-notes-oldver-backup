@@ -10,3 +10,4 @@
 - [3.Vue.js 单元测试](/vue/3.unit-test.md)
 - [4.深入 Vue.js 响应式原理](/vue/4.deep-reactive.md)
 - [5.深入 Vue.js 模板处理](/vue/5.deep-template.md)
+- [6.自定义指令](/vue/6.custom-directives.md)
