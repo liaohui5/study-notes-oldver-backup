@@ -14,4 +14,5 @@
 - [14.图片压缩与合并](/webpack/base/img-loader)
 - [15.eslint检查代码规范](/webpack/base/webpack-eslint)
 - [16.合并webpack配置](/webpack/base/webpack-merge)
+- [17.快速搭建Vue的SPA项目](/webpack/base/webpack-vue-config)
 
