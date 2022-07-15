@@ -11,3 +11,4 @@
 - [4.深入 Vue.js 响应式原理](/vue/4.deep-reactive.md)
 - [5.深入 Vue.js 模板处理](/vue/5.deep-template.md)
 - [6.自定义指令](/vue/6.custom-directives.md)
+- [6.插件化开发](/vue/7.vue-plugin-dev.md)
