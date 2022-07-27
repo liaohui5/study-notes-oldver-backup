@@ -14,3 +14,4 @@
 - [7.自定义指令](/vue/7.custom-directives.md)
 - [8.插件化开发](/vue/8.vue-plugin-dev.md)
 - [9.render & jsx](/vue/9.render-jsx.md)
+- [10.组件设计 & 派发器](/vue/10.components-design-dispatcher.md)
