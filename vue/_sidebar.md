@@ -10,8 +10,11 @@
 - [3.Vue.js 单元测试](/vue/3.unit-test.md)
 - [4.深入响应式原理](/vue/4.deep-reactive.md)
 - [5.深入模板处理](/vue/5.deep-template.md)
-- [6.深入diff算法](/vue/6.deep-diff.md)
+- [6.深入 diff 算法](/vue/6.deep-diff.md)
 - [7.自定义指令](/vue/7.custom-directives.md)
 - [8.插件化开发](/vue/8.vue-plugin-dev.md)
 - [9.render & jsx](/vue/9.render-jsx.md)
-- [10.组件设计 & 派发器](/vue/10.components-design-dispatcher.md)
+- [10.vue & vue-cli 配置](/vue/10.vue-config.md)
+- [11.派发器思想](/vue/11.design-dispatcher.md)
+- [小练习1:别踩白块](/vue/dont-tap-white-block.md)
+
