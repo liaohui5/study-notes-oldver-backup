@@ -25,3 +25,7 @@
 ### 增加一些关于算法的笔记
 
 - [ ] leetcode 上的题目/解法
+
+## Github 永久 token -> Git master
+
+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

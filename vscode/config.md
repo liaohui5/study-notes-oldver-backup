@@ -16,16 +16,16 @@
   // 编辑器字体
   "editor.fontSize": 14,
   "editor.fontLigatures": true,
-  "editor.fontFamily": "'Operator Mono', Hack, Hack, Monaco",
+  "editor.fontFamily": "'Hack Nerd Font Mono', 'Operator Mono', Hack",
 
   // 光标宽度 && 行高
   "editor.cursorWidth": 1,
-  "editor.lineHeight": 1.6,
+  "editor.lineHeight": 1.5,
 
   // 是否允许 hover
   "editor.hover.enabled": true,
   "editor.hover.sticky": true,
-  "editor.hover.delay": 100,
+  "editor.hover.delay": 500,
 
   // 100 毫秒后显示代码提示
   "editor.quickSuggestionsDelay": 100,
@@ -106,15 +106,7 @@
   "jest.runAllTestsFirst": false,
 
   // Template String Converter
-  "template-string-converter.validLanguages": [
-    "svelte",
-    "typescript",
-    "javascript",
-    "typescriptreact",
-    "javascriptreact",
-    "vue",
-    "jsx"
-  ],
+  "template-string-converter.validLanguages": ["svelte", "typescript", "javascript", "typescriptreact", "javascriptreact", "vue"],
 
   // 图标插件(vsicons/material-icon-theme): 隐藏左边的箭头
   "vsicons.presets.hideExplorerArrows": true,
@@ -128,39 +120,20 @@
 
   // 自定义宏(在快捷键中可以用: vscode快捷键 + vim快捷键)
   "macros": {
-    "copyExplorerFileWithoutRename": [
-      "filesExplorer.copy",
-      "filesExplorer.paste"
-    ]
+    "copyExplorerFileWithoutRename": ["filesExplorer.copy", "filesExplorer.paste"]
   },
 
   // eslint 格式化
   "eslint.format.enable": true,
   "eslint.lintTask.enable": true,
   "eslint.quiet": true,
-  "eslint.probe": [
-    "javascript",
-    "javascriptreact",
-    "typescript",
-    "typescriptreact",
-    "html",
-    "vue",
-    "jsx"
-  ],
+  "eslint.probe": ["javascript", "javascriptreact", "typescript", "typescriptreact", "html", "vue", "jsx"],
   "eslint.alwaysShowStatus": true,
   "eslint.debug": true,
 
   // todo-tree 插件
   "todo-tree.highlights.enabled": true,
-  "todo-tree.general.tags": [
-    "BUG",
-    "HACK",
-    "FIXME",
-    "TODO",
-    "XXX",
-    "[ ]",
-    "[x]"
-  ],
+  "todo-tree.general.tags": ["BUG", "HACK", "FIXME", "TODO", "XXX", "[ ]", "[x]"],
   "todo-tree.regex.regex": "(//|#|<!--|;|/\\*|^|^\\s*(-|\\d+.))\\s*($TAGS)",
   "todo-tree.highlights.defaultHighlight": {
     "icon": "alert",
@@ -220,23 +193,29 @@
   "leetcode.hint.commandShortcut": false,
   "leetcode.hint.commentDescription": false,
 
-  ////////////////////////////////////////////////////////////////////
-  //                      VIM 插件配置                               //
-  //         _                              __ _                    //
-  //        (_)                            / _(_)                   //
-  //  __   ___ _ __ ___     ___ ___  _ __ | |_ _  __ _              //
-  //  \ \ / / | '_ ` _ \   / __/ _ \| '_ \|  _| |/ _` |             //
-  //   \ V /| | | | | | | | (_| (_) | | | | | | | (_| |             //
-  //    \_/ |_|_| |_| |_|  \___\___/|_| |_|_| |_|\__, |             //
-  //                                              __/ |             //
-  //                                             |___/              //
-  ////////////////////////////////////////////////////////////////////
+  //////////////////////////////////////////////////////////////////////////////
+  //                                VIM 插件配置                               //
+  //                   _                              __ _                    //
+  //                  (_)                            / _(_)                   //
+  //            __   ___ _ __ ___     ___ ___  _ __ | |_ _  __ _              //
+  //            \ \ / / | '_ ` _ \   / __/ _ \| '_ \|  _| |/ _` |             //
+  //             \ V /| | | | | | | | (_| (_) | | | | | | | (_| |             //
+  //              \_/ |_|_| |_| |_|  \___\___/|_| |_|_| |_|\__  |             //
+  //                                                        __/ |             //
+  //                                                       |___/              //
+  //////////////////////////////////////////////////////////////////////////////
+  // 自动切换输入法
+  "vim.autoSwitchInputMethod.enable": true,
+  "vim.autoSwitchInputMethod.defaultIM": "com.apple.keylayout.ABC",
+  "vim.autoSwitchInputMethod.obtainIMCmd": "/usr/local/bin/im-select",
+  "vim.autoSwitchInputMethod.switchIMCmd": "/usr/local/bin/im-select {im}",
+
   // 开启 easymontion 插件: https://github.com/easymotion/vim-easymotion
-  "vim.easymotion": false,
+  "vim.easymotion": true,
 
   // 开启 CamelCaseMotion 插件: https://github.com/bkad/CamelCaseMotion
-  "vim.camelCaseMotion.enable": true,
-  "vim.autoindent": false,
+  "vim.camelCaseMotion.enable": false,
+  "vim.autoindent": true,
 
   // 高亮被复制的内容
   "vim.highlightedyank.enable": true,
@@ -291,17 +270,27 @@
       "after": ["\"", "_", "x"]
     },
     {
-      // Tab: 向后缩进
-      "before": ["tab"],
+      // 向下滚动
+      "before": ["<C-d>"],
+      "after": ["1", "0", "j", "z", "z"]
+    },
+    {
+      // 向上滚动
+      "before": ["<C-u>"],
+      "after": ["1", "0", "k", "z", "z"]
+    },
+    {
+      // tab: 向后缩进
+      "before": [">"],
       "commands": ["tab"]
     },
     {
-      // shift + Tab: 向前缩进
-      "before": ["<S-tab>"],
+      // shift + tab: 向前缩进
+      "before": ["<"],
       "commands": ["outdent"]
     },
     {
-      // <leader> \: 切换注释状态
+      // Ctrl + \: 切换注释状态
       "before": ["ctrl", "\\"],
       "commands": ["editor.action.commentLine"]
     },
@@ -322,7 +311,7 @@
     },
     {
       // 对齐(需要插件: alignVertically)
-      "before": ["<leader>", "="],
+      "before": ["a", "a"],
       "commands": ["extension.alignVertically"]
     },
     {
@@ -332,6 +321,16 @@
     }
   ],
   "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      // 到当前行括号, 并进入插入模式
+      "before": ["<C-i>"],
+      "after": ["0", "%", "i"]
+    },
+    {
+      // 到当前行括号, 但不进入插入模式
+      "before": ["<C-o>"],
+      "after": ["0", "%"]
+    },
     {
       // - :取消高亮
       "before": ["-"],
@@ -358,14 +357,49 @@
       "commands": ["editor.action.showHover"]
     },
     {
+      // 向下滚动
+      "before": ["<C-d>"],
+      "after": ["1", "0", "j", "z", "z"]
+    },
+    {
+      // 向上滚动
+      "before": ["<C-u>"],
+      "after": ["1", "0", "k", "z", "z"]
+    },
+    {
+      // 上一个标签页
+      "before": ["L"],
+      "after": ["g", "t"]
+    },
+    {
+      // 下一个标签页
+      "before": ["H"],
+      "after": ["g", "T"]
+    },
+    {
       // <leader> + d: 快速跳到定义, 也可以用于文件跳转(ctrl+MouseClick)
       "before": ["g", "d"],
       "commands": ["editor.action.revealDefinition"]
     },
     {
+      // 显示 symbols
+      "before": ["<leader>", "="],
+      "commands": ["workbench.action.gotoSymbol"]
+    },
+    {
       // <leader> + p: 显示命令行
-      "before": ["<leader>", "p"],
+      "before": ["<leader>", "p", "p"],
       "commands": ["workbench.action.showCommands"]
+    },
+    {
+      // 显示 code action
+      "before": ["<leader>", "c", "a"],
+      "commands": ["editor.action.quickFix"]
+    },
+    {
+      // 打开项目管理列表
+      "before": ["<leader>", "p", "m"],
+      "commands": ["projectManager.listProjects"]
     },
     {
       // s: 用 easymotion 全局搜索自定字符
@@ -404,7 +438,7 @@
     },
     {
       // <leader> + f: 格式化整个文件并且保存
-      "before": ["<leader>", "f"],
+      "before": ["<leader>", "f", "f"],
       "commands": ["editor.action.formatDocument", ":w"]
     },
     {
@@ -439,6 +473,7 @@
     }
   ]
 }
+
 ```
 
 ## 快捷键绑定
@@ -469,7 +504,7 @@
   },
   {
     // ctrl+l 显示代码提示
-    "key": "ctrl+l",
+    "key": "ctrl+o",
     "command": "editor.action.triggerSuggest",
     "when": "!suggestWidgetVisible && editorTextFocus && vim.active && vim.mode == 'Insert'"
   },
@@ -481,25 +516,25 @@
   },
   {
     // 代码提示显示时: 选中上一个代码提示
-    "key": "ctrl+p",
+    "key": "ctrl+k",
     "command": "selectPrevSuggestion",
     "when": "suggestWidgetVisible && suggestWidgetMultipleSuggestions"
   },
   {
     // 代码提示显示时: 选中下一个代码提示
-    "key": "ctrl+n",
+    "key": "ctrl+j",
     "command": "selectNextSuggestion",
     "when": "suggestWidgetVisible && suggestWidgetMultipleSuggestions"
   },
   {
     // 在显示搜索文件输入框时: 选中上一个
-    "key": "ctrl+p",
+    "key": "ctrl+k",
     "command": "workbench.action.quickOpenSelectPrevious",
     "when": "inQuickOpen"
   },
   {
     // 在显示搜索文件输入框时: 选中下一个
-    "key": "ctrl+n",
+    "key": "ctrl+j",
     "command": "workbench.action.quickOpenSelectNext",
     "when": "inQuickOpen"
   },
@@ -508,12 +543,6 @@
     "key": "[space]",
     "command": "workbench.action.focusFirstEditorGroup",
     "when": "!editorTextFocus && !textInputFocus && !editorFocus && !inputFocus"
-  },
-  {
-    // 编辑器报错时: 快速修复
-    "key": "alt+.",
-    "command": "editor.action.quickFix",
-    "when": "editorHasCodeActionsProvider && editorTextFocus && !editorReadonly"
   },
 
   ////////////////////////////////////////////////////////
@@ -529,6 +558,12 @@
     // a: 新建文件
     "key": "a",
     "command": "explorer.newFile",
+    "when": "explorerViewletFocus && !explorerResourceReadonly && !inputFocus && vim.active"
+  },
+  {
+    // f: 新建文件
+    "key": "f",
+    "command": "explorer.newFolder",
     "when": "explorerViewletFocus && !explorerResourceReadonly && !inputFocus && vim.active"
   },
   {
@@ -550,8 +585,8 @@
     "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsFolder && !inputFocus"
   },
   {
-    // f: 预览文件(编辑器不会直接获取光标)
-    "key": "f",
+    // o: 预览文件(不会直接获取光标)
+    "key": "o",
     "command": "filesExplorer.openFilePreserveFocus",
     "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsFolder && !inputFocus"
   },
@@ -571,7 +606,7 @@
     // d: 剪切文件
     "key": "d",
     "command": "filesExplorer.cut",
-    "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsFolder && !inputFocus"
+    "when": "explorerViewletVisible && filesExplorerFocus && !inputFocus"
   },
   {
     // p: 粘贴文件
@@ -610,20 +645,5 @@
     "command": "-explorer.openAndPassFocus",
     "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsFolder && !inputFocus"
   },
-  {
-    "key": "cmd+.",
-    "command": "-editor.action.quickFix",
-    "when": "editorHasCodeActionsProvider && editorTextFocus && !editorReadonly"
-  },
-  {
-    "key": "ctrl+l",
-    "command": "-notebook.centerActiveCell",
-    "when": "notebookEditorFocused"
-  },
-  {
-    "key": "ctrl+l",
-    "command": "-extension.vim_navigateCtrlL",
-    "when": "editorTextFocus && vim.active && vim.use<C-l> && !inDebugRepl"
-  }
 ]
 ```
