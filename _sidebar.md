@@ -1,8 +1,6 @@
 - [关于我](/README)
 
-- [simple-admin](https://liaohui5.github.io/simple-admin/#/README)
+- [simple-admin](https://lh5sa.github.io/eggjs-server/#/)
 
-- [neovim-config](https://github.com/liaohui5/neovim)
-
-- [docker-dbs-env](https://github.com/liaohui5/docker-dbs-env)
+- [nvim](https://github.com/liaohui5/nvim)
 
