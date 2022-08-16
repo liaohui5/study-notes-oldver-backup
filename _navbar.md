@@ -51,8 +51,6 @@
   <!-- - [原理探究](/webpack/source/README) -->
   - [在线文档](https://webpack.docschina.org/concepts/)
 
-- [VSCode](/vscode/install)
-
 - Node.js
 
   - [Node.js](http://nodejs.cn/api-v16/)
