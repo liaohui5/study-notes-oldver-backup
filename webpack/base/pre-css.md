@@ -7,7 +7,8 @@
 - 安装
 
 ```sh
-npm i less less-loader -D
+npm i -D sass@1.45 scss-loader@10.1 less@3.11 less-loader@5
+# 用哪个预处理器就下载哪个
 ```
 
 - 配置
@@ -26,11 +27,12 @@ module.exports = {
     rules: [
       // 处理样式
       {
-        test: /\.less$/,
+        test: /\.(c|sc|sa)ss$/,
         // 1. 解析less语法
         // 2. 解析css语法, 如 import url 等
         // 3. 将解析完的css插入到html的head标签中
         use: ["style-loader", "css-loader", "less-loader"],
+        // use: ["style-loader", "css-loader", "sass-loader"],
       },
     ],
   },
@@ -77,7 +79,9 @@ body {
 
 ![notes_imgs_20200304130824](https://raw.githubusercontent.com/liaohui5/images/main/images/202206131711855.png)
 
-## 其他 css 预处理器的配置也是同样的步骤
+## 其他 css 预处理器
+
+> 其他预处理器也是同样的配置,只是需要的处理器和 loader 不同
 
 - [sass](https://www.webpackjs.com/loaders/sass-loader/)
 

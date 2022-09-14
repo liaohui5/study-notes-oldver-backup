@@ -1,6 +1,6 @@
 ### 传统开发模式的弊端
 
-- 文件多(会发多个七牛), 依赖关系多(难以维护), 所以我们需要自动打包代码的工具 --- `webpack`
+- 文件多(会发多个请求), 依赖关系多(难以维护), 所以我们需要自动打包代码的工具 --- `webpack`
 
 ```html
 <script src="a.js"></script>
@@ -10,16 +10,20 @@
 
 ### 参考信息
 
-- version: 4.x
+- [version: 4.x](https://v4.webpack.js.org/configuration/)
 
-- [中文文档](https://www.webpackjs.com/concepts/#%E5%85%A5%E5%8F%A3-entry-)
+- webpack 是 node 写的, 所以必须确认安装了 node.js
 
-- webpack 是 node 写的, 所以必须确认安装了 node.js, 默认支持 commonJS 模块化标准
+> 建议安装时使用指定的版本, 否则可能导致版本不兼容报错
 
-### 安装
+### 安装webpack4
 
 ```bash
-npm i webpack  webpack-cli
+npm -y init
+npm i -D webpack@4.44 webpack-cli@3.3 webpack-dev-server@3.11
+# webpack: 打包构建
+# webpack-cli: 提供命令用来执行打包
+# webpack-dev-server: 开发服务器, 不用每次打包, 直接查看效果
 ```
 
 ### 配置文件

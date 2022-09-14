@@ -7,9 +7,7 @@
 ### 安装
 
 ```sh
-npm i -D optimize-css-assets-webpack-plugin
-
-npm i -D terser-webpack-plugin
+npm i -D optimize-css-assets-webpack-plugin@0.9 terser-webpack-plugin@2.3
 ```
 
 ### 使用

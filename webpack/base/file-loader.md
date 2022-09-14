@@ -1,3 +1,5 @@
+## 处理图片/字体等静态文件
+
 ### 什么是 loader?
 
 webpack 默认只能打包 js 文件, 不能打包图片, 字体, css 等文件(因为这些文件没有模块的概念), 如果需要打包这些文件就需要安装对应的 `loader` 来将这些文件转换为 webpack 能够识别的模块, 然后在打包
@@ -11,7 +13,7 @@ webpack 默认只能打包 js 文件, 不能打包图片, 字体, css 等文件(
 - 安装
 
 ```bash
-npm i -D file-loader
+npm i -D file-loader@5.1
 ```
 
 - 在配置文件中使用
@@ -67,7 +69,7 @@ document.appendChild(img);
 - 安装
 
 ```
-npm i -D url-loader
+npm i -D url-loader@3
 ```
 
 - 配置文件
@@ -90,8 +92,14 @@ module.exports = {
           {
             loader: "url-loader",
             options: {
+              // 文件名, 内容hash加上后缀
+              name: "[contenthash:8].[ext]",
+              // 输出路径
+              outputPath: "images",
               // limit 如果文件小于100k则打包为base64, 大于100k就使用图片路径
               limit: 1024 * 100,
+              // 不使用esModule, 使用commonJS 模块
+              esModule: false,
             },
           },
         ],
@@ -130,7 +138,7 @@ rules: [
     use: [
       {
         "file-loader": {
-          filename: "[name].[ext]",
+          filename: "[name][contenthash:8].[ext]",
           outputPath: "fonts",
         },
       },

@@ -8,7 +8,7 @@
 ### 安装
 
 ```sh
-npm i webpack-dev-server -D
+npm i -D webpack-dev-server@3.11
 ```
 
 ### 使用

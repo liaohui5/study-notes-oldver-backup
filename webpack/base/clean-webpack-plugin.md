@@ -1,12 +1,12 @@
 ### clean-webpack-plugin
 
 - 每次打包之前清空上一次的打包的文件
-- [github](https://github.com/johnagan/clean-webpack-plugin)
+- [clean-webpack-plugin github](https://github.com/johnagan/clean-webpack-plugin)
 
 ### 安装
 
 ```sh
-npm i -D clean-webpack-plugin
+npm i -D clean-webpack-plugin@3
 ```
 
 ### 使用

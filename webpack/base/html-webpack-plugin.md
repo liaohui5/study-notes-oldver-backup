@@ -1,13 +1,14 @@
+## 将打包好的资源插入html模板
 ### html-webpack-plugin
 
 - 将打包后的的资源文件插入到一个 html 中
 - 可以自动生成或者指定换一个 html 模板
-- [github](https://github.com/jantimon/html-webpack-plugin#html-webpack-plugin)
+- [html-webppack-plugin github](https://github.com/jantimon/html-webpack-plugin#html-webpack-plugin)
 
 ### 安装
 
 ```sh
-npm i -D html-webpack-plugin
+npm i -D html-webpack-plugin@4.5
 ```
 
 ### 配置

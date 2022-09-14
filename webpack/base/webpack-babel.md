@@ -11,7 +11,7 @@
 3. @babel/preset-env
 
 ```sh
-npm i babel-loader @babel/core @babel/preset-env -D
+npm i -D babel-loader @babel/core @babel/preset-env
 ```
 
 - 配置使用
@@ -74,13 +74,12 @@ module: {
 - [babel-plugin-transform-runtime](https://www.babeljs.cn/docs/babel-plugin-transform-runtime)
 
 ```sh
-npm i  @babel/plugin-transform-runtime -D
-npm i @babel/runtime  @babel/runtime-corejs2
+npm i  @babel/plugin-transform-runtime @babel/runtime  @babel/runtime-corejs2
 ```
 
 `@babel/runtime-corejs2` 这个包是为了不污染全局作用域, 如果不安装这个包, 会相全局作用域中注入一些变量
 
-**注: `@babel/runtime` 和 `@babel/runtime-corejs2` 不能加 `-D` 参数**
+**注: `@babel/runtime` 和 `@babel/runtime-corejs2` 不能加 `-D` 参数**, 这是运行时需要的补丁包
 
 - 配置
 

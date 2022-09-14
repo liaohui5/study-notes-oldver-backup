@@ -7,10 +7,7 @@
 - 安装
 
 ```bash
-npm i css-loader -D
-npm i style-loader -D
-# or
-npm i css-loader style-loader -D
+npm i -D css-loader@4.3 style-loader@1.1
 ```
 
 ## 配置使用

@@ -9,7 +9,7 @@
 - 安装, 有些依赖需要翻墙(注意网络环境)
 
 ```sh
-npm i image-webpack-loader -D
+npm i image-webpack-loader@6 -D
 ```
 
 - 配置使用

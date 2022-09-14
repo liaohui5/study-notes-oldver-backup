@@ -7,7 +7,7 @@
 ### 安装
 
 ```sh
-npm i -D mini-css-extract-plugin
+npm i -D mini-css-extract-plugin@1
 ```
 
 ### 使用

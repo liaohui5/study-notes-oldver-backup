@@ -6,7 +6,7 @@
 ### 安装
 
 ```sh
-npm i -D postcss-loader
+npm i -D postcss-loader@3 postcss@7 postcss-sprites@4 autoprefixer@9.7
 ```
 
 ### 使用
@@ -47,10 +47,6 @@ module.exports = {
 ```
 
 ### 自动添加浏览器前缀 autoprefixer
-
-```sh
-npm i -D autoprefixer
-```
 
 - 在 `postcss.config.js` 中增加对应的配置
 

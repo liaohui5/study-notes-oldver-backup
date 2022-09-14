@@ -5,7 +5,7 @@
 - 安装
 
 ```sh
-npm i webpack-merge -D
+npm i -D webpack-merge@4.2
 ```
 
 > 抽离共同配置文件 `webpack.base.js`

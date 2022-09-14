@@ -6,7 +6,7 @@
 ### 安装
 
 ```sh
-npm i -D copy-webpack-plugin
+npm i -D copy-webpack-plugin@5.1.2
 ```
 
 ### 使用
