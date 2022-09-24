@@ -70,8 +70,10 @@
 
 - [Git 图形化管理工具 SourceTree](https://www.sourcetreeapp.com/)
 
-- [快速启动器 cerebro](https://cerebroapp.com/)
-
 - [直播/录屏软件 obs](https://obsproject.com/)
 
 - [虚拟机软件 Virtual Box(免费)](https://www.virtualbox.org/wiki/Downloads)
+
+- [快速启动器 cerebro, 功能比较简单](https://cerebroapp.com/)
+
+- [快速启动器 utools, 部分功能收费且不能自定义关键字, 有的关键字只能是中文(不太喜欢)](https://u.tools/)

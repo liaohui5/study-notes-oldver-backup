@@ -19,5 +19,4 @@
 邮箱: liaohui5@foxmail.com
 
 github: [https://github.com/liaohui5](https://github.com/liaohui5)
-
-![logo.jpg](https://raw.githubusercontent.com/liaohui5/images/main/images/wallpaper.png)
+![logo](https://raw.githubusercontent.com/liaohui5/images/main/images/202209201513473.jpg)

@@ -46,10 +46,11 @@
 
 - Webpack
 
-  - [基础配置](/webpack/base/base-run)
-  - [性能优化](/webpack/optimize/1-tree-shaking)
+  - [vite 快速开始](/vite/README.md)
+  - [webpack 基础配置](/webpack/base/base-run)
+  - [webpack 性能优化](/webpack/optimize/1-tree-shaking)
+  - [wepback 在线文档](https://webpack.docschina.org/concepts/)
   <!-- - [原理探究](/webpack/source/README) -->
-  - [在线文档](https://webpack.docschina.org/concepts/)
 
 - Node.js
 
