@@ -7,5 +7,6 @@
 - [其他组件](/react/base/other-components)
 - [样式](/react/base/styles)
 - [动画](/react/base/animate)
-- [React-Router](/react/base/react-router-dom)
+- [React-Router(v5)](/react/base/react-router-dom)
+- [React-Router(v6)](/react/base/react-router-dom-v6)
 - [React-Redux](/react/base/react-redux)

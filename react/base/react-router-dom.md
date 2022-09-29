@@ -39,7 +39,7 @@ class App extends React.PureComponent {
 export default App;
 ```
 
-### API 理解
+### API
 
 > BrowserRouter/HashRouter 路由器模式
 
