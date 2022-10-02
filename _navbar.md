@@ -18,8 +18,6 @@
 - TypeScript
 
   - [TS 基础](/ts/README)
-  - [TS 在线文档](https://www.tslang.cn/docs/handbook/basic-types.html)
-  - [TS 在线文档](https://typescript.bootcss.com/basic-types.html)
   - [TS 最佳实践](https://tsejx.github.io/typescript-guidebook/syntax/basics/basic-types)
 
 - Vue.js

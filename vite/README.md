@@ -40,10 +40,14 @@ npm i vue@3 vue-router@4 vuex@4
 ```sh
 npm i @vitejs/plugin-react -D
 npm i react@18 react-dom@18 react-router@6 react-router-middleware-plus
-# react-router-middleware-plus: https://github.com/justbecoder/react-router-middleware-plus
+# react-router-middleware-plus: 路由中间件
 ```
 
 ## 环境配置
+
+- [vue2 示例项目](https://github.com/liaohui5/vite-config-for-spa/tree/vue2)
+- [vue3 示例项目](https://github.com/liaohui5/vite-config-for-spa/tree/vue3)
+- [react 示例项目](https://github.com/liaohui5/vite-config-for-spa/tree/react)
 
 ```jsx
 // vite.config.js
