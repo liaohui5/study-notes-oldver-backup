@@ -2,6 +2,7 @@
 
 - [调试配置官方文档](https://go.microsoft.com/fwlink/?linkid=830387)
 - [调试配置中文文档](https://www.bookstack.cn/read/CN-VScode-Docs/md-%E7%BC%96%E8%BE%91%E5%99%A8-%E8%B0%83%E8%AF%95.md)
+- [各种项目调试配置](https://github.com/microsoft/vscode-recipes/tree/master)
 
 ## 调试 vue.js 项目
 
@@ -166,7 +167,6 @@ npm i nodemon -D
 3. 发送请求, 让加断点位置的代码执行
 
 ![debug-preview](https://raw.githubusercontent.com/liaohui5/images/main/images/202109180131602.png)
-
 
 ### 4. 调试 egg.js 的调试配置
 

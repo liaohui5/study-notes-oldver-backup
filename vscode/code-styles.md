@@ -159,7 +159,7 @@ eslint --init
 
 ![notes_imgs_20200326044225](https://raw.githubusercontent.com/liaohui5/images/main/images/202206131705210.png)
 
-### 如何在写代码的时候提示错误, 校验代码风格
+### 编辑器校验代码风格
 
 全部选择后, 会安装一些必要的包, 安装完之后, 需要配置编辑器
 

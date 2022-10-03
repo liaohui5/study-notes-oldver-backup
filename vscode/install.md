@@ -9,49 +9,49 @@
 - [Monaco](https://github.com/todylu/monaco.ttf)
 - [Menlo](https://github.com/ueaner/fonts)
 - [JetBrainsMono](https://github.com/JetBrains/JetBrainsMono)
+- [Hack Nerd Font Mono](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/Hack)
+- [Maple Nerd Font](https://gitee.com/subframe7536/Maple/releases/tag/v5.5)
+- [OperatorMono Nerd Font](https://github.com/40huo/Patched-Fonts)
+- [Monaco Nerd Font Complete Mono](https://github.com/Karmenzind/monaco-nerd-fonts)
+- [Hasklig](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/Hasklig)
 
 ## 插件
 
-- 别名路径跳转
+- Align by RegEx
+- Align-Vertically
+- Auto close Tag
 - Auto Import
-- Bebal JavaScript
-- Better Comments
-- Chinese Lorem
-- DotEnv
-- EditorConfig for VS Code
-- EditorConfigGenerator
-- Env
+- Bookmarks
+- Custom CSS and JavaScript
+- edamagit
+- EditorConfig for VSCode
+- ENV
 - es6-string-html
 - ESLint
+- File Browser
 - File Utils
-- gitignore
-- Gitmoji
-- JavaScript (ES6) code snippets
-- javascript console utils
-- JavaScript Snippets
-- JavaScript standardjs styled snippets
-- Jest
-- Jest Runner
-- Jest Snippets
-- LeetCode
-- Lorem ipsum
+- fuzzy-search
+- Git History
+- lorem.space
+- Lua
 - macro-commander
 - Markdown Checkboxes
 - Markdown Preview Github Styling
-- Material Icon Themes
-- Material Theme
-- Material Theme Icons
-- Open in browser
-- Path Interllisense
-- Prettier - Code formatter
+- Material Icon Theme
+- open in browser
+- Path intellisense
+- Prettier
 - Project Manager
 - rimless-monokai
+- smart-jump
 - Template String Converter
 - Todo Tree
 - Vim
 - Vim Search and Replace
-- vscode-icons
-- Vue 3 Snippets
-- Vue Language Features(Volar)
+- VimL
+- vscode-js-console-utils-with-emoji
+- VSpaceCode
+- Volar
 - Vue VSCode Snippets
+- Which Key
 - YAML
