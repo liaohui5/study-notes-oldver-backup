@@ -8,12 +8,13 @@
 - [Hack](https://github.com/source-foundry/Hack)
 - [Monaco](https://github.com/todylu/monaco.ttf)
 - [Menlo](https://github.com/ueaner/fonts)
-- [JetBrainsMono](https://github.com/JetBrains/JetBrainsMono)
+- [JetBrainsMono](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/JetBrainsMono/Ligatures)
 - [Hack Nerd Font Mono](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/Hack)
 - [Maple Nerd Font](https://gitee.com/subframe7536/Maple/releases/tag/v5.5)
 - [OperatorMono Nerd Font](https://github.com/40huo/Patched-Fonts)
 - [Monaco Nerd Font Complete Mono](https://github.com/Karmenzind/monaco-nerd-fonts)
 - [Hasklig](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/Hasklig)
+- [More Nerd Fonts](https://github.com/ryanoasis/nerd-fonts#patched-fonts)
 
 ## 插件
 
