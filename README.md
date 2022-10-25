@@ -16,8 +16,6 @@
 
 > 联系方式:
 
-电话: 18774213504
-
 邮箱: liaohui5@foxmail.com
 
 github: [https://github.com/liaohui5](https://github.com/liaohui5)
