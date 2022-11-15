@@ -52,36 +52,16 @@ export default createRouter({
 </template>
 ```
 
-## vue-router 4.x 核心源码分析
-
-1. 提供全局的 `router-view` 和 `router-link`
-2. 提供 `createRouter` 和 `createWebHashHistory` 方法
-3. 提供全局的 hooks 方法 `useRouter` 和 `useRoute`
-4. 根据传入的 `routes` 选项, 匹配到不同的路径时显示对应的组件
-
 ## vue-router 3.x 核心源码分析
 
 1. 提供全局的 `router-view` 和 `router-link`
 2. 根据传入的 `routes` 选项, 匹配到不同的路径时显示对应的组件
 3. 给所有组件实例提供 `$router` 和 `$route` 的属性
 
-```js
-class VueRouter {
-  constructor({ mode = "hash", routes = [] }) {}
-}
+## 核心源码实现 3.x
 
-VueRouter.install = function (Vue) {
-  Vue.mixin({
-    beforeCreate() {
-      // 给所有组件实例挂载一个 $router 属性
-      if (this.$options && this.$options.router) {
-        this.$router = this.$options.router;
-      } else {
-        this.$router = this.$parent.$router;
-      }
-    },
-  });
-};
+1. 创建匹配器, 格式化传入的参数(`create-matcher.js/create-route-map.js`)
+2. 更具不同的 `mode` 创建不同的 `history` 实例(`history`)
+3. 注册全局组件 `router-view/router-link` (`component`)
 
-export default VueRouter;
-```
+- [vue-router-core-demo](https://github.com/liaohui5/vue-router-core-demo)
