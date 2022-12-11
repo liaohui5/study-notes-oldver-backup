@@ -6,5 +6,5 @@
 - [泛型](/ts/6.generics.md)
 - [装饰器](/ts/7.decorators.md)
 - [模块](/ts/8.modules.md)
-- [webpack 配置](/ts/9.webpack.md)
-- [类型工具](/ts/10.type-utils.md)
+- [类型工具](/ts/9.utility-types.md)
+- [声明文件](/ts/10.declaration-file.md)

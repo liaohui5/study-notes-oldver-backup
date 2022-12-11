@@ -12,11 +12,7 @@
   - [JavaScript 内置 API](/js/objects)
   - [JavaScript 插件](/js/plugins)
   - [JavaScript 单元测试](/jest/1.install)
-
-- TypeScript
-
-  - [TS 基础](/ts/README)
-  - [TS 最佳实践](https://tsejx.github.io/typescript-guidebook/syntax/basics/basic-types)
+  - [TypeScript](/ts/README)
 
 - Vue.js
 
