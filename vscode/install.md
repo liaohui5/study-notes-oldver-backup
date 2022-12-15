@@ -11,7 +11,7 @@
 - [JetBrainsMono](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/JetBrainsMono/Ligatures)
 - [Hack Nerd Font Mono](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/Hack)
 - [Maple Nerd Font](https://gitee.com/subframe7536/Maple/releases/tag/v5.5)
-- [OperatorMono Nerd Font](https://github.com/40huo/Patched-Fonts)
+- [Operator Mono SSM Nerd Font Lig](https://github.com/liaohui5/Operator-Mono-SSm-Nerd-Lig)
 - [Monaco Nerd Font Complete Mono](https://github.com/Karmenzind/monaco-nerd-fonts)
 - [Hasklig](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/Hasklig)
 - [More Nerd Fonts](https://github.com/ryanoasis/nerd-fonts#patched-fonts)
