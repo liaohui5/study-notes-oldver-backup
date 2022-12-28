@@ -33,4 +33,4 @@
 
 - [mp4 文件转 m3u8 文件, 快速加载播放实例](https://github.com/liaohui5/m3u8-video-demo)
 
-- [HTTP缓存实现demo](https://github.com/liaohui5/http-cache-demo)
+- [HTTP 缓存实现](https://github.com/liaohui5/http-cache-demo)

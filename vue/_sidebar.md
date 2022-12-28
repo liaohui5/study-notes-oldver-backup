@@ -9,5 +9,4 @@
 - [9.render & jsx](/vue/9.render-jsx.md)
 - [10.vue & vue-cli 配置](/vue/10.vue-config.md)
 - [11.派发器思想](/vue/11.design-dispatcher.md)
-- [小练习1:别踩白块](/vue/dont-tap-white-block.md)
-
+- [12.vue-hooks](/vue/12.vue-hooks.md)
