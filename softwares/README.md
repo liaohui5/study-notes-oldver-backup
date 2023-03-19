@@ -8,11 +8,15 @@
 
 - [chinese-independent-developer](https://github.com/1c7/chinese-independent-developer)
 
-> 跨操作系统
+> 跨平台的
 
 - [代码编辑器 vscode](https://code.visualstudio.com/) [vscode-insiders](https://code.visualstudio.com/insiders/)
 
-- [命令行编辑器 neovim](https://github.com/neovim/neovim)
+- [命令行编辑器 neovim 简称 nvim](https://github.com/neovim/neovim)
+
+- [nvim GUI 客户端 goneovim 开源免费](https://github.com/akiyosi/goneovim)
+
+- [nvim GUI 客户端 neovide 开源免费](https://github.com/neovide/neovide)
 
 - [命令行软件 tabby(漂亮方便, 但是速度有点慢)](https://github.com/Eugeny/tabby)
 
@@ -26,17 +30,13 @@
 
 - [utools 零碎小功能插件管理工具](https://u.tools/#)
 
-- [API 管理工具 postman](https://www.postman.com/downloads/)
-
 - [API 管理工具 Apifox](https://www.apifox.cn/)
 
 - [API 响应模拟工具 mockoon](https://github.com/mockoon/mockoon)
 
-- [科学上网 letsVPN](https://github.com/LetsGo666/LetsGo)
-
 - [开源免费功能强大的画图软件 draw.io](https://github.com/jgraph/drawio-desktop/releases)
 
-- [远程控屏软件 parsec(速度比向日葵控屏和toDesk快不少)](https://parsec.app/)
+- [远程控屏软件 parsec(速度快)](https://parsec.app/)
 
 - [截图工具 snipaste](https://www.snipaste.com/)
 
@@ -50,9 +50,7 @@
 
 - [开源密码管理器 keeweb](https://github.com/keeweb/keeweb)
 
-- [类似 xshell 的开源远程连接工具 electerm](https://electerm.github.io/electerm/)
-
-- [类似 xshell 的远程连接工具 FinalShell(同步功能收费)](https://www.hostbuf.com/)
+- [类似 xshell 的开源远程 ssh 客户端 electerm](https://electerm.github.io/electerm/)
 
 - [开源无广告视频播放器 VLCPlayer](https://www.videolan.org/vlc/)
 
@@ -62,13 +60,9 @@
 
 - [开源 MySQL 图形化管理工具 sqlectron](https://github.com/sqlectron/sqlectron-gui)
 
-- [电脑垃圾文件清理 ccleaner](https://www.ccleaner.com/)
-
 - [笔记管理软件 羽雀(推荐)](https://www.yuque.com/install/desktop)
 
 - [阿里云盘](https://www.aliyundrive.com/)
-
-- [Git 图形化管理工具 SourceTree](https://www.sourcetreeapp.com/)
 
 - [直播/录屏软件 obs](https://obsproject.com/)
 
@@ -76,4 +70,13 @@
 
 - [快速启动器 cerebro, 功能比较简单](https://cerebroapp.com/)
 
-- [快速启动器 utools, 部分功能收费且不能自定义关键字, 有的关键字只能是中文(不太喜欢)](https://u.tools/)
+- [快速启动器 utools 比较大, 插件多](https://u.tools/)
+
+- [快速启动器 rubick 插件少, 但开源](https://github.com/rubickCenter/rubick)
+
+> 命令行工具
+
+- [lazygit](https://github.com/jesseduffield/lazygit)
+- [tig](https://github.com/jonas/tig)
+- [vifm](https://github.com/vifm/vifm)
+- [lsd](https://github.com/lsd-rs/lsd)

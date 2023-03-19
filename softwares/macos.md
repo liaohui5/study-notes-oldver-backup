@@ -25,3 +25,9 @@
 - [显示按键字符 keyCastr](https://github.com/keycastr/keycastr)
 
 - [壁纸软件 Pap.er](https://papero.meiyuan.in/)
+
+- [看图软件 qview 开源免费](https://interversehq.com/qview/)
+
+- [视屏播放器 IINA 开源免费](https://iina.io/)
+
+- [终端 kitty 开源免费](https://github.com/kovidgoyal/kitty)
