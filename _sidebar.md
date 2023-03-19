@@ -14,3 +14,4 @@
 - [ts 井字棋游戏](https://github.com/liaohui5/ts-Tic-Tac-Toe-demo)
 - [ts 别踩白块游戏](https://github.com/liaohui5/dont-tap-white-block-demo)
 - [js 贪食蛇游戏](https://github.com/liaohui5/dom-snake-game-demo)
+- [Promise 源码实现](https://github.com/liaohui5/promise-source-code-demo)

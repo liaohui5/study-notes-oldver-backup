@@ -29,25 +29,19 @@
 
 - Node.js
 
-  - [Node.js](/nodejs/README.md)
-  - [nest.js](/nestjs/README.md)
+  - [Node.js](/nodejs/README)
   - [Node.js 最佳实践](https://tsejx.github.io/node-guidebook/overview/basic/)
+  - [nest.js](/nestjs/README)
+  - [Database - MySQL](/db/mysql/README)
+  - [Database - MongoDB](/db/mongo/README)
 
-- BuildTools
+- Bundler
 
-  - [vite 快速开始](/vite/README.md)
-  - [webpack 基础配置](/webpack/base/base-run)
+  - [打包-vite 快速开始](/vite/README)
+  - [打包-webpack 基础配置](/webpack/base/base-run)
     <!-- - [webpack 性能优化](/webpack/optimize/1.tree-shaking) -->
-    <!-- - [webpack 原理理解](/webpack/source/README) -->
+    <!-- - [webpack 核心原理](/webpack/source/README) -->
+  - [部署-docker](/docker/1_install_env)
+  - [部署-nginx](/nginx/README)
 
-- Databases
-
-  - [MySQL](/db/mysql/README.md)
-  - [MongoDB](/db/mongo/README.md)
-
-- Others
-
-  - [docker](/docker/1_install_env)
-  - [softwares](/softwares/README.md)
-  - [vscode](/vscode/install.md)
-  - [demo](/demo/README.md)
+- [softwares](/softwares/README)
