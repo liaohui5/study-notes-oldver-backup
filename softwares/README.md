@@ -36,6 +36,8 @@
 
 - [开源免费功能强大的画图软件 draw.io](https://github.com/jgraph/drawio-desktop/releases)
 
+- [迅捷画图 把 draw.io 的代码拿来商用, 然后提供文件同步(需要付费,但是不是很贵)](https://www.liuchengtu.com/)
+
 - [远程控屏软件 parsec(速度快)](https://parsec.app/)
 
 - [截图工具 snipaste](https://www.snipaste.com/)

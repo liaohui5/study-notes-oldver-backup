@@ -10,10 +10,7 @@
 2. [virtualbox 6.1](https://download.virtualbox.org/virtualbox/6.1.10/VirtualBox-6.1.10-138449-Win.exe)
 3. 查看 CPU 虚拟化技术 是否开启
 
-
-
 ![image-20200709033343762](https://raw.githubusercontent.com/liaohui5/images/main/images/202206131630339.png)
-
 
 > 在 virtualbox 中安装 centos
 
@@ -64,13 +61,14 @@
 # 1.修改 /etc/sysconfig/network-scripts/ifcfg-enp0s8
 sudo vi /etc/sysconfig/network-scripts/ifcfg-enp0s8
 
-# 修改3个位置
-# BOOTPROTO="static" # 使用静态的地址
-# ONBOOT="yes" # 开机启动
-# 手动指定ip,掩码和网关, 没有需要自己手动加到最后就可以
-# IPADDR="192.168.10.111" # ip 虚拟机ip地址(这个需要和你的选择的网卡的 ip 是同一网段)
-# NETMASK="255.255.255.0" # 子网掩码
-# GATEWAY="192.168.10.1"  # 网关
+# 手动指定ip,掩码和网关, DNS 没有需要自己手动加到最后就可以
+BOOTPROTO=static      # 使用静态的地址
+ONBOOT=yes            # 开机启动
+IPADDR=192.168.10.111 # ip 虚拟机ip地址(这个需要和你的选择的网卡的 ip 是同一网段)
+NETMASK=255.255.255.0 # 子网掩码
+GATEWAY=192.168.10.1  # 网关
+DNS1=223.5.5.5        # DNS 解析服务器地址
+DNS2=223.6.6.6        # 可以有多个: https://dnsdaquan.com/
 
 # 2. 重启网络服务
 systemctl restart network
@@ -106,7 +104,7 @@ sudo vi /etc/sysconfig/network-scripts/ifcfg-enp0s3
 
 ```sh
 # 关闭防火墙
-systemctl stop firewalld service
+systemctl stop firewalld.service
 
 # 查看防火墙状态
 systemctl status  firewalld.service
@@ -150,4 +148,47 @@ sudo curl -o /etc/yum.repos.d/CentOS-Base.repo https://mirrors.aliyun.com/repo/C
 
 # 3. 生成缓存
 sudo yum makecache
+```
+
+## vmware fusion 网络配置
+
+如果用的是 vmware fusion, 配置网络也是这样的步骤, 但是请注意略有不同:
+
+vmware 没有 vbox 那样可以设置多个网卡:
+
+想要既能虚拟机连接外网又能让主机可以连接虚拟机, 需要使用 nat 模式
+
+> 1.进入 vmware fusion nat 配置文件目录
+
+```sh
+cd /Library/Preferences/VMware\ Fusion/vmnet8
+```
+
+> 2.查看网关和掩码和 dhcp 配置
+
+```sh
+# 2.查看本机 IP 和 MASK(掩码) 还有 GATEWAY(网关)
+cat nat.conf
+cat dhcp.conf
+```
+
+![](https://raw.githubusercontent.com/liaohui5/images/main/images/20230409153509.png)
+
+![](https://raw.githubusercontent.com/liaohui5/images/main/images/202304091540648.png)
+
+> 3.配置网络
+
+```sh
+# 配置网络和前面一样
+# 1. 找到 `/etc/sysconfig/network-scripts/ifcfg-enp0s3` 最后一个数字有可能是8或其他
+# 2. 编辑它, 把之前配置文件中的内容填到对应的位置
+
+BOOTPROTO=static       # 使用静态的地址
+ONBOOT=yes             # 开机启动
+NETMASK=255.255.255.0  # 配置文件中的 gateway netmask
+GATEWAY=192.168.121.2  # 配置文件中的 gateway ip
+IPADDR=192.168.121.133 # 配置文件中允许的 ip 范围
+DNS1=223.5.5.5         # DNS 解析服务器地址
+
+# 3. 重启网络/关闭防火墙/关闭selinux/测试网络是否连通
 ```
