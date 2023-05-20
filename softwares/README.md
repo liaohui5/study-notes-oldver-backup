@@ -48,6 +48,8 @@
 
 - [redis 开源图形化管理客户端 AnotherRedisDesktopManager](https://github.com/qishibo/AnotherRedisDesktopManager)
 
+- [redis 开源图形化管理客户端](https://github.com/RedisInsight/RedisInsight) 也可以使用 [brew 安装](https://formulae.brew.sh/cask/redisinsight)
+
 - [下载工具 motrix](https://motrix.app/)
 
 - [开源密码管理器 keeweb](https://github.com/keeweb/keeweb)

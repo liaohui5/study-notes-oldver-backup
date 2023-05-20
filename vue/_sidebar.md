@@ -10,3 +10,4 @@
 - [10.vue & vue-cli 配置](/vue/10.vue-config.md)
 - [11.派发器思想](/vue/11.design-dispatcher.md)
 - [12.vue-hooks](/vue/12.vue-hooks.md)
+- [13.vue3 进阶 API](/vue/13.vue3-advance-api.md)

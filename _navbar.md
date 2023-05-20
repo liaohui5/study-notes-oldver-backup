@@ -13,6 +13,7 @@
   - [JavaScript 插件](/js/plugins)
   - [JavaScript 单元测试](/jest/1.install)
   - [TypeScript](/ts/README)
+  - [Design Patterns](/design_patterns/README)
 
 - Vue.js
 
