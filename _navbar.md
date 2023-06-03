@@ -14,6 +14,7 @@
   - [JavaScript 单元测试](/jest/1.install)
   - [TypeScript](/ts/README)
   - [Design Patterns](/design_patterns/README)
+  - [Data Struct & Algorithm](/algorithm/README)
 
 - Vue.js
 

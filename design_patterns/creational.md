@@ -153,3 +153,10 @@ console.log(c1 === c4); // output: true
 console.log(c2 === c3); // output: true
 console.log(c2 === c4); // output: true
 ```
+
+
+## 原型模式
+
+原型继承
+
+
