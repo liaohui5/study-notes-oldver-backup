@@ -14,40 +14,45 @@
 
 [官网的具体步骤](https://cn.vuejs.org/v2/cookbook/debugging-in-vscode.html)
 
-### 1.安装插件调试插件(chrome 浏览器)
+### 1.修改打包程序配置文件
 
-![debugger for chrome](https://raw.githubusercontent.com/liaohui5/images/main/images/202109172201318.png)
-
-### 2.修改 `vue.config.js` 配置文件
-
-> 没有就在项目根目录下新建一个 `vue.config.js`
+主要目的就是开启 source-map, 方便调试
 
 ```js
+// vue-cli: vue.config.js
 module.exports = {
   configureWebpack: {
-    devtool: "source-map",
+    devtool: 'source-map',
   },
 };
+
+// vite: vite.config.js
+export default defineConfig({
+  build: {
+    sourcemap: true,
+  },
+});
 ```
 
-### 3.创建调试配置文件
+### 2.生成 debug 配置文件
 
-> 在项目根目录下创建 `./vscode/launch.json` 且内容如下
+1. 点击 `Debug` -> `Run and Debug` -> `Web App(Chrome)`
+2. 点击之后会生成 `.vscode/launch.json`, 且内容如下
+3. 如果不想点击, 手动创建也是没有问题的
 
-```json
+```jsonc
 {
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
   "version": "0.2.0",
   "configurations": [
     {
       "type": "chrome",
       "request": "launch",
-      "name": "vuejs: chrome",
-      "url": "http://localhost:8080",
-      "webRoot": "${workspaceFolder}/src",
-      "breakOnLoad": true,
-      "sourceMapPathOverrides": {
-        "webpack:///src/*": "${webRoot}/*"
-      }
+      "name": "Launch Chrome against localhost",
+      "url": "http://localhost:8080", // 这个位置修改项目的运行url
+      "webRoot": "${workspaceFolder}"
     }
   ]
 }
@@ -58,7 +63,7 @@ module.exports = {
 1. 启动项目
 
 ```bash
-npm run serve
+npm run dev
 ```
 
 2. 先在项目中使用加断点, 或者手动使用 `debugger` 语句
@@ -71,37 +76,7 @@ npm run serve
 
 ![start-debugger](https://raw.githubusercontent.com/liaohui5/images/main/images/202109172211038.png)
 
-## 调试 react 项目
-
-调试 `https://github.com/facebook/create-react-app` 脚手架创建的 react.js 项目和
-
-调试 `vue.js` 的步骤差不都, 最主要的是 `.vscode/launch.json` 配置不一样, 也不许要配置 `vue.config.js`
-
-1. 启动项目 `npm run start`
-2. [安装 debugger 调试插件](/vscode/debug?id=_1安装插件调试插件chrome-浏览器)
-3. 创建调试配置文件 `/.vscode/launch.json`
-
-```json
-{
-  // Use IntelliSense to learn about possible attributes.
-  // Hover to view descriptions of existing attributes.
-  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
-  "version": "0.2.0",
-  "configurations": [
-    {
-      "type": "chrome",
-      "request": "launch",
-      "name": "react.js debug chrome",
-      "url": "http://localhost:3000",
-      "webRoot": "${workspaceFolder}/src",
-      "skipFiles": [
-        "${workspaceRoot}/node_modules/**/*.js",
-        "<node_internals>/**/*.js"
-      ]
-    }
-  ]
-}
-```
+4. 调试 react 的步骤和上面是一样的
 
 ## 调试 node.js 项目
 
@@ -151,10 +126,7 @@ npm i nodemon -D
       "program": "${workspaceFolder}/bin/www",
       "restart": true,
       "console": "integratedTerminal",
-      "skipFiles": [
-        "${workspaceRoot}/node_modules/**/*.js",
-        "<node_internals>/**/*.js"
-      ]
+      "skipFiles": ["${workspaceRoot}/node_modules/**/*.js", "<node_internals>/**/*.js"]
     }
   ]
 }

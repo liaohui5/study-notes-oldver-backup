@@ -37,6 +37,8 @@
   - [Database - MySQL](/db/mysql/README)
   - [Database - MongoDB](/db/mongo/README)
 
+- [VSCode](/vscode/install.md)
+
 - Bundler
 
   - [打包-vite 快速开始](/vite/README)
