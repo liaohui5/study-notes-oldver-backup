@@ -50,6 +50,8 @@ https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_Functions
 
 ## 换肤设计
 
+### 使用自定义属性
+
 最简单的方式就是使用变量, 如果使用的浏览器比较老旧, 可以是用 link 标签动态引入 css 来实现这个效果
 
 ```html
@@ -69,6 +71,11 @@ https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_Functions
         --theme-bg-dark: #f5f5f5;
       }
 
+      /*
+        这里是巧妙的使用了属性选择器的作用, 如果想要在JS中操作这些自定义属性,
+        可以使用 document.getElementByTagName("html").style.setProperty('--theme-bg', 'red')
+        https://developer.mozilla.org/en-US/docs/Web/API/CSSStyleDeclaration/setProperty
+      */
       :root[data-theme='dark'] {
         /* dark: 黑色主题 */
         --theme-bg: #555555;
@@ -126,4 +133,118 @@ https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_Functions
     </script>
   </body>
 </html>
+```
+
+### 使用 sass 的 minix
+
+```scss
+// ----- 1.定义主题: 类似JS对象结构 ----- //
+$themes: (
+  light: (
+    bg: #fff,
+    color: #34495e,
+    bg-dark: #f5f5f5,
+  ),
+  dark: (
+    bg: #555,
+    color: #c8c8c8,
+    bg-dark: #282828,
+  ),
+);
+
+// 1.1 遍历所有主题 Map, 生成对应主题的样式规则
+@mixin themify {
+  @each $theme-name, $theme-map in $themes {
+    // !global 把局部变量升为全局变量
+    $theme-map: $theme-map !global;
+
+    // 判断html的data-theme的属性值  #{}是sass的插值表达式
+    // &:sass嵌套里的父容器标识      @content是混合器插槽就类似vue的slot
+    // @if $theme-name == default {
+    //   & {
+    //     @content;
+    //   }
+    // } @else {
+    [data-theme='#{$theme-name}'] & {
+      @content;
+    }
+    // }
+  }
+}
+
+@function themed($key) {
+  @return map-get($theme-map, $key);
+}
+
+// ----- 2.使用定义的混合 ----- //
+// body {
+//   margin: 0;
+//   padding: 0;
+//   @include themify {
+//     background: themed('bg');
+//     color: themed('color');
+//   }
+//   button {
+//     border: none;
+//     padding: 5px 10px;
+//     margin: 0 10px;
+//     @include themify {
+//       background: themed('bg-dark');
+//       color: themed('color');
+//     }
+//   }
+// }
+```
+
+在 vue 中使用
+
+```html
+<template>
+  <div class="container">
+    <p>这是一段文字</p>
+    <button @click="setTheme('light')">点击换肤 light</button>
+    <button @click="setTheme('dark')">点击换肤 dark</button>
+  </div>
+</template>
+<script setup>
+  import { onMounted } from 'vue';
+
+  const root = document.querySelector(':root');
+  // 加载主题
+  function loadTheme() {
+    const theme = window.localStorage.getItem('__theme') || 'light';
+    setTheme(theme);
+  }
+
+  // 设置主题(持久化)
+  function setTheme(theme) {
+    root.setAttribute('data-theme', theme);
+    window.localStorage.setItem('__theme', theme);
+  }
+
+  onMounted(loadTheme);
+</script>
+
+<style scope="scope" lang="scss">
+  @import './scss/minixs.scss';
+
+  /* ----- 使用混合 ----- */
+  .contaienr {
+    margin: 0;
+    padding: 0;
+    @include themify {
+      background: themed('bg');
+      color: themed('color');
+    }
+    button {
+      border: none;
+      padding: 5px 10px;
+      margin: 0 10px;
+      @include themify {
+        background: themed('bg-dark');
+        color: themed('color');
+      }
+    }
+  }
+</style>
 ```
