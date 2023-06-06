@@ -1,8 +1,10 @@
 - CSS
 
   - [CSS 基础](/css/base/README)
-  - [CSS 布局(flex & grid)](/css/layouts/README)
+  - [CSS 布局](/css/layouts/README)
+  - [CSS 动画](/css/animate/README)
   - [移动端设计方案](/css/mobile/README)
+  - [全局变量 & 换肤设计](/css/global_variables/README)
 
 - JavaScript
 

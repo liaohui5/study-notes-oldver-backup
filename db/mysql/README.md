@@ -498,3 +498,108 @@ select * from student as s right join retults as r on s.id=r.student_id where r.
 ```
 
 _`select * from 表1 left join 表2 on 表1.id=表2.id where 其他条件`_
+
+## 预防 SQL 注入
+
+> 什么是 SQL 注入?
+
+简单来说就是将用户的输入拼接到 SQL 语句中,然后直接执行 SQL 语句
+
+如下代码, 看起来好像没有什么问题? 但是如果, 不校验 username 的内容
+
+```js
+// express
+let { username, password } = req.body;
+let sql = `select * from users where username='${username}' and password='${password}'`;
+
+executeQuery(sql);
+```
+
+如果 username 的内容是这样的 `abc' --<space>`(注意&lt;space&gt;是空格字符)那么就不会验证密码,
+
+最终拼接的字符串是这样的, 如下代码
+
+在 mysql 中, `--` 是注释的意思, 那么查询的条件就变成了只有 `username=abc` 没有密码验证了
+
+```sql
+select * from users where username='abc' --' and password='xxx'
+```
+
+### 预处理
+
+```sql
+-- 定义预处理语句: prepare 语句变量名 from 'SQL语句, 其中需要改变的用 ? 作为占位符'
+PREPARE pp_sql1  FROM 'SELECT * from demos where id=? and email=?';
+
+-- 定义变量
+SET @demos_id="1";
+SET @demos_email="abc@qq.com";
+
+-- 执行语句时, 使用变量(按照顺序对应?的顺序)
+EXECUTE pp_sql1 USING @id, @email;
+
+-- 释放结果集
+DEALLOCATE PREPARE pp_sql1;
+```
+
+## 事物处理
+
+事务是保证多个 SQL 操作的一致性，如果一条失败全部 SQL 也将失效。
+
+比如银行转账, 操作应该是这样的
+
+1. 修改账户表 A 用户的余额, -100
+2. 修改账户表 B 用户的余额, +100
+
+如果两个 SQL 语句都执行成功才成功, 如果执行失败就是失败
+
+用文字说或许不太清晰, 用代码吧
+
+```js
+try {
+  executeQuery(sql1);
+  executeQuery(sql2);
+
+  commit(); // 成功了就一起执行
+} catch (e) {
+  rollback(); // 如果有失败, 就一起不执行
+}
+```
+
+### 查看引擎
+
+为什么要查看引擎? 因为只有 InnoDB 才支持事务, MyISAM 不支持事务
+
+```sql
+-- 查看所有支持的引擎, 看是否支持 InnoDB
+SHOW ENGINES;
+
+-- 将表修改为 InnoDB
+ALTER TABLE your_table_name ENGINE=InnoDB;
+```
+
+### 开启事务
+
+事物主要是针对数据所有 `写` 的操作(`delete`,`update`,`insert`)
+
+默认情况下, MySQL 是自动提交的, 发送一条 SQL(在命令行敲回车)就执行一条, 这样就无法使用事物了
+
+```sql
+START TRANSACTION;
+  INSERT INTO demos (`email`) VALUES('abc@qq.com');
+  UPDATE demos set `email`='456@qq.com' where `email`='hij@qq.com';
+-- 先执行上面的, 然后用另外一个客户端来查看数据
+
+COMMIT; -- 执行这一行之后才会真正插入到数据表中
+-- 执行 COMMIT 后, 再到另外一个客户端来查看数据
+```
+
+> 注: 如果要测试, 需要两个不同的链接(使用不同的客户端即可)
+
+### 隔离级别
+
+https://doc.houdunren.com/%E7%B3%BB%E7%BB%9F%E8%AF%BE%E7%A8%8B/mysql/9%20%E4%BA%8B%E5%8A%A1%E5%A4%84%E7%90%86.html
+
+## 锁机制
+
+https://www.bilibili.com/video/BV11t411L7tM?p=2&vd_source=dcc56a2c762f3d9eb797374cafccd146
