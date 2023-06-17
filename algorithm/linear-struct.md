@@ -1,6 +1,8 @@
 ## 数组 Array
 
-在所有流行的编程语言中, 几乎都默认实现了数组这种数据结构,不同的是在弱类型语言中,数组的长度是可变的但是在一些强类型的语言中,数组的长度是不可变的
+在所有流行的编程语言中, 几乎都默认实现了数组这种数据结构(可能叫法不同, python 叫列表, lua 叫 元组)
+
+不同的是在弱类型语言中,数组的长度是可变的但是在一些强类型的语言中,数组的长度是不可变的
 
 - 可以添加/修改/删除/遍历的一组有序的数据
 
@@ -19,31 +21,51 @@ const arr = [1, 3, 5, 7, 9];
 
 ![stack](https://raw.githubusercontent.com/liaohui5/images/main/images/202305262051073.png)
 
-```javascript
-// 在js中,默认没有这个数据结构, 但是可以手动实现
-class Stack {
-  _items = []; // 应该用 symbol 做私有属性
-  get size() {
-    return this._items.length;
+```typescript
+// 在 JS 中默认没有 Stack 这个数据结构, 但是可以根据数组的特点手动实现
+class Stack<T> {
+  private items: T[] = [];
+
+  // 获取栈的总长度
+  public size(): number {
+    return this.items.length;
   }
-  pop() {
-    return this._items.pop();
+
+  // 栈是否为空
+  public isEmpty(): boolean {
+    return this.size() === 0;
   }
-  push(...items) {
-    this._items.push(...items);
+
+  // 出栈
+  public pop(): T | null {
+    if (this.isEmpty()) {
+      return null;
+    }
+    return this.items.pop()!;
+  }
+
+  // 入栈
+  public push(item: T): Stack<T> {
+    this.items.push(item);
     return this;
   }
-  peek() {
-    return this._items.at(0);
+
+  // 查看栈顶元素
+  public peek() {
+    if (this.isEmpty()) {
+      return null;
+    }
+    return this.items[this.size()];
   }
-  isEmpty() {
-    return this.size === 0;
-  }
-  clear() {
-    this._items = [];
+
+  // 清栈
+  public clear(): Stack<T> {
+    this.items = [];
     return this;
   }
-  toString() {
+
+  // toString 方便调试
+  public toString(): string {
     return '[' + this.items.toString() + ']';
   }
 }
@@ -59,13 +81,11 @@ class Stack {
 // 2  % 2 => 0, 2  / 2 => 1
 // 1  % 2 => 1, 1  / 2 => 0
 // 10进制的10转二进制就是 1010
-
-function convert(decnum, base = 2) {
-  let num = decnum;
-  let stk = new Stack();
+function convert(num: number, base = 2) {
+  let stk = new Stack<number>();
   let res = '';
   let radix = base < 2 ? (base > 16 ? 16 : base) : base;
-  let hex_str = '0123456789ABCDEF';
+  let hexStr = '0123456789ABCDEF';
 
   while (num !== 0) {
     stk.push(num % radix);
@@ -73,21 +93,28 @@ function convert(decnum, base = 2) {
   }
 
   while (!stk.isEmpty()) {
-    const hex_index = stk.pop();
     // 利用后进先出的特性, 从后向前拼接字符串
-    res += hex_str[hex_index];
+    const index = stk.pop()!;
+    res += hexStr[index];
   }
 
   return res;
 }
 
 // 验证是否是成对出现的有效括号
-function validBracketPairs(str) {
+// 像这样就是成对的: (()) ([])
+// 想这样就不是成对的: ([)]
+function isValidPairs(str: string): boolean {
   const len = str.length;
-  if (len < 2) {
+  if (len % 2 !== 0) {
     return false;
   }
-  const stack = new Stack();
+  const stack = new Stack<string>();
+  const pairsMap = {
+    ')': (str: string): boolean => str === '(',
+    ']': (str: string): boolean => str === '[',
+    '}': (str: string): boolean => str === '[',
+  };
   for (let i = 0; i < len; i++) {
     const char = str[i];
     switch (char) {
@@ -97,21 +124,12 @@ function validBracketPairs(str) {
         stack.push(char);
         break;
       case ')':
-        if ('(' !== stack.pop()) {
-          return false;
-        }
-        break;
       case '}':
-        if ('{' !== stack.pop()) {
-          return false;
-        }
-        break;
       case ']':
-        if ('[' !== stack.pop()) {
+        const handler = pairsMap[char];
+        if (!handler(stack.pop()!)) {
           return false;
         }
-        break;
-      default:
         break;
     }
   }
@@ -126,175 +144,192 @@ function validBracketPairs(str) {
 
 ![queue](https://raw.githubusercontent.com/liaohui5/images/main/images/20230526204855.png)
 
-```javascript
+```typescript
+// 基于数组来实现队列(也可以基于链表来实现队列)
+/* prettier-ignore */
+interface QueueInterface<T> {
+  items: Array<T>;                     // 队列所有元素
+  head: () => T | void;                // 队列第一个
+  size: () => number;                  // 队列总长度
+  isEmpty: () => boolean;              // 队列是否为空
+  toString: () => string;              // toString
+  clear: () => void;                   // 清空队列
+  enqueue: (...args: any) => T | void; // 入列
+  dequeue: () => T | void;             // 出列
+}
+
+// 用抽象类来实现一些逻辑高度重合的方法
+abstract class QueueAbstract<T> implements QueueInterface<T> {
+  public items: Array<T> = [];
+  public head() {
+    return this.items.length > 0 ? this.items[0] : undefined;
+  }
+  public size() {
+    return this.items.length;
+  }
+  public isEmpty() {
+    return this.size() === 0;
+  }
+  public clear() {
+    this.items = [];
+  }
+  public toString() {
+    return '[' + this.items.toString() + ']';
+  }
+  // 子类必须实现这些抽象方法
+  abstract enqueue(value: T, priority?: number): void;
+  abstract dequeue(): T | void;
+}
+
 // 最简单的队列
-class Queue {
-  _items = []; // 应该用 Symbol 做成私有属性
-  get head() {
-    return this._items.at(0);
-  }
-  get size() {
-    return this._items.length;
-  }
-  enqueue(item) {
-    // 入列
-    this._items.push(item);
+class Queue<T> extends QueueAbstract<T> {
+  enqueue(item: T) {
+    this.items.push(item);
     return this;
   }
   dequeue() {
-    // 出列
-    return this._items.shift();
-  }
-  isEmpty() {
-    return this.size === 0;
-  }
-  clear() {
-    this._items = [];
-    return this;
-  }
-  toString() {
-    return '[' + this._items.toString() + ']';
+    return this.items.shift();
   }
 }
 
 // 升序排序的优先级队列
-class PriorityQueue extends Queue {
-  enqueue(element, priority) {
-    function createPriorityQueueItem(element, priority) {
-      return {
-        element,
-        priority: Math.floor(priority),
-      };
-    }
+interface PriorityQueueElement<T> {
+  value: T;
+  priority: number;
+}
+class PriorityQueue<T> extends QueueAbstract<PriorityQueueElement<T>> {
+  // 创建带有优先级的队列元素
+  private createPriorityQueueElement(value: T, priority: number): PriorityQueueElement<T> {
+    return {
+      value,
+      priority,
+    };
+  }
 
-    if (typeof priority !== 'number') {
-      throw new TypeError('[enqueue]:priority must be a number');
-    }
-
-    const item = createPriorityQueueItem(element, priority);
+  // 入列: 按照 priority 入列
+  /* @ts-ignore */
+  public enqueue(value: T, priority: number): void {
+    const item = this.createPriorityQueueElement(value, priority);
 
     // 插入到最前
-    if (this.isEmpty() || priority < this.head.priority) {
-      this._items.unshift(item);
-      return this;
+    if (this.isEmpty() || priority < this.head()!.priority) {
+      this.items.unshift(item);
+      return;
     }
+
     // 插入到最后
-    if (this._items.at(-1).priority <= priority) {
-      this._items.push(item);
-      return this;
+    const len = this.size();
+    const tailItem = this.items[len - 1];
+    if (tailItem.priority <= priority) {
+      this.items.push(item);
+      return;
     }
 
     // 在中间位置插入
-    for (let i = 0; i < this._items.length; i++) {
-      const current = this._items[i];
+    for (let i = 0; i < len; i++) {
+      const current = this.items[i];
       if (current.priority > priority) {
-        this._items.splice(i, 0, item);
-        return this;
+        this.items.splice(i, 0, item);
+        break;
       }
     }
-    return this;
   }
-  dequeue(hasPriority = true) {
-    const dequeueItem = this._items.shift();
-    return hasPriority ? dequeueItem : dequeueItem.element;
+
+  // 出列
+  public dequeue() {
+    return this.items.shift();
   }
 }
 ```
 
 ## 链表 LinkedList
 
-- 一种特殊的线性结构数据
+- 一种特殊的线性结构数据(并不是通过一块连续的内存来实现的, 而是通过保存内存地址来模拟连续内存的方式实现的)
 
 ![linked-list](https://raw.githubusercontent.com/liaohui5/images/main/images/20230526204644.png)
 
-```javascript
+```typescript
 // ------------ //
 // - 单向链表   //
 // ------------ //
-class Node {
-  constructor(element) {
-    this.element = element;
-    this.next = null;
-  }
+interface LinkedNode {
+  value: any;
+  next: LinkedNode | null;
 }
-class LinkedList {
-  constructor() {
-    this.head = null;
-    this.length = 0;
+
+interface LinkedListInterface<T extends LinkedNode> {
+  head: T | null;
+  tail: T | null;
+  length: number;
+  size: () => number;
+  isEmpty: () => boolean;
+  each: (handler: (item: T, position: number) => false | void) => void;
+  isPosition: (position: number) => boolean;
+  append: (value: any) => void;
+  indexOf: (value: any) => number;
+  getNode: (position: number) => T | null;
+  removeAt: (position: number) => void;
+  remove: (value: any) => void;
+  insert: (position: number, value: any) => void;
+  update: (position: number, value: any) => void;
+  toString: () => string;
+}
+
+abstract class LinkedListAbstract<T extends LinkedNode> implements LinkedListInterface<T> {
+  public head: T | null = null;
+  public tail: T | null = null;
+  public length: number = 0;
+  abstract createNode(...args: any): T;
+  abstract append(value: any): void;
+  abstract insert(position: number, value: any): void;
+  abstract toString(): string;
+  abstract removeAt(position: number): void;
+
+  // 是否是一个正确的 position
+  public isPosition(position: number): boolean {
+    if (!Number.isSafeInteger(position)) {
+      throw new TypeError("[removeAt]'position' must be an integer");
+    }
+    if (position < 0 || position >= this.length) {
+      throw new TypeError("[removeAt]'position' out of range");
+    }
+    return true;
   }
-  size() {
+
+  // 获取链表的长度
+  public size() {
     return this.length;
   }
-  isEmpty() {
+
+  // 链表中是否有元素
+  public isEmpty() {
     return this.length === 0;
   }
-  createNode(element) {
-    return new Node(element);
-  }
-  each(callback) {
-    if (typeof callback !== 'function') {
-      throw new TypeError("[each]'callback' must be an function");
-    }
+
+  // 遍历链表
+  public each(handler: (item: T, position: number) => false | void): void {
     let i = 0;
-    let current = this.head;
+    let current: LinkedNode = this.head!;
     while (i < this.length) {
       // callback return false 就停止遍历
-      const result = callback(current, i);
-      if (Object.is(result, false)) {
+      /* @ts-ignore */
+      const isContinue = handler(current, i);
+      if (Object.is(isContinue, false)) {
         break;
       }
-      current = current.next;
+      if (current.next) {
+        current = current.next;
+      }
       i++;
     }
   }
-  append(element) {
-    const node = this.createNode(element);
-    if (this.isEmpty()) {
-      this.head = node;
-    } else {
-      const maxIndex = this.length - 1;
-      this.each((item, index) => {
-        if (index === maxIndex) {
-          item.next = node;
-          return false;
-        }
-      });
+
+  // 根据值获取位置
+  public getNode(position: number): T | null {
+    if (!this.isPosition(position)) {
+      return null;
     }
-    this.length++;
-    return this;
-  }
-  insert(position, element) {
-    if (!Number.isSafeInteger(position)) {
-      throw new TypeError('[insert]position must be an integer');
-    }
-    if (position < 0 || position >= this.length) {
-      throw new RangeError('[insert]index out of range');
-    }
-    const node = this.createNode(element);
-    if (position === 0) {
-      node.next = this.head;
-      this.head = node;
-    } else {
-      const prevNodeIndex = position - 1;
-      this.each((item, index) => {
-        if (index === prevNodeIndex) {
-          node.next = item.next;
-          item.next = node;
-          return false;
-        }
-      });
-    }
-    this.length++;
-    return this;
-  }
-  get(position) {
-    if (!Number.isSafeInteger(position)) {
-      throw new TypeError('[insert]position must be an integer');
-    }
-    let node = null;
-    if (position < 0 || position >= this.length) {
-      return node;
-    }
+    let node: T | null = null;
     this.each((item, index) => {
       if (index === position) {
         node = item;
@@ -303,89 +338,148 @@ class LinkedList {
     });
     return node;
   }
-  indexOf(element) {
+
+  // 根据 node 的 value 获取 position
+  public indexOf(value: any): number {
     let i = -1;
     this.each((item, index) => {
-      if (element === item.element) {
+      if (value === item.value) {
         i = index;
         return false;
       }
     });
     return i;
   }
-  removeAt(position) {
-    if (!Number.isSafeInteger(position)) {
-      throw new TypeError("[removeAt]'position' must be an integer");
+
+  // 更新指定位置的
+  public update(position: number, value: any) {
+    this.removeAt(position);
+    this.insert(position, value);
+  }
+
+  // 移除元素
+  public remove(value: any): void {
+    const position = this.indexOf(value);
+    position !== -1 && this.removeAt(position);
+  }
+}
+
+// ------------ //
+// - 单向链表 - //
+// ------------ //
+class LinkedList extends LinkedListAbstract<LinkedNode> {
+  // 创建链表节点
+  public createNode(value: any): LinkedNode {
+    return {
+      value,
+      next: null,
+    };
+  }
+
+  // 追加元素
+  public append(value: any) {
+    const node = this.createNode(value);
+    if (this.isEmpty()) {
+      this.head = node;
+      this.tail = node;
+    } else {
+      const maxIndex = this.length - 1;
+      this.each((item, index) => {
+        if (index === maxIndex) {
+          item.next = node;
+          this.tail = node;
+          return false;
+        }
+      });
     }
-    if (position < 0 || position >= this.length) {
-      throw new RangeError("[removeAt]'index' out of range");
+    this.length++;
+  }
+
+  // 插入元素
+  public insert(position: number, value: any): void {
+    if (!this.isPosition(position)) {
+      return;
+    }
+    const node = this.createNode(value);
+    if (position === 0) {
+      node.next = this.head;
+      this.head = node;
+      return;
+    } else {
+      const prevNodeIndex = position - 1;
+      this.each((item: LinkedNode, index: number) => {
+        if (index === prevNodeIndex) {
+          node.next = item.next;
+          item.next = node;
+          return false;
+        }
+      });
+    }
+    this.length++;
+  }
+
+  // 移除元素
+  public removeAt(position: number) {
+    if (this.isPosition(position)) {
+      return;
     }
 
     if (position === 0) {
-      this.head = this.head.next;
+      this.head = this.head!.next;
     } else {
       const prevNodeIndex = position - 1;
       this.each((item, index) => {
         if (index === prevNodeIndex) {
-          item.next = item.next.next;
+          item.next = item.next!.next;
           return false;
         }
       });
     }
     this.length--;
-    return this;
   }
-  update(position, element) {
-    this.removeAt(position);
-    this.insert(position, element);
-    return this;
-  }
-  remove(element) {
-    const position = this.indexOf(element);
-    if (position !== -1) {
-      this.removeAt(position);
-    }
-    return this;
-  }
-  toString() {
-    // 为了方便调试查看
+
+  // 将这个对象转换为字符串: 为了方便调试查看
+  public toString(): string {
     let str = '';
     let separator = ' -> ';
     this.each((item) => {
-      str += '[' + item.element.toString() + ']' + separator;
+      str += '[' + item.value.toString() + ']' + separator;
     });
     return str.slice(0, -separator.length);
   }
 }
 
 // ------------ //
-// - 双向链表   //
+// - 双向链表 - //
 // ------------ //
-class DoublyNode extends Node {
-  constructor(element) {
-    super(element);
-    this.prev = null;
-  }
+interface DoublyLinkedNode extends LinkedNode {
+  prev: null | DoublyLinkedNode;
+  next: null | DoublyLinkedNode;
 }
-class DoublyLinkedList extends LinkedList {
-  constructor() {
-    super();
-    this.tail = null;
-  }
-  toString() {
+class DoublyLinkedList extends LinkedListAbstract<DoublyLinkedNode> {
+  public tail: DoublyLinkedNode | null = null;
+  public head: DoublyLinkedNode | null = null;
+
+  public toString() {
     // 为了方便调试查看
     let str = '';
     let separator = ' <=> ';
     this.each((item) => {
-      str += '[' + item.element.toString() + ']' + separator;
+      str += '[' + item.value.toString() + ']' + separator;
     });
     return str.slice(0, -separator.length);
   }
-  createNode(element) {
-    return new DoublyNode(element);
+
+  public createNode(value: any): DoublyLinkedNode {
+    return {
+      value,
+      prev: null,
+      next: null,
+    };
   }
-  append(element) {
-    const node = this.createNode(element);
+
+  public append(value: any) {
+    const node = this.createNode(value);
     if (this.isEmpty()) {
       this.head = node;
     } else {
@@ -400,16 +494,13 @@ class DoublyLinkedList extends LinkedList {
     }
     this.tail = node;
     this.length++;
-    return this;
   }
-  insert(position, element) {
-    if (!Number.isSafeInteger(position)) {
-      throw new TypeError("[insert]'position' must be an integer");
+
+  public insert(position: number, value: any) {
+    if (this.isPosition(position)) {
+      return;
     }
-    if (position < 0 || position >= this.length) {
-      throw new RangeError("[insert]'index' out of range");
-    }
-    const node = this.createNode(element);
+    const node = this.createNode(value);
 
     if (position === 0) {
       // 最前面插入元素
@@ -417,12 +508,12 @@ class DoublyLinkedList extends LinkedList {
       this.head = node;
     } else if (position === this.length - 1) {
       // 最后面插入元素
-      this.append(element);
+      this.append(value);
     } else {
       // 在中间插入元素
       this.each((item, index) => {
         if (index === position) {
-          const prevNode = item.prev;
+          const prevNode = item.prev!;
           node.prev = prevNode;
           node.next = item;
           prevNode.next = node;
@@ -432,54 +523,77 @@ class DoublyLinkedList extends LinkedList {
       });
     }
     this.length++;
-    return this;
   }
-  removeAt(position) {
-    if (!Number.isSafeInteger(position)) {
-      throw new TypeError('[removeAt]position must be an integer');
-    }
-    if (position < 0 || position >= this.length) {
-      throw new RangeError('[removeAt]index out of range');
+
+  public removeAt(position: number) {
+    if (this.isPosition(position)) {
+      return;
     }
     if (position === 0) {
-      this.head = this.head.next;
-      this.head.prev = null;
+      this.head = this.head!.next;
+      this.head!.prev = null;
       if (this.length === 1) {
         this.tail = null;
       }
     } else if (position === this.length - 1) {
-      this.tail = this.tail.prev;
-      this.tail.next = null;
+      this.tail = this.tail!.prev;
+      this.tail!.next = null;
     } else {
       this.each((item, index) => {
         if (index === position) {
           const prevNode = item.prev;
           const nextNode = item.next;
-          prevNode.next = nextNode;
-          nextNode.prev = prevNode;
+          prevNode!.next = nextNode;
+          nextNode!.prev = prevNode;
           return false;
         }
       });
     }
     this.length--;
+  }
+}
+
+// ------------ //
+// - 环形链表 - //
+// ------------ //
+// 环形链表也可以是单向的链表, 也可以是双向的链表
+class CirularLinkedList extends LinkedList {
+  // class CirularLinkedList extends DoublyLinkedList {
+  public constructor() {
+    super();
+  }
+  private setTailNext() {
+    this.tail!.next = this.head;
+    this.setHeadPrev();
+  }
+  private setHeadPrev() {
+    // 单向链表 Node 是没有 prev 属性的, 所以需要判断
+    if (this.head!.hasOwnProperty('prev')) {
+      /* @ts-ignore */
+      this.head.prev = this.tail;
+    }
+  }
+  public append(value: any) {
+    super.append(value);
+    this.setTailNext();
+    return this;
+  }
+  public insert(position: number, value: any) {
+    super.insert(position, value);
+    this.setTailNext();
+    return this;
+  }
+  public removeAt(position: number) {
+    super.removeAt(position);
+    this.setTailNext();
     return this;
   }
 }
 
-const linkedList = new LinkedList();
-const dblLinkedList = new DoublyLinkedList();
-for (let i = 0; i < 6; i++) {
-  const item = 'node-' + i;
-  linkedList.append(item);
-  dblLinkedList.append(item);
+const arr = 'Hello'.split('');
+const cll = new CirularLinkedList();
+for (const item of arr) {
+  cll.append(item);
 }
-
-linkedList.append('append-item').insert(2, 'insert-item').update(2, 'insert-item(updated)').removeAt(4);
-dblLinkedList.append('append-item').insert(2, 'insert-item').update(2, 'insert-item(updated)').removeAt(4);
-
-console.info(linkedList.toString());
-console.info(linkedList);
-
-console.info(dblLinkedList.toString());
-console.info(dblLinkedList);
+console.info(cll);
 ```

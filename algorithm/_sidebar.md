@@ -1,3 +1,4 @@
 - [线性结构](./linear-struct.md)
-- [映射](./map.md)
-- [树](./tree.md)
+- [集合](./collection-struct.md)
+- [映射](./map-struct.md)
+- [树](./tree-struct.md)
