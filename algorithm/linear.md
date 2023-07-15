@@ -290,13 +290,14 @@ interface LinkedListInterface<T extends LinkedNode> {
   remove: (value: any) => void;
   insert: (position: number, value: any) => void;
   update: (position: number, value: any) => void;
+  clear: () => void;
   toString: () => string;
 }
 
 abstract class LinkedListAbstract<T extends LinkedNode> implements LinkedListInterface<T> {
   public head: T | null = null;
   public tail: T | null = null;
-  public length: number = 0;
+  private length: number = 0;
   abstract createNode(...args: any): T;
   abstract append(value: any): void;
   abstract insert(position: number, value: any): void;
@@ -329,7 +330,7 @@ abstract class LinkedListAbstract<T extends LinkedNode> implements LinkedListInt
     let i = 0;
     let current: LinkedNode = this.head!;
     while (i < this.length) {
-      // callback return false 就停止遍历
+      // handler return false 就停止遍历
       /* @ts-ignore */
       const isContinue = handler(current, i);
       if (Object.is(isContinue, false)) {
@@ -379,6 +380,13 @@ abstract class LinkedListAbstract<T extends LinkedNode> implements LinkedListInt
   public remove(value: any): void {
     const position = this.indexOf(value);
     position !== -1 && this.removeAt(position);
+  }
+
+  // 清除所有节点
+  public clear() {
+    this.head = null;
+    this.tail = null;
+    this.length = 0;
   }
 }
 
@@ -438,7 +446,7 @@ class LinkedList extends LinkedListAbstract<LinkedNode> {
 
   // 移除元素
   public removeAt(position: number) {
-    if (this.isPosition(position)) {
+    if (!this.isPosition(position)) {
       return;
     }
 
@@ -615,3 +623,96 @@ for (const item of arr) {
 }
 console.info(cll);
 ```
+
+### 基于链表实现栈
+
+```typescript
+class Stack {
+  private items: LinkedList = new LinkedList();
+
+  // 栈的总长度
+  public size() {
+    return this.items.size();
+  }
+
+  // 栈是否为空
+  public isEmpty() {
+    return this.size() === 0;
+  }
+
+  // 入栈
+  public push(item: any): Stack {
+    this.items.append(item);
+    return this;
+  }
+
+  // 出栈
+  public pop() {
+    const lastItem = this.items.tail!;
+    this.items.removeAt(this.items.size() - 1);
+    return lastItem.value;
+  }
+
+  // 查看栈顶元素
+  public peek() {
+    if (this.isEmpty()) {
+      return null;
+    }
+    return this.items.tail!.value;
+  }
+
+  // 清栈
+  public clear(): Stack {
+    this.items.clear();
+    return this;
+  }
+
+  // toString 方便调试
+  public toString(): string {
+    let str = '['
+    this.items.each(item => {
+      str += `${item.value},`
+    });
+    // remove last ","
+    str = str.slice(0, -1);
+    str += ']';
+    return str;
+  }
+}
+
+```
+
+
+### 基于链表实现队列
+
+
+```typescript
+class Queue {
+  private items: LinkedList = new LinkedList();
+
+  public head() {
+    return this.size() > 0 ? this.items.getNode(0)!.value : void 0;
+  }
+
+  public size() {
+    return this.items.size();
+  }
+
+  public enqueue(item: any) {
+    this.items.append(item);
+    return this;
+  }
+
+  public dequeue() {
+    if (this.size() === 0) {
+      return null;
+    }
+    const firstNode = this.items.head!;
+    this.items.removeAt(0);
+    return firstNode.value;
+  }
+}
+```
+
+
+

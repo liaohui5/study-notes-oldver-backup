@@ -4,6 +4,10 @@
 
 - [刷题网站 leetcode](https://leetcode.cn/)
 
+- [hello-算法](https://www.hello-algo.com/)
+
+- [the-algorithms](https://the-algorithms.com/)
+
 ## 什么是数据结构?
 
 数据结构（英语：data structure）是计算机中存储、组织数据的方式
@@ -46,3 +50,20 @@
 因为 typescript 比 JavaScript 有更完善的面向对象的概念(如: interface) 和数据类型检查系统
 
 这样可以让代码关系看起来更加清晰一点
+
+## TODO
+
+> 数据结构
+
+- [ ] 新建 github 仓库保存所有代码(写单元测试)
+- [ ] 改进 LinkedList 等数据结构的泛型, 应该 new LinkedList<T>()
+- [ ] 红黑树的一些概念补充和代码实现
+- [ ] 堆的实现(完全二叉树)
+- [ ] 用 `邻接矩阵` 实现图 `Graph`
+
+> 算法
+
+- [ ] 搜索算法
+- [ ] 排序算法
+- [ ] 回溯算法
+- [ ] 动态规划

@@ -195,6 +195,9 @@ class BinarySearchTree {
   // 搜索某个值
   search(key: number): null | TreeNode {
     let target: TreeNode | null = null;
+    if (this.rootNode === null) {
+      return target;
+    }
     this.forEach((node) => {
       if (node.key === key) {
         target = node;

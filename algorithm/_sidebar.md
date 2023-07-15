@@ -1,5 +1,7 @@
 - [线性结构](./linear.md)
 - [集合](./collection.md)
 - [字典](./dictionary.md)
-- [哈希表](./hash-table.md)
+- [散列表](./hash-map.md)
 - [树](./tree.md)
+- [堆](./heap.md)
+- [图](./graph.md)
