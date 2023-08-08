@@ -34,17 +34,18 @@
 
 - Node.js
 
+  - [Node.js 基础模块](/nodejs/README)
   - [Node.js 最佳实践](https://tsejx.github.io/node-guidebook/overview/basic/)
   - [Database - MySQL](/db/mysql/README)
   - [Database - MongoDB](/db/mongo/README)
 
-- [VSCode](/vscode/install.md)
+- Build & Publish
 
-- Build
-
-  - [打包-vite 快速开始](/vite/README)
-  - [打包-webpack 基础配置](/webpack/base/base-run)
-  - [部署-nginx](/scattered/nginx.md)
-  - [部署-docker](/docker/1_install_env)
+  - [打包 - vite 快速开始](/__others/vite)
+  - [打包 - webpack 基础配置](/webpack/base/base-run)
+  - [部署 - nginx](/__others/nginx.md)
+  - [部署 - docker](/docker/1_install_env)
 
 - [softwares](/softwares/README)
+
+- [Others](/__others/README)
