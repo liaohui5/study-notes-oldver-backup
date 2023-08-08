@@ -20,16 +20,16 @@
 - 刷题: 如果不学习数据结构, leetcode 很多题目都看不懂
 - 提升编程技巧
 
-## 常见的数据结构?
+## 数据结构?
 
 - 数组 Array
 - 栈 Stack
 - 队列 Queue
 - 链表 LinkedList
+- 散列表 HashTable
 - 树 Tree
 - 堆 Heap
 - 图 Graph
-- 散列表 HashTab
 
 ## 什么是算法?
 
@@ -55,12 +55,8 @@
 
 > 数据结构
 
-- [ ] 新建 github 仓库保存所有代码(写单元测试)
-- [ ] 改进 LinkedList 等数据结构的泛型, 应该 new LinkedList<T>()
-- [ ] 红黑树的一些概念补充和代码实现
-- [ ] 堆的实现(完全二叉树)
-- [ ] 用 `邻接矩阵` 实现图 `Graph`
-- [ ] 反转二叉树
+- [x] 新建 github 仓库保存所有代码(写单元测试)
+- [x] 改进 LinkedList 等数据结构的泛型, 应该 new LinkedList<T>()
 
 > 算法
 

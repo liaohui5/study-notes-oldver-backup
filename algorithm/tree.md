@@ -37,20 +37,100 @@
 - 前驱节点: 当前节点左子树 key 最大的节点(如图: 7 的前驱就是 5)
 - 后继节点: 当前节点右子树 key 最小的节点(如图: 7 的后继就是 8)
 
+### 实现
+
+> 接口
+
 ```typescript
-interface TreeNode {
+interface TreeNode<T> {
   key: number;
-  value: unknown;
+  value: T;
   left: TreeNode | null;
   right: TreeNode | null;
 }
 
-class BinarySearchTree {
-  // 树的根节点
-  public rootNode: TreeNode | null = null;
+interface BinarySearchTreeInterface<T> {
+  rootNode: TreeNode<T> | null;
+  createTreeNode(key: number, value: T): TreeNode<T>;
+  keys(): Array<number>;
+  values(): Array<T>;
+  hasKey(key: number): boolean;
+  hasValue(value: T): boolean;
+  insert(): void;
+  forEach(handler: (item: TreeNode<T>) => void | false): void;
+  traversePreOrder(handler: (item: TreeNode<T>) => void): void;
+  traverseInOrder(handler: (item: TreeNode<T>) => void): void;
+  traversePostOrder(handler: (item: TreeNode<T>) => void): void;
+  findMin(): TreeNode<T>;
+  findMax(): TreeNode<T>;
+  find: (key: number) => boolean;
+  remove: (key: number) => boolean;
+}
+```
 
-  // 创建树节点
-  public createTreeNode(key: number, value: unknown): TreeNode {
+> 具体实现
+
+```typescript
+/**
+ * 二叉搜索树
+ */
+export default class BinarySearchTree<T> {
+  public rootNode: TreeNode<T> | null = null
+
+  /**
+   * 获取所有节点的 key 并返回
+   * @returns {Array<number>}
+   */
+  public keys(): Array<number> {
+    const keys: number[] = [];
+    if (this.rootNode === null) {
+      return keys;
+    }
+    this.forEach(node => {
+      keys.push(node.key);
+    });
+    return keys;
+  }
+
+  /**
+   * values
+   */
+  public values(): Array<T> {
+    const values: Array<T> = [];
+    if (this.rootNode === null) {
+      return values;
+    }
+    this.forEach((item) => {
+      values.push(item.value);
+    });
+    return values;
+  }
+
+  /**
+   * 是否包含某个 key
+   * @param {number} key
+   * @returns {boolean}
+   */
+  public hasKey(key: number): boolean {
+    return this.keys().includes(key);
+  }
+
+  /**
+   * 是否包含某个 value
+   * @param {T} value
+   * @returns {boolean}
+   */
+  public hasValue(value: T): boolean {
+    return this.values().includes(value);
+  }
+
+  /**
+   * 创建树节点
+   * @param {number} key
+   * @param {T} value
+   * @returns {TreeNode<T>}
+   */
+  public createTreeNode(key: number, value: T): TreeNode<T> {
     return {
       key,
       value,
@@ -59,27 +139,16 @@ class BinarySearchTree {
     };
   }
 
-  // 是否有某个 key
-  public hasKey(key: number): boolean {
-    let has = false;
-    if (this.rootNode === null) {
-      return has;
-    }
-    this.forEach((item) => {
-      if (item.key === key) {
-        has = true;
-        return false;
-      }
-    });
-    return has;
-  }
-
-  // 插入节点
-  public insert(key: number, val: any): void {
+  /**
+   * 插入节点到数中
+   * @param {number} key
+   * @param {T} value
+   */
+  public insert(key: number, value: T): void {
     if (this.hasKey(key)) {
       throw new Error(`[insert]key '${key}' is reduplicated`);
     }
-    const node = this.createTreeNode(key, val);
+    const node = this.createTreeNode(key, value);
     if (this.rootNode) {
       this.insertNode(this.rootNode, node);
     } else {
@@ -87,80 +156,82 @@ class BinarySearchTree {
     }
   }
 
-  // 插入节点的具体操作
-  private insertNode(node: TreeNode, newNode: TreeNode) {
-    if (newNode.key < node.key) {
-      // 左侧插入节点
-      if (node.left === null) {
-        node.left = newNode;
-      } else {
-        this.insertNode(node.left, newNode);
-      }
+  /**
+   * 插入节点的具体操作
+   * @param node
+   * @param newNode
+   */
+  private insertNode(node: TreeNode<T>, newNode: TreeNode<T>): void {
+    const key: "left" | "right" = newNode.key < node.key ? "left" : "right";
+    if (node[key] === null) {
+      node[key] = newNode;
     } else {
-      // 向右插入节点
-      if (node.right === null) {
-        node.right = newNode;
-      } else {
-        this.insertNode(node.right, newNode);
-      }
+      this.insertNode(node[key], newNode);
     }
   }
 
-  // 广度优先: 先序遍历树所有节点(推荐,性能最好,而且可以停止遍历)
-  public forEach(handler: (node: TreeNode) => void | false) {
-    const stack: TreeNode[] = [this.rootNode!];
+  /**
+   * 广度优先: 先序遍历树所有节点(推荐,性能最好,而且可以停止遍历)
+   * @param handler - 遍历传入的处理函数
+   */
+  public forEach(handler: (node: TreeNode<T>) => void | false) {
+    const stack: Array<TreeNode<T>> = [this.rootNode!];
     while (stack.length) {
       const node = stack.shift()!; // 先取左边的节点然后取右边的
       node.left && stack.push(node.left);
       node.right && stack.push(node.right);
       const isContinue = handler(node);
       if (isContinue === false) {
-        // 如果 return false ??停止遍历
         break;
       }
     }
   }
 
-  // 深度优先(递归): 先序遍历找节点
-  public traverseNodes(order: 'pre' | 'mid' | 'post', handler: (node: TreeNode) => void) {
+
+  /**
+   * 深度优先(递归): 先序遍历找节点
+   * @param {'pre'|'in'|'post'} order - 遍历方式
+   * @param {(node: TreeNode<T>) => void} handler - 遍历处理函数
+   */
+  public traverseNodes(order: 'pre' | 'in' | 'post', handler: (node: TreeNode<T>) => void) {
     // 先序遍历: 最先处理当前节点
-    function preTraverse(node: TreeNode | null) {
+    function traversePreOrder(node: TreeNode<T> | null) {
       if (node !== null) {
         handler(node);
-        preTraverse(node.left);
-        preTraverse(node.right);
+        traversePreOrder(node.left);
+        traversePreOrder(node.right);
       }
     }
 
     // 中序遍历: 左边的,然后处理当前节点(节点是升序的)
-    function midTraverse(node: TreeNode | null) {
+    function traverseInOrder(node: TreeNode<T> | null) {
       if (node !== null) {
-        midTraverse(node.left);
+        traverseInOrder(node.left);
         handler(node);
-        midTraverse(node.right);
+        traverseInOrder(node.right);
       }
     }
 
     // 后序遍历: 左边,右边,最后处理当前节点
-    function postTraverse(node: TreeNode | null) {
+    function traversePostOrder(node: TreeNode<T> | null) {
       if (node !== null) {
-        postTraverse(node.left);
-        postTraverse(node.right);
+        traversePostOrder(node.left);
+        traversePostOrder(node.right);
         handler(node);
       }
     }
 
     switch (order) {
       case 'pre':
-        preTraverse(this.rootNode);
+        traversePreOrder(this.rootNode);
         break;
 
-      case 'mid':
-        midTraverse(this.rootNode);
+      case 'in':
+        traverseInOrder(this.rootNode);
         break;
 
       case 'post':
-        postTraverse(this.rootNode);
+        traversePostOrder(this.rootNode);
         break;
 
       default:
@@ -168,9 +239,13 @@ class BinarySearchTree {
     }
   }
 
-  // 返回树中的 key 最小的 node
-  public min(): TreeNode | null {
-    let node = this.rootNode;
+
+  /**
+   * 返回树中的 key 最小的 node
+   * @returns {TreeNode<T> | null}
+   */
+  public findMin(): TreeNode<T> | null {
+    let node = this.rootNode!;
     if (!node) {
       return null;
     }
@@ -180,9 +255,12 @@ class BinarySearchTree {
     return node;
   }
 
-  // 返回树中的 key 最大的 node
-  public max(): TreeNode | null {
-    let node = this.rootNode;
+  /**
+   * 返回树中的 key 最大的 node
+   * @returns {TreeNode<T> | null}
+   */
+  public findMax(): TreeNode<T> | null {
+    let node = this.rootNode!;
     if (!node) {
       return null;
     }
@@ -192,9 +270,14 @@ class BinarySearchTree {
     return node;
   }
 
-  // 搜索某个值
-  search(key: number): null | TreeNode {
-    let target: TreeNode | null = null;
+
+  /**
+   * 搜索某个值
+   * @param {number} key 要搜索的 key
+   * @returns {null | TreeNode<T>} 返回搜索到的节点或者 null 
+   */
+  find(key: number): null | TreeNode<T> {
+    let target: TreeNode<T> | null = null;
     if (this.rootNode === null) {
       return target;
     }
@@ -207,25 +290,51 @@ class BinarySearchTree {
     return target;
   }
 
-  // 移除某个 key
-  // TODO: 策略模式优化代码
-  public remove(key: number) {
-    let target: TreeNode | null = this.rootNode!;
-    let parent: TreeNode = target!;
-    let isLeft: boolean = false;
 
-    // 先找到要删除的节点
-    while (target!.key !== key) {
+  /**
+   * @param {TreeNode<T>} node - 要替换的节点
+   * @param {boolean} isLeftNode - node 是否是其父节点的 left 
+   * @param {TreeNode<T>} parentNode - node 的父节点
+   * @param {TreeNode<T> | null} newNode - 新节点
+   * @returns 返回被替换的接待
+   */
+  private replaceNode(node: TreeNode<T>, isLeftNode: boolean, parentNode: TreeNode<T>, newNode: TreeNode<T> | null) {
+    if (node === this.rootNode) {
+      this.rootNode = newNode;
+    } else if (isLeftNode) {
+      parentNode.left = newNode;
+    } else {
+      parentNode.right = newNode;
+    }
+    return node;
+  }
+
+  /**
+   * 移除传入 key 对应的节点 
+   * @param {number} key 
+   * @returns {TreeNode<T>} 被移除的节点
+   * @throws {Error} 没有找到要删除的节点就抛出异常
+   */
+  public remove(key: number): TreeNode<T> {
+    if (this.rootNode === null) {
+      throw new Error(`[remove]cannot remove '${key}' in empty tree`);
+    }
+    let target: TreeNode<T> = this.rootNode!;
+    let parent: TreeNode<T> = target;
+    let isLeftNode: boolean = false; // 要删除的节点是其父节点的 left 还是 right
+
+    // 先找到要删除的节点, 及其父节点
+    while (target.key !== key) {
       parent = target;
 
       if (key < target.key) {
         // 向左查找
         target = target.left;
-        isLeft = true;
+        isLeftNode = true;
       } else {
         // 向右查找
         target = target.right;
-        isLeft = false;
+        isLeftNode = false;
       }
 
       // 没有找到要删除的节点
@@ -234,104 +343,46 @@ class BinarySearchTree {
       }
     }
 
-    // 根据不同的情况删除节点
-    // 1. 删除的节点是没有子节点的叶子节点
+
+    // 1. 要删除的节点是没有子节点的叶子节点
     if (target.left === null && target.right === null) {
-      if (target === this.rootNode) {
-        this.rootNode = null;
-      } else if (isLeft) {
-        parent.left = null;
-      } else {
-        parent.right = null;
-      }
-
-      return target;
+      return this.replaceNode(target, isLeftNode, parent, null);
     }
 
-    // 2. 删除的节点有一个left节点(没有 right 节点)
-    else if (target.right === null) {
-      if (target === this.rootNode) {
-        this.rootNode = target.left;
-      } else if (isLeft) {
-        parent.left = target.left;
-      } else {
-        parent.right = target.left;
-      }
-
-      return target;
+    // 2. 要删除的节点有一个 left 节点,没有 right 节点
+    if (target.right === null) {
+      return this.replaceNode(target, isLeftNode, parent, target.left);
     }
 
-    // 3. 删除的节点有一个 right 节点(没有 left 节点)
-    else if (target.left === null) {
-      if (target === this.rootNode) {
-        this.rootNode = target.right;
-      } else if (isLeft) {
-        parent.left = target.right;
-      } else {
-        parent.right = target.right;
-      }
-
-      return target;
+    // 3. 要删除的节点有一个 right 节点,没有 left 节点
+    if (target.left === null) {
+      return this.replaceNode(target, isLeftNode, parent, target.right);
     }
 
     // 4. 删除的节点既有 left 也有 right 节点
-    else {
-      let successorParent = target;
-      let successor = target!.right; // 后继节点(在右子树中寻找)
-      while (successor.left !== null) {
-        successorParent = successor;
-        successor = successor.left;
-      }
-
-      // 替换要删除的目标节点的 left 和 right
-      if (target === this.rootNode) {
-        this.rootNode = successor;
-      } else if (isLeft) {
-        parent.left = successor;
-      } else {
-        parent.right = successor;
-      }
-
-      // 修改后继节点的 left 值
-      successor.left = target.left;
-
-      // 如果当前找到的后继不是 target.right 那么也就是说后继节点
-      // 就有自己的 right 节点, 那么就必须修改后继节点的 right 值
-      // 如图中要删除15的时候,那么后继节点就是 18, 18 有自己的
-      // right 节点
-      if (target.right !== successor) {
-        successorParent.left = successor.right;
-        successor.right = target.right;
-      }
-
-      return target;
+    // 4.1 找到要删除节点的后继节点
+    let successorParent = target;
+    let successor = target!.right; // 后继节点(在右子树中寻找)
+    while (successor.left !== null) {
+      successorParent = successor;
+      successor = successor.left;
     }
+
+    // 4.2 修改后继节点的 left 和 right 值
+    // 如果当前找到的后继不是 target.right 那么也就是说后继节点
+    // 就有自己的 right 节点, 那么就必须修改后继节点的 right 值
+    // 如图中要删除15的时候,那么后继节点就是 18, 18 有自己的
+    // right 节点, 19 这个节点不能直接丢弃
+    successor.left = target.left;
+    if (target.right !== successor) {
+      successorParent.left = successor.right;
+      successor.right = target.right;
+    }
+
+    // 4.3 替换
+    return this.replaceNode(target, isLeftNode, parent, successor);
   }
 }
-
-const bst = new BinarySearchTree();
-const items = [11, 7, 15, 5, 9, 13, 20, 3, 8, 10, 12, 14, 18, 25, 19];
-for (const item of items) {
-  bst.insert(item, item);
-}
-
-// 遍历
-bst.forEach((item) => {
-  console.info(item.value);
-});
-
-// 第一种情况: 叶子节点
-bst.remove(8);
-
-// 第二种情况: 只有一个 left/right 节点
-bst.remove(5);
-bst.remove(18);
-
-// 第三种情况: 有 left 并且也有 right 节点
-bst.remove(9);
-bst.remove(15);
-
-console.log(bst);
 ```
 
 > 二叉搜索树的缺陷
@@ -340,16 +391,15 @@ console.log(bst);
 (所以: 二叉搜索树是一种非平衡树) 几乎就已经退化成了一个链表
 
 ```typescript
-const bst = new BinarySearchTree();
-bst.insert(1, 1)
-bst.insert(2, 2)
-bst.insert(3, 3)
-bst.insert(4, 4)
-bst.insert(5, 5)
+const bst = new BinarySearchTree<number>();
+'12345'.split('').forEach((item) => {
+  const num = Number(item);
+  bst.insert(num, num);
+});
 ```
 ![bst-linkdlist](https://raw.githubusercontent.com/liaohui5/images/main/images/20230713003509.png)
 
 ## 红黑树
 
-红黑树是一种平衡树
+TODO: 实现红黑树
 
