@@ -72,11 +72,16 @@
 
 - [虚拟机软件 Virtual Box(免费)](https://www.virtualbox.org/wiki/Downloads)
 
-- [快速启动器 cerebro, 功能比较简单](https://cerebroapp.com/)
-
 - [快速启动器 utools 比较大, 插件多](https://u.tools/)
 
 - [快速启动器 rubick 插件少, 但开源](https://github.com/rubickCenter/rubick)
+
+- [开源免费的看图软件](https://github.com/jurplel/qView)
+
+- [快速启动器 ueli](https://github.com/oliverschwendener/ueli)
+
+- [快速启动器 cerebro, 功能比较简单](https://cerebroapp.com/)
+
 
 > 命令行工具
 

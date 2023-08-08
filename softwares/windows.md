@@ -15,3 +15,5 @@
 - [快速启动器 wox, 功能比较简单, 但是开源](http://www.huochaipro.com/)
 
 - [快速启动器 火柴](http://www.huochaipro.com/)
+
+- [快速启动器 Flow Launcher](https://github.com/Flow-Launcher/Flow.Launcher)
