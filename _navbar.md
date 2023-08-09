@@ -14,7 +14,7 @@
   - [JavaScript ES6](https://www.yuque.com/liaohui5/es6)
   - [JavaScript 内置 API](/js/objects)
   - [JavaScript 插件](/js/plugins)
-  - [JavaScript 单元测试](/jest/1.install)
+  - [JavaScript 单元测试](/unit-test/1.install)
   - [TypeScript](/ts/README)
   - [design patterns](/design-patterns/README)
   - [DataStruct & Algorithm](/algorithm/README)
