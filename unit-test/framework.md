@@ -109,16 +109,25 @@ describe('stack', () => {
 
 ```typescript
 /// <reference types="vitest" />
+import { defineConfig } from 'vite';
+import { resolve } from 'path';
+import vue from '@vitejs/plugin-vue';
 
 /* prettier-ignore */
 export default defineConfig({
+  plugins: [vue()],
   test: {
-    globals: true,            // 是否开启自动全局(测试文件)导入vitest API
-    environment: 'happy-dom', // 模拟浏览器DOM环境的包,允许的值有 happy-dom 或 jsdom
-    setupFiles: [             // vitest 启动时, 会执行的文件, 一般是用于设置测试代码环境
-                              // 比如测试vue组件, 需要 vue-router, 不可能每个测试文件都写一次
-      // resolve('./src/__tests__/setups/router-mock.ts'),
-    ],
+    // 是否开启自动全局(测试文件)导入vitest API
+    globals: true,
+
+    // 模拟浏览器DOM环境的包,允许的值有 happy-dom 或 jsdom
+    environment: 'happy-dom',
+
+    // vitest 启动时, 会执行的文件, 一般是用于设置测试代码环境
+    // 比如测试vue组件, 需要 vue-router, 不可能每个测试文件都写一次
+    // setupFiles: [
+    //    resolve('./src/__tests__/setups/router-mock.ts'),
+    // ],
   },
 
   // 配置路径别名
@@ -181,5 +190,27 @@ export default defineConfig({
     "allowSyntheticDefaultImports": true
   },
   "include": ["vite.config.ts"]
+}
+```
+
+- vite-env.d.ts
+
+```typescript
+/// <reference types="vite/client" />
+
+interface ImportMeta {
+  readonly env: ImportMetaEnv;
+}
+
+// docs: https://cn.vitejs.dev/guide/env-and-mode.html#modes
+interface ImportMetaEnv {
+  readonly VITE_APP_BASE_URL: string;
+}
+
+declare module '*.vue' {
+  import type { DefineComponent } from 'vue';
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const component: DefineComponent<object, object, any>;
+  export default component;
 }
 ```

@@ -224,7 +224,8 @@ describe('快照验证', () => {
   });
 
   it('生成指定文件名的文件', () => {
-    expect(genConfig()).toMatchFileSnapshot('./config.json');
+    const config = genConfig();
+    expect(JSON.stringify(config)).toMatchFileSnapshot('./config.json');
   });
 });
 ```
