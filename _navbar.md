@@ -14,12 +14,12 @@
   - [JavaScript ES6](https://www.yuque.com/liaohui5/es6)
   - [JavaScript 内置 API](/js/objects)
   - [JavaScript 插件](/js/plugins)
-  - [TypeScript](/ts/README)
-  - [JavaScript 单元测试](/unit-test/README)
-  - [JavaScript 设计模式](/design-patterns/README)
-  - [JavaScript 数据结构与算法](/algorithm/README)
+  - [TypeScript 基础](/js/ts/README)
+  - [JavaScript 单元测试](/js/unit-test/README)
+  - [JavaScript 设计模式](/js/design-patterns/README)
+  - [JavaScript 数据结构与算法](/js/algorithm/README)
 
-- Vue.js
+- Vue
 
   - [Vue.js 基础](/vue/1.quick-start.md)
   - [mvvm 源码理解](/vue/mvvm/README)
@@ -27,25 +27,28 @@
   - [vue-router 源码理解](/vue/router/README)
   - [vuex 源码理解](/vue/vuex/README)
 
-- React.js
+- React
 
   - [React 基础](/react/base/jsx)
   - [React hooks](/react/hooks/why-react-hooks)
 
-- Node.js
+- NodeJS
 
   - [Node.js 基础模块](/nodejs/README)
   - [Node.js 最佳实践](https://tsejx.github.io/node-guidebook/overview/basic/)
-  - [Database - MySQL](/db/mysql/README)
-  - [Database - MongoDB](/db/mongo/README)
+  - [Database - MySQL](/nodejs/db/mysql/README)
+  - [Database - MongoDB](/nodejs/db/mongo/README)
 
-- Build & Publish
+- Build & Deploy
 
-  - [打包 - vite 快速开始](/__others/vite)
-  - [打包 - webpack 基础配置](/webpack/base/base-run)
-  - [部署 - nginx](/__others/nginx.md)
-  - [部署 - docker](/docker/1_install_env)
+  - [打包 - vite 快速开始](/build_deploy/vite.md)
+  - [打包 - webpack 基础配置](/build_deploy/webpack/base/base-run.md)
+  - [部署 - nginx](/build_deploy/nginx.md)
+  - [部署 - docker](/build_deploy/docker/1_install_env.md)
+  - [部署 - shell script](/build_deploy/shell.md)
 
-- [softwares](/softwares/README)
+- Fragments
 
-- [Others](/__others/README)
+  - [vscode](/fragments/vscode/install.md)
+  - [softwares](/fragments/softwares.md)
+  - [WEB安全相关](/fragments/web-security.md)

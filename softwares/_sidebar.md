@@ -1,3 +1,0 @@
-- [corss-platform](/softwares/README.md)
-- [Windows](/softwares/windows.md)
-- [MacOS](/softwares/macos.md)
